@@ -12,15 +12,15 @@ namespace TestVerktyg_grp5
     {
         public Repository()
         {
-            WriteLine("Kollar om databas existerar.");
+            WriteLine("Kollar om databasen existerar.");
 
             using (QuizDatabase db = new QuizDatabase())
             {
                 bool wasCreated = db.Database.CreateIfNotExists();
                 if (wasCreated)
-                    WriteLine("Databasa skapades.");
+                    WriteLine("Databasen skapades.");
                 else
-                    WriteLine("Databas skapades inte.");
+                    WriteLine("Databasen finns redan.");
             }
             WriteLine("Klar.");
         }
@@ -35,12 +35,12 @@ namespace TestVerktyg_grp5
                 {
                     if (User.User_ID == ID)
                     {
-                        MessageBox.Show("Kunden finns redan!");
+                        MessageBox.Show("Användaren finns redan!");
                         return true;
                     }
                 }
             }
-            MessageBox.Show("Kunden finns inte!");
+            MessageBox.Show("Användaren finns inte!");
 
             return false;
         }
@@ -65,11 +65,11 @@ namespace TestVerktyg_grp5
                 //else
                 //{
                 newUser = new User(firstName,
-                                       lastName,
-                                       email,
-                                       password,
-                                       repeatPassword
-                                       );
+                                   lastName,
+                                   email,
+                                   password,
+                                   repeatPassword
+                                   );
                 //isAdmin
                 db.Users.Add(newUser);
 
