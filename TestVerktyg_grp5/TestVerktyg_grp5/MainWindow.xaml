@@ -5,8 +5,159 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestVerktyg_grp5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="450" Width="500">
     <Grid>
-        
+        <Grid x:Name="grid_loggedin">
+            <TabControl x:Name="tabControl" 
+                    HorizontalAlignment="Stretch">
+                <TabItem Header="Main">
+                    <Grid Background="White"/>
+                </TabItem>
+                <TabItem Header="Create new user">
+                    <Grid Background="White">
+                        <StackPanel HorizontalAlignment="Center">
+                            <Label HorizontalAlignment="Center" 
+                               FontSize="24" 
+                               Content="Create new user"/>
+                            <StackPanel Margin="10,0,0,0" Orientation="Horizontal">
+                                <StackPanel Margin="10" HorizontalAlignment="Left">
+                                    <Label Padding="0,0,0,5" Content="First name:"
+                                       />
+                                    <TextBox x:Name="tbx_firstName"                                          
+                                         Width="100" 
+                                         />
+                                </StackPanel>
+                                <StackPanel Margin="20,10,0,0" 
+                                        HorizontalAlignment="Right">
+                                    <Label Padding="0,0,0,5" 
+                                       Content="Last name:"
+                                       />
+                                    <TextBox x:Name="tbx_lastName" 
+                                         Width="100" 
+                                         />
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Margin="20,0,0,0" HorizontalAlignment="Left">
+                                <Label Padding="0,0,0,5"  
+                                   Content="Email:"
+                                   />
+                                <TextBox x:Name="tbx_eMail" 
+                                     Width="230" 
+                                     />
+                            </StackPanel>
+                            <StackPanel Margin="10" Orientation="Horizontal">
+                                <StackPanel Margin="10">
+                                    <Label Padding="0,0,0,5"
+                                       HorizontalAlignment="Left"
+                                       Content="Password:"
+                                       />
+                                    <TextBox x:Name="tbx_password" 
+                                         HorizontalAlignment="Left" 
+                                         Width="100" 
+                                         />
+                                </StackPanel>
+                                <StackPanel Margin="20,10,10,0">
+                                    <Label Padding="0,0,0,5" 
+                                       Content="Repeat password:"
+                                       />
+                                    <TextBox x:Name="tbx_repeatPassword" 
+                                         Width="100" 
+                                         />
+                                </StackPanel>
+                            </StackPanel>
+                            <CheckBox x:Name="cbx_adminTeacher"
+                                  Margin="20,0,20,0" 
+                                  Content="Admin/teacher"/>
+                            <Button x:Name="btn_newUser" 
+                                Margin="0,20,0,20" 
+                                Width="100" 
+                                Height="20" 
+                                Content="Save" Click="btn_newUser_Click"/>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Create new test">
+                    <Grid Background="White">
+                        <StackPanel HorizontalAlignment="Center">
+                            <Label HorizontalAlignment="Center" 
+                               FontSize="24" 
+                               Content="Create new test"/>
+                            <StackPanel Margin="0,0,0,10" Orientation="Horizontal">
+                                <StackPanel Margin="20,0,0,0" HorizontalAlignment="Left">
+                                    <Label Padding="0,0,0,5"  
+                                   Content="Question:"
+                                   />
+                                    <TextBox x:Name="jh" 
+                                     Width="230" 
+                                     />
+                                </StackPanel>
+
+                            </StackPanel>
+                            <StackPanel Margin="20,0,0,0" HorizontalAlignment="Left">
+                                <Label Padding="0,0,0,5"  
+                                   Content="Answer 1:"
+                                   />
+                                <RadioButton x:Name="j" 
+                                         >
+                                    <TextBox Width="210" 
+                                         />
+                                </RadioButton>
+                                <Label Padding="0,0,0,5"  
+                                   Content="Answer 2:"
+                                   />
+                                <RadioButton x:Name="d" 
+                                         >
+                                    <TextBox Width="210"/>
+                                </RadioButton>
+                                <Label Padding="0,0,0,5"  
+                                   Content="Answer 3:"
+                                   />
+                                <RadioButton x:Name="i" 
+                                         >
+                                    <TextBox Width="210"
+                                         />
+                                </RadioButton>
+                                <Label Padding="0,0,0,5"  
+                                   Content="Answer 4:"
+                                   />
+                                <RadioButton x:Name="c" 
+                                         >
+                                    <TextBox Width="210"
+                                         />
+                                </RadioButton>
+                            </StackPanel>
+                            <Button Margin="10" 
+                                Width="100" 
+                                Content="Create question" 
+                                />
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="TabItem">
+                    <Grid Background="#FFE5E5E5"/>
+                </TabItem>
+            </TabControl>
+        </Grid>
+        <Grid Name="grd_loginscreen">
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center"
+                        Margin="0,120,0,0">
+                <Button x:Name="btn_login"
+                        Margin="0,0,10,0"
+                        Content="Login"                       
+                        VerticalAlignment="Top" 
+                        Width="100"
+                        Height="23" Click="btn_login_Click"
+                        />
+                <TextBox x:Name="tbx_login"
+                         Margin="10,0,0,0"
+                         Height="23"  
+                         TextWrapping="Wrap" 
+                         Text="Pinkod" 
+                         VerticalAlignment="Top" 
+                         Width="100"
+                         />
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
