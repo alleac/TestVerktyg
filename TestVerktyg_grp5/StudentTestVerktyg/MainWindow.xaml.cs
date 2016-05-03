@@ -23,6 +23,12 @@ namespace StudentTestVerktyg
         public MainWindow()
         {
             InitializeComponent();
+            if (ck_asd.IsChecked == true)
+            {
+                MessageBox.Show("ASDASDASD");
+            }
         }
+
+      
     }
 }
