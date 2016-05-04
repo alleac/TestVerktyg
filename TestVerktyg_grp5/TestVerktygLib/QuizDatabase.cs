@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestVerktyg_grp5
+namespace TestVerktygLib
 {
-    class QuizDatabase : DbContext
+    public class QuizDatabase : DbContext
     {
         public DbSet<User> Users { get; set; }
         public QuizDatabase() : base("dbTestApp") { }

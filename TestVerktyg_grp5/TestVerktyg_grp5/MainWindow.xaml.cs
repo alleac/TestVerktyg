@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestVerktygLib;
 
 namespace TestVerktyg_grp5
 {
@@ -53,9 +54,7 @@ namespace TestVerktyg_grp5
             if (String.IsNullOrEmpty(tbx_firstName.Text) ||
                 String.IsNullOrEmpty(tbx_lastName.Text) ||
                 String.IsNullOrEmpty(tbx_eMail.Text) ||
-                String.IsNullOrEmpty(tbx_password.Text) ||
-                String.IsNullOrEmpty(tbx_repeatPassword.Text)
-                )
+                String.IsNullOrEmpty(tbx_password.Text))
             {
                 MessageBox.Show("Fyll i alla fälten");
             }

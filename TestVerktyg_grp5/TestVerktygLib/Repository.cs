@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
+using System.Windows.Forms;
 using static System.Console;
 
-namespace TestVerktyg_grp5
+namespace TestVerktygLib
 {
-    class Repository
+    public class Repository
     {
         public Repository()
         {
@@ -67,8 +67,7 @@ namespace TestVerktyg_grp5
                 newUser = new User(firstName,
                                    lastName,
                                    email,
-                                   password,
-                                   repeatPassword
+                                   password
                                    );
                 //isAdmin
                 db.Users.Add(newUser);
@@ -80,4 +79,3 @@ namespace TestVerktyg_grp5
         }
     }
 }
-

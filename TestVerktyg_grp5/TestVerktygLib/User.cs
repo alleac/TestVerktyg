@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestVerktyg_grp5
+namespace TestVerktygLib
 {
     public class User
     {
@@ -15,14 +15,12 @@ namespace TestVerktyg_grp5
         public string LastName { get; set; }
         public string EMail { get; set; }
         public string Password { get; set; }
-        public string RepeatPassword { get; set; }
         public bool IsAdmin { get; set; }
 
         public User(string firstName,
                     string lastName,
                     string email,
-                    string password,
-                    string repeatPassword
+                    string password
                     )
         //bool isAdmin
         {
@@ -30,9 +28,7 @@ namespace TestVerktyg_grp5
             LastName = lastName;
             EMail = email;
             Password = password;
-            RepeatPassword = repeatPassword;
             //IsAdmin = isAdmin;
         }
     }
 }
-
