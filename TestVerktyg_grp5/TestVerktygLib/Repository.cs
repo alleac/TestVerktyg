@@ -33,5 +33,14 @@ namespace TestVerktygLib
                 db.SaveChanges();
             }
         }
+
+        public void RemoveUser(User user)
+        {
+            using (var db = new QuizDatabase())
+            {
+                db.Users.Remove(user);
+                db.SaveChanges();
+            }
+        }
     }
 }
