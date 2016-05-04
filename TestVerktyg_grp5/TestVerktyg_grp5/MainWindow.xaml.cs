@@ -51,33 +51,13 @@ namespace TestVerktyg_grp5
 
         private void btn_newUser_Click(object sender, RoutedEventArgs e)
         {
-            if (String.IsNullOrEmpty(tbx_firstName.Text) ||
-                String.IsNullOrEmpty(tbx_lastName.Text) ||
-                String.IsNullOrEmpty(tbx_eMail.Text) ||
-                String.IsNullOrEmpty(tbx_password.Text)||
-                String.IsNullOrEmpty(tbx_repeatPassword.Text))
-            {
-                MessageBox.Show("All fields must be filled"); // byta ut mot label eller liknade så man slipper popups
-            }
-            else
-            {
-                var newUser = new User()
-                {
-                    FirstName = tbx_firstName.Text,
-                    LastName = tbx_lastName.Text,
-                    Email = tbx_eMail.Text,
-                    Password = tbx_password.Text
-                   
-                };
+            var createNewUserWindow = new NewUser();
+            createNewUserWindow.Show();
+        }
 
-                Repo.AddUser(newUser);
+        private void btn_deleteUser_Click(object sender, RoutedEventArgs e)
+        {
 
-                tbx_firstName.Text = "";
-                tbx_lastName.Text = "";
-                tbx_eMail.Text = "";
-                tbx_password.Text = "";
-                tbx_repeatPassword.Text = "";
-            }
         }
     }
 }

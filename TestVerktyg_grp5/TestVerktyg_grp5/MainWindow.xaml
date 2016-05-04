@@ -20,18 +20,22 @@
                                    FontSize="24" 
                                    Content="Users"
                                    />
-                            <ListView Width="400" Height="250" />
+                            <ListView x:Name="lv_userList"
+                                      Width="400" 
+                                      Height="250" />
                             <StackPanel Orientation="Horizontal" 
                                         HorizontalAlignment="Center"
                                         >
-                                <Button Content="New user" 
+                                <Button x:Name="btn_newUser"
+                                        Content="New user" 
                                         Margin="10" Width="100" 
-                                        Height="20" Click="Button_Click"
+                                        Height="20" Click="btn_newUser_Click"
                                         />
-                                <Button Content="Delete user" 
+                                <Button x:Name="btn_deleteUser"
+                                        Content="Delete user" 
                                         Margin="10" 
                                         Width="100" 
-                                        Height="20"
+                                        Height="20" Click="btn_deleteUser_Click"
                                         />
                             </StackPanel>
                         </StackPanel>

@@ -20,15 +20,15 @@ namespace TestVerktygLib
         public User(string firstName,
                     string lastName,
                     string email,
-                    string password
-                    )
-        //bool isAdmin
+                    string password,
+                    bool isAdmin
+                    )        
         {
             FirstName = firstName;
             LastName = lastName;
             Email = email;
             Password = password;
-            //IsAdmin = isAdmin;
+            IsAdmin = isAdmin;
         }
 
         public User()
