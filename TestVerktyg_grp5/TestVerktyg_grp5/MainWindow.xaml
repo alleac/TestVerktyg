@@ -13,7 +13,7 @@
                 <TabItem Header="Main">
                     <Grid Background="White"/>
                 </TabItem>
-                <TabItem Header="Create new user">
+                <TabItem Header="Users">
                     <Grid Background="White">
                         <StackPanel HorizontalAlignment="Center">
                             <Label HorizontalAlignment="Center" 
@@ -81,7 +81,7 @@
                         </StackPanel>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Create new test">
+                <TabItem Header="Quizes">
                     <Grid Background="White">
                         <StackPanel HorizontalAlignment="Center">
                             <Label HorizontalAlignment="Center" 
@@ -144,7 +144,7 @@
                         </StackPanel>
                     </Grid>
                 </TabItem>
-                <TabItem Header="TabItem">
+                <TabItem Header="Create quiz">
                     <Grid Background="#FFE5E5E5"/>
                 </TabItem>
             </TabControl>
