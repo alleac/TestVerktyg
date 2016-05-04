@@ -10,10 +10,10 @@ namespace TestVerktygLib
     public class User
     {
         [Key]
-        public int User_ID { get; set; }
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string EMail { get; set; }
+        public string Email { get; set; }
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
 
@@ -26,7 +26,7 @@ namespace TestVerktygLib
         {
             FirstName = firstName;
             LastName = lastName;
-            EMail = email;
+            Email = email;
             Password = password;
             //IsAdmin = isAdmin;
         }

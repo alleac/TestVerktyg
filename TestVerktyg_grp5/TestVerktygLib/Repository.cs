@@ -27,13 +27,13 @@ namespace TestVerktygLib
 
         public List<User> Users = new List<User>();
 
-        public bool CheckIdNumber(int ID)
+        public bool CheckIdNumber(int Id)
         {
             using (QuizDatabase db = new QuizDatabase()) //Är detta rätt?
             {
                 foreach (User User in Users)
                 {
-                    if (User.User_ID == ID)
+                    if (User.Id == Id)
                     {
                         MessageBox.Show("Användaren finns redan!");
                         return true;
