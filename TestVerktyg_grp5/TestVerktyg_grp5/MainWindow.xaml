@@ -153,21 +153,31 @@
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
                         Margin="0,120,0,0">
+                <TextBox x:Name="tbx_inloggEmail"
+                         Margin="10"
+                         Height="23"  
+                         TextWrapping="Wrap" 
+                         Text="Email" 
+                         VerticalAlignment="Top" 
+                         Width="200"
+                         />
+                <TextBox x:Name="tbx_login"
+                         Margin="10"
+                         Height="23"  
+                         TextWrapping="Wrap" 
+                         Text="Password" 
+                         VerticalAlignment="Top" 
+                         Width="120"
+                         />
+            </StackPanel>
+            <StackPanel>
                 <Button x:Name="btn_login"
-                        Margin="0,0,10,0"
+                        Margin="0,170,0,0"
                         Content="Login"                       
                         VerticalAlignment="Top" 
                         Width="100"
                         Height="23" Click="btn_login_Click"
                         />
-                <TextBox x:Name="tbx_login"
-                         Margin="10,0,0,0"
-                         Height="23"  
-                         TextWrapping="Wrap" 
-                         Text="Pinkod" 
-                         VerticalAlignment="Top" 
-                         Width="100"
-                         />
             </StackPanel>
         </Grid>
     </Grid>
