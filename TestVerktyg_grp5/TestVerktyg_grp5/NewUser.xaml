@@ -1,0 +1,79 @@
+﻿<Window x:Class="TestVerktyg_grp5.NewUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestVerktyg_grp5"
+        mc:Ignorable="d"
+        Title="NewUser" Height="350" Width="500">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center">
+            <Label Content="Create new user" 
+                   FontSize="24" 
+                   HorizontalAlignment="Center"/>
+            <StackPanel Margin="10,0,0,0" 
+                        Orientation="Horizontal"
+                        >
+                <StackPanel Margin="10">
+                    <Label Padding="0,0,0,5" 
+                           Content="First name:"
+                           />
+                    <TextBox x:Name="tbx_firstName"                                          
+                             Width="100" 
+                             />
+                </StackPanel>
+                <StackPanel Margin="20,10,0,0" 
+                            >
+                    <Label Padding="0,0,0,5" 
+                           Content="Last name:"
+                           />
+                    <TextBox x:Name="tbx_lastName" 
+                             Width="100" 
+                             />
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Margin="20,0,0,0" 
+                        HorizontalAlignment="Left"
+                        >
+                <Label Padding="0,0,0,5"  
+                       Content="Email:"
+                       />
+                <TextBox x:Name="tbx_eMail" 
+                         Width="230" 
+                         />
+            </StackPanel>
+            <StackPanel Margin="10" 
+                        Orientation="Horizontal"
+                        >
+                <StackPanel Margin="10">
+                    <Label Padding="0,0,0,5"
+                           HorizontalAlignment="Left"
+                           Content="Password:"
+                           />
+                    <TextBox x:Name="tbx_password" 
+                             HorizontalAlignment="Left" 
+                             Width="100" 
+                             />
+                </StackPanel>
+                <StackPanel Margin="20,10,10,0">
+                    <Label Padding="0,0,0,5" 
+                           Content="Repeat password:"
+                           />
+                    <TextBox x:Name="tbx_repeatPassword" 
+                             Width="100" 
+                             />
+                </StackPanel>
+            </StackPanel>
+            <CheckBox x:Name="cbx_adminTeacher"
+                      Margin="20,0,20,0" 
+                      Content="Admin/teacher"/>
+            <Button x:Name="btn_newUser" 
+                    Margin="0,20,0,20" 
+                    Width="100" 
+                    Height="20" 
+                    Content="Create user" 
+                    Click="btn_newUser_Click"
+                    />
+        </StackPanel>
+    </Grid>
+</Window>
