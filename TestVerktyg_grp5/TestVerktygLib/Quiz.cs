@@ -14,8 +14,10 @@ namespace TestVerktygLib
         public string Name { get; set; }
         public DateTime CreationDate { get; set; }
         public DateTime EndDate { get; set; }
-        public int TimeToComplete { get; set; } = 10; // 10 is default
+        public int TimeToComplete { get; set; } = 10; // 10 is default time to complete test if nothing overrides it
         public int MaxPoints { get; set; }
+        public bool ShowResult { get; set; }
+
 
     }
 }

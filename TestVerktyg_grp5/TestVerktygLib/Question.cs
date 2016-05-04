@@ -18,6 +18,9 @@ namespace TestVerktygLib
         public string AnswerFour { get; set; }
         public int RightAnswer { get; set; }
         public int HasAnsweredNumber { get; set; } = 0; // 0 is default
+        public int QuizId { get; set; }
+        public Quiz Quiz { get; set; }
+
 
     }
 }

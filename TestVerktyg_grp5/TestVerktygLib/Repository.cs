@@ -17,9 +17,9 @@ namespace TestVerktygLib
             using (QuizDatabase db = new QuizDatabase())
             {
                 bool wasDbCreated = db.Database.CreateIfNotExists();
-                WriteLine(wasDbCreated ? "Database was created" : "database excists");
+                WriteLine(wasDbCreated ? "Database was created" : "Database already excists");
             }
-            WriteLine("done...");
+            WriteLine("All done");
         }
 
         public List<User> Users;
@@ -39,6 +39,23 @@ namespace TestVerktygLib
             using (var db = new QuizDatabase())
             {
                 db.Users.Remove(user);
+                db.SaveChanges();
+            }
+        }
+
+        public void AddQuiz(Quiz quiz)
+        {
+            using (var db = new QuizDatabase())
+            {
+                db.Quizs.Add(quiz);
+                db.SaveChanges();
+            }
+        }
+        public void AddQuestion(Question question)
+        {
+            using (var db = new QuizDatabase())
+            {
+                db.Questions.Add(question);
                 db.SaveChanges();
             }
         }
