@@ -10,6 +10,9 @@ namespace TestVerktygLib
     public class QuizDatabase : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Quiz> Quizzes { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Grade> Grades { get; set; }
         public QuizDatabase() : base("dbTestApp") { }
     }
 }
