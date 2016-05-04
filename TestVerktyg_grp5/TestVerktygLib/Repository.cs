@@ -12,69 +12,25 @@ namespace TestVerktygLib
     {
         public Repository()
         {
-            WriteLine("Kollar om databasen existerar.");
+            WriteLine("Does database excist?");
 
             using (QuizDatabase db = new QuizDatabase())
             {
-                bool wasCreated = db.Database.CreateIfNotExists();
-                if (wasCreated)
-                    WriteLine("Databasen skapades.");
-                else
-                    WriteLine("Databasen finns redan.");
+                bool wasDbCreated = db.Database.CreateIfNotExists();
+                WriteLine(wasDbCreated ? "Database was created" : "database excists");
             }
-            WriteLine("Klar.");
+            WriteLine("done...");
         }
 
-        public List<User> Users = new List<User>();
+        public List<User> Users;
 
-        public bool CheckIdNumber(int Id)
+
+        public void AddUser(User user)
         {
-            using (QuizDatabase db = new QuizDatabase()) //Är detta rätt?
+            using (QuizDatabase db = new QuizDatabase()) 
             {
-                foreach (User User in Users)
-                {
-                    if (User.Id == Id)
-                    {
-                        MessageBox.Show("Användaren finns redan!");
-                        return true;
-                    }
-                }
-            }
-            MessageBox.Show("Användaren finns inte!");
-
-            return false;
-        }
-
-        public User AddUser(string firstName,
-                            string lastName,
-                            string email,
-                            string password,
-                            string repeatPassword
-                            )
-        //bool isAdmin
-        {
-            using (QuizDatabase db = new QuizDatabase()) // Connect to database.
-            {
-
-                User newUser;
-
-                //if (CheckIdNumber())
-                //{
-                //    newCustomer = null;
-                //}
-                //else
-                //{
-                newUser = new User(firstName,
-                                   lastName,
-                                   email,
-                                   password
-                                   );
-                //isAdmin
-                db.Users.Add(newUser);
-
+                db.Users.Add(user);
                 db.SaveChanges();
-                //}
-                return newUser;
             }
         }
     }

@@ -30,5 +30,10 @@ namespace TestVerktygLib
             Password = password;
             //IsAdmin = isAdmin;
         }
+
+        public User()
+        {
+                
+        }
     }
 }

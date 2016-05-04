@@ -54,18 +54,23 @@ namespace TestVerktyg_grp5
             if (String.IsNullOrEmpty(tbx_firstName.Text) ||
                 String.IsNullOrEmpty(tbx_lastName.Text) ||
                 String.IsNullOrEmpty(tbx_eMail.Text) ||
-                String.IsNullOrEmpty(tbx_password.Text))
+                String.IsNullOrEmpty(tbx_password.Text)||
+                String.IsNullOrEmpty(tbx_repeatPassword.Text))
             {
-                MessageBox.Show("Fyll i alla fälten");
+                MessageBox.Show("All fields must be filled"); // byta ut mot label eller liknade så man slipper popups
             }
             else
             {
-                Repo.AddUser(tbx_firstName.Text,
-                             tbx_lastName.Text,
-                             tbx_eMail.Text,
-                             tbx_password.Text,
-                             tbx_repeatPassword.Text
-                             );
+                var newUser = new User()
+                {
+                    FirstName = tbx_firstName.Text,
+                    LastName = tbx_lastName.Text,
+                    Email = tbx_eMail.Text,
+                    Password = tbx_password.Text
+                   
+                };
+
+                Repo.AddUser(newUser);
 
                 tbx_firstName.Text = "";
                 tbx_lastName.Text = "";
