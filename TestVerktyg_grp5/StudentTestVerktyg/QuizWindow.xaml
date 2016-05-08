@@ -12,15 +12,16 @@
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
             <Label Content="{Binding Question.Title}" />
-            <RadioButton Content="{Binding Question.AnswerOne}" x:Name="Rbone"/>
-            <RadioButton Content="{Binding Question.AnswerTwo}" Name="Rbtwo" />
-            <RadioButton Content="{Binding Question.AnswerThree}" Name="Rbthree" />
-            <RadioButton Content="{Binding Question.AnswerFour}" Name="Rbfour" />
+            <RadioButton Content="{Binding Question.AnswerOne}" x:Name="Rbone" Checked="Rbone_Checked"/>
+            <RadioButton Content="{Binding Question.AnswerTwo}" Name="Rbtwo" Checked="Rbtwo_Checked"/>
+            <RadioButton Content="{Binding Question.AnswerThree}" Name="Rbthree" Checked="Rbthree_Checked"/>
+            <RadioButton Content="{Binding Question.AnswerFour}" Name="Rbfour" Checked="Rbfour_Checked"/>
         </StackPanel>
 
 
-        <Button x:Name="btn_Back" Content="back" Height="50" Width="75" HorizontalAlignment="Left" Click="btn_Back_Click" />
+        <Button x:Name="btn_Back" Content="back" Height="50" Width="75" HorizontalAlignment="Left" Click="btn_Back_Click" Visibility="Hidden" />
         <Button x:Name="btn_Forward" Content="forward" Height="50" Width="75" HorizontalAlignment="Right" Click="btn_Forward_Click"/>
+        <Button x:Name="btn_FinnishQuiz" Content="Finnish quiz" Height="50" Width="75" HorizontalAlignment="Right" Visibility="Hidden" />
 
 
     </Grid>

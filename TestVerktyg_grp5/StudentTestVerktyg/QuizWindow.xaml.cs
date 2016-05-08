@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TestVerktygLib;
+using static TestVerktygLib.UtilityTestVerktyg;
 
 namespace StudentTestVerktyg
 {
@@ -45,24 +46,62 @@ namespace StudentTestVerktyg
             InitializeComponent();
 
             Questions = new List<Question>(repo.GetQuestionsForQuiz(1));
+            CurrentQuizQuestions = new List<Question>(Questions);
+            QuizLength = Questions.Count();
 
-
-            Question = Questions[0];
+            Question = Questions[SelectedQuestionNumber];
             QuizWindowGrid.DataContext = this;
         }
+       
+
+        private void btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+            Question = Questions[SelectedQuestionNumber - 1];
+            SelectedQuestionNumber--;
+
+            if (SelectedQuestionNumber == 0)
+                btn_Back.Visibility = Visibility.Hidden;
+
+            if (SelectedQuestionNumber+1 < QuizLength)
+                btn_Forward.Visibility = Visibility.Visible;
+        }
+
+        private void btn_Forward_Click(object sender, RoutedEventArgs e)
+        {
+            
+            Question = Questions[SelectedQuestionNumber + 1];
+            SelectedQuestionNumber++;
+
+            if (SelectedQuestionNumber > 0)
+                btn_Back.Visibility = Visibility.Visible;
+
+            if (SelectedQuestionNumber+1 == QuizLength)
+                btn_Forward.Visibility = Visibility.Hidden;
+        }
+
         private void NotifyPropertyChanged(String prop)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        private void btn_Back_Click(object sender, RoutedEventArgs e)
+        private void Rbone_Checked(object sender, RoutedEventArgs e)
         {
-
+            CurrentQuizQuestions[SelectedQuestionNumber].HasAnsweredNumber = 1;
         }
 
-        private void btn_Forward_Click(object sender, RoutedEventArgs e)
+        private void Rbtwo_Checked(object sender, RoutedEventArgs e)
         {
-            Question = Questions[1];
+            CurrentQuizQuestions[SelectedQuestionNumber].HasAnsweredNumber = 2;
+        }
+
+        private void Rbthree_Checked(object sender, RoutedEventArgs e)
+        {
+            CurrentQuizQuestions[SelectedQuestionNumber].HasAnsweredNumber = 3;
+        }
+
+        private void Rbfour_Checked(object sender, RoutedEventArgs e)
+        {
+            CurrentQuizQuestions[SelectedQuestionNumber].HasAnsweredNumber = 4;
         }
     }
 }

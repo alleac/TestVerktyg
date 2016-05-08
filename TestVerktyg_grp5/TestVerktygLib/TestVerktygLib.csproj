@@ -57,6 +57,7 @@
     <Compile Include="QuizDatabase.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UtilityTestVerktyg.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
