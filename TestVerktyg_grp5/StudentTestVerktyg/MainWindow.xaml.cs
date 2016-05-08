@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TestVerktygLib;
+using static TestVerktygLib.UtilityTestVerktyg;
 
 namespace StudentTestVerktyg
 {
@@ -29,14 +30,18 @@ namespace StudentTestVerktyg
         public Quiz SelectedQuiz
         {
             get { return _selectedQuiz; }
-            set { _selectedQuiz = value;}
+            set
+            {
+                _selectedQuiz = value;
+                SelectedQuizId = value.Id;
+            }
         }
 
 
 
         public MainWindow()
         {
-            
+
             InitializeComponent();
             QuizGrid.DataContext = this;
             Quizzes = repo.GetQuizzes();

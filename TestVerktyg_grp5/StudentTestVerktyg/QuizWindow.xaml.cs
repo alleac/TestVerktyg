@@ -45,7 +45,9 @@ namespace StudentTestVerktyg
         {
             InitializeComponent();
 
-            Questions = new List<Question>(repo.GetQuestionsForQuiz(1));
+            SelectedQuestionNumber = 0;
+
+            Questions = new List<Question>(repo.GetQuestionsForQuiz(SelectedQuizId));
             CurrentQuizQuestions = new List<Question>(Questions);
             QuizLength = Questions.Count();
             CurrentPoints = new int[QuizLength];
