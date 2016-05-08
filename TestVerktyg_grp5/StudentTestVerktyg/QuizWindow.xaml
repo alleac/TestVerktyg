@@ -19,8 +19,8 @@
         </StackPanel>
 
 
-        <!--<Button x:Name="back" Content="back" Height="50" Width="75" HorizontalAlignment="Left" Click="back_Click" />
-        <Button x:Name="button" Content="forward" Height="50" Width="75" Click="button_Click" HorizontalAlignment="Right"/>-->
+        <Button x:Name="btn_Back" Content="back" Height="50" Width="75" HorizontalAlignment="Left" Click="btn_Back_Click" />
+        <Button x:Name="btn_Forward" Content="forward" Height="50" Width="75" HorizontalAlignment="Right" Click="btn_Forward_Click"/>
 
 
     </Grid>

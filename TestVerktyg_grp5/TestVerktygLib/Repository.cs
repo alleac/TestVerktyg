@@ -67,15 +67,11 @@ namespace TestVerktygLib
             }
         }
 
-        public List<Question> GetQuestionsFroQuiz(int quizId)
+        public List<Question> GetQuestionsForQuiz(int quizId)
         {
             using (var db = new QuizDatabase())
             {
-                var quizQuestions = from dbQuestion in db.Questions
-                                    where dbQuestion.Id == quizId
-                                    select dbQuestion;
-
-                return quizQuestions.ToList();
+                return db.Questions.Where(q => q.QuizId == quizId).ToList();
             }
         }
     }

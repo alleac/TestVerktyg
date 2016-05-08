@@ -35,7 +35,7 @@ namespace StudentTestVerktyg
             set
             {
                 _question = value;
-                NotifyPropertyChanged("Question");
+                NotifyPropertyChanged(nameof(Question));
 
             }
         }
@@ -44,7 +44,7 @@ namespace StudentTestVerktyg
         {
             InitializeComponent();
 
-            Questions = new List<Question>(repo.GetQuestionsFroQuiz(1));
+            Questions = new List<Question>(repo.GetQuestionsForQuiz(1));
 
 
             Question = Questions[0];
@@ -55,5 +55,14 @@ namespace StudentTestVerktyg
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
+        private void btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_Forward_Click(object sender, RoutedEventArgs e)
+        {
+            Question = Questions[1];
+        }
     }
 }
