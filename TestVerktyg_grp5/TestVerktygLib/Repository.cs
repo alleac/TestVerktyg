@@ -59,5 +59,12 @@ namespace TestVerktygLib
                 db.SaveChanges();
             }
         }
+        public List<Quiz> GetQuizzes()
+        {
+            using (var db = new QuizDatabase())
+            {
+                return db.Quizs.ToList();
+            }
+        }
     }
 }

@@ -6,26 +6,35 @@
         xmlns:local="clr-namespace:StudentTestVerktyg"
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="525">
-    
-    <Grid Background="White">
+
+    <Grid Background="White" x:Name="QuizGrid">
+
         <StackPanel HorizontalAlignment="Center">
+
             <Label HorizontalAlignment="Center" 
                                    FontSize="24" 
                                    Content="Quizzes"
                                    />
+
             <ListView x:Name="lv_QuizList"
                                       Width="400" 
-                                      Height="250" />
+                                      Height="250"
+                      ItemsSource="{Binding Path=Quizzes}"
+                      DisplayMemberPath="Name"
+                      SelectedItem="{Binding SelectedQuiz, Mode=TwoWay}"/>
             
+            
+
             <StackPanel Orientation="Horizontal" 
                                         HorizontalAlignment="Center"
                                         >
+
                 <Button x:Name="btn_TakeQuiz"
                                         Content="Take Quiz" 
                                         Margin="10" Width="100" 
                                         Height="20" Click="btn_TakeQuiz_Click"
                                         />
-               
+
             </StackPanel>
         </StackPanel>
     </Grid>
