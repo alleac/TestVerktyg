@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,17 +12,39 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TestVerktygLib;
 
 namespace StudentTestVerktyg
 {
     /// <summary>
     /// Interaction logic for QuizWindow.xaml
     /// </summary>
-    public partial class QuizWindow : Window
+    public partial class QuizWindow : Window, INotifyPropertyChanged
     {
+        public List<Question> Questions { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private Question _question;
+        public Question Question
+        {
+            get
+            {return _question;}
+
+            set
+            {
+                _question = value;
+                NotifyPropertyChanged("Question");
+
+            }
+        }
+
         public QuizWindow()
         {
             InitializeComponent();
+        }
+        private void NotifyPropertyChanged(String prop)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
     }
