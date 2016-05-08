@@ -26,6 +26,9 @@ namespace StudentTestVerktyg
             
         }
 
-      
+        private void btn_TakeQuiz_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
