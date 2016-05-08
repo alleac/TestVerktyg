@@ -21,7 +21,7 @@
 
         <Button x:Name="btn_Back" Content="back" Height="50" Width="75" HorizontalAlignment="Left" Click="btn_Back_Click" Visibility="Hidden" />
         <Button x:Name="btn_Forward" Content="forward" Height="50" Width="75" HorizontalAlignment="Right" Click="btn_Forward_Click"/>
-        <Button x:Name="btn_FinnishQuiz" Content="Finnish quiz" Height="50" Width="75" HorizontalAlignment="Right" Visibility="Hidden" />
+        <Button x:Name="btn_FinnishQuiz" Content="Finnish quiz" Height="50" Width="75" HorizontalAlignment="Right" Visibility="Hidden" Click="btn_FinnishQuiz_Click" />
 
 
     </Grid>

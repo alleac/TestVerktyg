@@ -12,5 +12,6 @@ namespace TestVerktygLib
         public static int SelectedQuestionNumber { get; set; } = 0;
         
         public static List<Question> CurrentQuizQuestions { get; set; }
+        public static int[] CurrentPoints { get; set; }
     }
 }
