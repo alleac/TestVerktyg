@@ -10,11 +10,12 @@
     <Grid x:Name="QuizWindowGrid">
 
 
-        <StackPanel>
-            <RadioButton Content="{Binding Question.Name}" x:Name="Rbone"/>
-            <RadioButton Content="{Binding Question.Number}" Name="Rbtwo" />
-            <RadioButton Content="{Binding Question.Name}" Name="Rbthree" />
-            <RadioButton Content="{Binding Question.Number}" Name="Rbfour" />
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Label Content="{Binding Question.Title}" />
+            <RadioButton Content="{Binding Question.AnswerOne}" x:Name="Rbone"/>
+            <RadioButton Content="{Binding Question.AnswerTwo}" Name="Rbtwo" />
+            <RadioButton Content="{Binding Question.AnswerThree}" Name="Rbthree" />
+            <RadioButton Content="{Binding Question.AnswerFour}" Name="Rbfour" />
         </StackPanel>
 
 

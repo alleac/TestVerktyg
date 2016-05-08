@@ -21,9 +21,11 @@ namespace StudentTestVerktyg
     /// </summary>
     public partial class QuizWindow : Window, INotifyPropertyChanged
     {
+        private Repository repo { get; set; } = new Repository();
         public List<Question> Questions { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         private Question _question;
         public Question Question
         {
@@ -41,6 +43,12 @@ namespace StudentTestVerktyg
         public QuizWindow()
         {
             InitializeComponent();
+
+            Questions = new List<Question>(repo.GetQuestionsFroQuiz(1));
+
+
+            Question = Questions[0];
+            QuizWindowGrid.DataContext = this;
         }
         private void NotifyPropertyChanged(String prop)
         {
