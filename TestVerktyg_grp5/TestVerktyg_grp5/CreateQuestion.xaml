@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestVerktyg_grp5"
         mc:Ignorable="d"
-        Title="CreateQuestion" Height="300" Width="300">
+        Title="CreateQuestion" Height="400" Width="300">
 
     <Grid Background="White">
         <StackPanel HorizontalAlignment="Center">
@@ -65,6 +65,10 @@
             <Button Margin="10" 
                                     Width="100" 
                                     Content="Create question" 
+                                    />
+            <Button Margin="10" 
+                                    Width="100" 
+                                    Content="Delete question" 
                                     />
         </StackPanel>
     </Grid>
