@@ -106,16 +106,17 @@
                 </TabItem>
                 <TabItem Header="Create quiz">
                     <Grid Background="White">
-                        <Label x:Name="label" Content="Label" HorizontalAlignment="Left" Margin="36,60,0,0" VerticalAlignment="Top"/>
-                        <DatePicker HorizontalAlignment="Left" Margin="93,100,0,0" VerticalAlignment="Top"/>
-                        <DatePicker HorizontalAlignment="Left" Margin="93,157,0,0" VerticalAlignment="Top"/>
-                        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="93,214,0,0" VerticalAlignment="Top" Width="102"/>
-                        <Label x:Name="label1" Content="Label" HorizontalAlignment="Left" Margin="36,100,0,0" VerticalAlignment="Top"/>
-                        <Label x:Name="label2" Content="Label" HorizontalAlignment="Left" Margin="36,155,0,0" VerticalAlignment="Top"/>
-                        <Label x:Name="label3" Content="Label" HorizontalAlignment="Left" Margin="36,206,0,0" VerticalAlignment="Top"/>
-                        <CheckBox x:Name="checkBox" Content="CheckBox" HorizontalAlignment="Left" Margin="93,255,0,0" VerticalAlignment="Top"/>
-                        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="93,308,0,0" VerticalAlignment="Top" Width="75"/>
-                        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="244,308,0,0" VerticalAlignment="Top" Width="75"/>
+                        <Label x:Name="label" Content="Quiz name:&#xD;&#xA;" HorizontalAlignment="Left" Margin="36,53,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.688,0.167" Height="27"/>
+                        <DatePicker HorizontalAlignment="Left" Margin="129,101,0,0" VerticalAlignment="Top"/>
+                        <DatePicker HorizontalAlignment="Left" Margin="129,146,0,0" VerticalAlignment="Top"/>
+                        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="129,214,0,0" VerticalAlignment="Top" Width="102"/>
+                        <Label x:Name="label1" Content="Start date:" HorizontalAlignment="Left" Margin="36,100,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="label2" Content="End date:" HorizontalAlignment="Left" Margin="36,145,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="label3" Content="Time on test:" HorizontalAlignment="Left" Margin="36,206,0,0" VerticalAlignment="Top"/>
+                        <CheckBox x:Name="checkBox" Content="CheckBox" HorizontalAlignment="Left" Margin="111,255,0,0" VerticalAlignment="Top"/>
+                        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="111,308,0,0" VerticalAlignment="Top" Width="75"/>
+                        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="273,308,0,0" VerticalAlignment="Top" Width="75"/>
+                        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="129,57,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
                     </Grid>
                 </TabItem>
             </TabControl>
