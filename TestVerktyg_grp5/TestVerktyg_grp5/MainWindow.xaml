@@ -105,11 +105,22 @@
                     </Grid>
                 </TabItem>
                 <TabItem Header="Create quiz">
-                    <Grid Background="#FFE5E5E5"/>
+                    <Grid Background="White">
+                        <Label x:Name="label" Content="Label" HorizontalAlignment="Left" Margin="36,60,0,0" VerticalAlignment="Top"/>
+                        <DatePicker HorizontalAlignment="Left" Margin="93,100,0,0" VerticalAlignment="Top"/>
+                        <DatePicker HorizontalAlignment="Left" Margin="93,157,0,0" VerticalAlignment="Top"/>
+                        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="93,214,0,0" VerticalAlignment="Top" Width="102"/>
+                        <Label x:Name="label1" Content="Label" HorizontalAlignment="Left" Margin="36,100,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="label2" Content="Label" HorizontalAlignment="Left" Margin="36,155,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="label3" Content="Label" HorizontalAlignment="Left" Margin="36,206,0,0" VerticalAlignment="Top"/>
+                        <CheckBox x:Name="checkBox" Content="CheckBox" HorizontalAlignment="Left" Margin="93,255,0,0" VerticalAlignment="Top"/>
+                        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="93,308,0,0" VerticalAlignment="Top" Width="75"/>
+                        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="244,308,0,0" VerticalAlignment="Top" Width="75"/>
+                    </Grid>
                 </TabItem>
             </TabControl>
         </Grid>
-        <Grid Name="grd_loginscreen">
+        <!--<Grid Name="grd_loginscreen">
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
                         Margin="0,120,0,0">
@@ -139,6 +150,6 @@
                         Height="23" Click="btn_login_Click"
                         />
             </StackPanel>
-        </Grid>
+        </Grid>-->
     </Grid>
 </Window>

@@ -27,27 +27,27 @@ namespace TestVerktyg_grp5
         {
             InitializeComponent();
 
-            grid_loggedin.Visibility = Visibility.Hidden;
+            grid_loggedin.Visibility = Visibility.Visible; // ska vara hidden
         }
 
         private void SwitchScreen()
         {
             grid_loggedin.Visibility = Visibility.Visible;
-            grd_loginscreen.Visibility = Visibility.Hidden;
+            //grd_loginscreen.Visibility = Visibility.Hidden;
         }
 
-        private void btn_login_Click(object sender, RoutedEventArgs e)
-        {
-            if (tbx_login.Text == "admin" ||
-                tbx_login.Text == "Admin")
-            {
-                SwitchScreen();
-            }
-            else
-            {
-                MessageBox.Show("Error password");
-            }
-        }
+        //private void btn_login_Click(object sender, RoutedEventArgs e)
+        //{
+        //    if (tbx_login.Text == "admin" ||
+        //        tbx_login.Text == "Admin")
+        //    {
+        //        SwitchScreen();
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Error password");
+        //    }
+        //}
 
         private void btn_newUser_Click(object sender, RoutedEventArgs e)
         {
