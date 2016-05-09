@@ -114,8 +114,8 @@
                         <Label x:Name="ed_picker" Content="End date:" HorizontalAlignment="Left" Margin="36,145,0,0" VerticalAlignment="Top"/>
                         <Label x:Name="tot_slider" Content="Time on test:" HorizontalAlignment="Left" Margin="36,206,0,0" VerticalAlignment="Top"/>
                         <CheckBox x:Name="checkBox" Content="CheckBox" HorizontalAlignment="Left" Margin="111,255,0,0" VerticalAlignment="Top"/>
-                        <Button x:Name="cq_btn" Content="Create question" HorizontalAlignment="Left" Margin="111,308,0,0" VerticalAlignment="Top" Width="94"/>
-                        <Button x:Name="cquiz_btn" Content="Create quiz" HorizontalAlignment="Left" Margin="273,308,0,0" VerticalAlignment="Top" Width="75" Click="Cquiz_btn_OnClick"/>
+                        <Button x:Name="cq_btn" Content="Create question" HorizontalAlignment="Left" Margin="112,308,0,0" VerticalAlignment="Top" Width="94" Click="Cq_btn_OnClick"/>
+                        <Button x:Name="cquiz_btn" Content="Create quiz" HorizontalAlignment="Left" Margin="273,308,0,0" VerticalAlignment="Top" Width="75" />
                         <TextBox x:Name="qn_tbx" HorizontalAlignment="Left" Height="23" Margin="129,57,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
                     </Grid>
                 </TabItem>

@@ -60,9 +60,10 @@ namespace TestVerktyg_grp5
 
         }
 
-        private void Cquiz_btn_OnClick(object sender, RoutedEventArgs e)
+        private void Cq_btn_OnClick(object sender, RoutedEventArgs e)
         {
-           
+            var createNewQuestionWindow = new CreateQuestion();
+            createNewQuestionWindow.Show();
         }
     }
 }
