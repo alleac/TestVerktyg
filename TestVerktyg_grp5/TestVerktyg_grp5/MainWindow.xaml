@@ -42,67 +42,7 @@
                     </Grid>
                 </TabItem>
                 <TabItem Header="Quizes">
-                    <Grid Background="White">
-                        <StackPanel HorizontalAlignment="Center">
-                            <Label HorizontalAlignment="Center" 
-                                   FontSize="24" 
-                                   Content="Create new test"/>
-                            <StackPanel Margin="0,0,0,10" 
-                                        Orientation="Horizontal"
-                                        >
-                                <StackPanel Margin="20,0,0,0" 
-                                            HorizontalAlignment="Left"
-                                            >
-                                    <Label Padding="0,0,0,5"  
-                                           Content="Question:"
-                                           />
-                                    <TextBox x:Name="jh" 
-                                             Width="230" 
-                                             />
-                                </StackPanel>
-
-                            </StackPanel>
-                            <StackPanel Margin="20,0,0,0" 
-                                        HorizontalAlignment="Left"
-                                        >
-                                <Label Padding="0,0,0,5"  
-                                       Content="Answer 1:"
-                                       />
-                                <RadioButton x:Name="j" 
-                                             >
-                                    <TextBox Width="210" 
-                                             />
-                                </RadioButton>
-                                <Label Padding="0,0,0,5"  
-                                       Content="Answer 2:"
-                                   />
-                                <RadioButton x:Name="d" 
-                                             >
-                                    <TextBox Width="210"/>
-                                </RadioButton>
-                                <Label Padding="0,0,0,5"  
-                                       Content="Answer 3:"
-                                       />
-                                <RadioButton x:Name="i" 
-                                         >
-                                    <TextBox Width="210"
-                                             />
-                                </RadioButton>
-                                <Label Padding="0,0,0,5"  
-                                       Content="Answer 4:"
-                                   />
-                                <RadioButton x:Name="c" 
-                                             >
-                                    <TextBox Width="210"
-                                             />
-                                </RadioButton>
-                            </StackPanel>
-                            <Button Margin="10" 
-                                    Width="100" 
-                                    Content="Create question" 
-                                    />
-                        </StackPanel>
-                    </Grid>
+                   
                 </TabItem>
                 <TabItem Header="Create quiz">
                     <Grid Background="White">
