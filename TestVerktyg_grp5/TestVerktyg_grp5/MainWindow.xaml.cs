@@ -59,5 +59,10 @@ namespace TestVerktyg_grp5
         {
 
         }
+
+        private void Cquiz_btn_OnClick(object sender, RoutedEventArgs e)
+        {
+           
+        }
     }
 }
