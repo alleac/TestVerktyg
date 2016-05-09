@@ -7,7 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="400" Width="525">
 
+
+    <Window.Resources>
+        <DataTemplate x:Key="ListViewQuizTemplate">
+            <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal">
+                <TextBlock Text="{Binding Path=Name}" />
+                <TextBlock Text=" |  Maxpoints :  " />
+                <TextBlock Text="{Binding Path=MaxPoints}" />
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    
     <Grid Background="White" x:Name="QuizGrid">
+
+        
 
         <StackPanel HorizontalAlignment="Center">
 
@@ -20,7 +33,7 @@
                                       Width="400" 
                                       Height="250"
                       ItemsSource="{Binding Path=Quizzes}"
-                      DisplayMemberPath="Name"
+                      ItemTemplate="{StaticResource ListViewQuizTemplate}"
                       SelectedItem="{Binding SelectedQuiz, Mode=TwoWay}"/>
             
             
