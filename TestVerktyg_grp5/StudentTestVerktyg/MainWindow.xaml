@@ -18,6 +18,9 @@
         </DataTemplate>
     </Window.Resources>
     
+    
+    <TabControl x:Name="TabControlStudent">
+        <TabItem Header="Quizzes">
     <Grid Background="White" x:Name="QuizGrid">
 
         
@@ -50,5 +53,12 @@
 
             </StackPanel>
         </StackPanel>
-    </Grid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Results">
+            <Grid>
+                
+            </Grid>
+        </TabItem>
+    </TabControl>
 </Window>

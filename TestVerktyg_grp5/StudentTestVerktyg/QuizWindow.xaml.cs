@@ -161,6 +161,7 @@ namespace StudentTestVerktyg
         private void btn_FinnishQuiz_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(CurrentPoints.Sum().ToString());
+            UtilityTestVerktyg.Quizzes.Remove(UtilityTestVerktyg.SelectedQuiz);
             this.Close();
         }
     }

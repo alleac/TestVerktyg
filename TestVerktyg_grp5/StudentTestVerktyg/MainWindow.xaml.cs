@@ -32,8 +32,13 @@ namespace StudentTestVerktyg
             get { return _selectedQuiz; }
             set
             {
-                _selectedQuiz = value;
-                SelectedQuizId = value.Id;
+                if (value != null)
+                {
+                    _selectedQuiz = value;
+                    SelectedQuizId = value.Id;
+                    UtilityTestVerktyg.SelectedQuiz = value;
+                }
+                
             }
         }
 
@@ -44,7 +49,11 @@ namespace StudentTestVerktyg
 
             InitializeComponent();
             QuizGrid.DataContext = this;
-            Quizzes = repo.GetQuizForUser(1); // ***** CHANGE TO DEYNAMIC USERID *******
+            LoggedInUserId = 1;
+            UtilityTestVerktyg.GetQuizForUser();
+            lv_QuizList.ItemsSource = UtilityTestVerktyg.Quizzes;
+
+            //Quizzes = repo.GetQuizForUser(1); // ***** CHANGE TO DEYNAMIC USERID *******
 
 
         }
@@ -55,5 +64,7 @@ namespace StudentTestVerktyg
             var quizWin = new QuizWindow();
             quizWin.Show();
         }
+
+
     }
 }

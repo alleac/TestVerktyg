@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -75,14 +76,14 @@ namespace TestVerktygLib
             }
         }
 
-        public List<Quiz> GetQuizForUser(int userId)
+        public ObservableCollection<Quiz> GetQuizForUser(int userId)
         {
             using (var db = new QuizDatabase())
             {
                 List<int> quizIdsList = db.Grades.Where(g => g.UserId == 1).Select(g => g.QuizId).ToList();
 
 
-                return db.Quizs.Where(q => !quizIdsList.Contains(q.Id)).ToList();
+                return new ObservableCollection<Quiz>(db.Quizs.Where(q => !quizIdsList.Contains(q.Id)).ToList());
 
 
             }
