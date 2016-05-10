@@ -49,10 +49,11 @@
                         <Label x:Name="label" Content="Quiz name:&#xD;&#xA;" HorizontalAlignment="Left" Margin="36,53,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.688,0.167" Height="27"/>
                         <DatePicker x:Name="start_dp" HorizontalAlignment="Left" Margin="129,101,0,0" VerticalAlignment="Top"/>
                         <DatePicker x:Name="end_dp" HorizontalAlignment="Left" Margin="129,146,0,0" VerticalAlignment="Top"/>
-                        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="129,214,0,0" VerticalAlignment="Top" Width="102"/>
+                        <TextBox Text="{Binding ElementName=slider, Path=Value, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" TextAlignment="Left" Width="23" Margin="236,214,0,153" RenderTransformOrigin="0.568,-0.169" BorderThickness="0" />
+                        <Slider Maximum="60" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="slider" HorizontalAlignment="Left" Margin="129,214,0,0" VerticalAlignment="Top" Width="102" />
                         <Label x:Name="sd_picker" Content="Start date:" HorizontalAlignment="Left" Margin="36,100,0,0" VerticalAlignment="Top"/>
                         <Label x:Name="ed_picker" Content="End date:" HorizontalAlignment="Left" Margin="36,145,0,0" VerticalAlignment="Top"/>
-                        <Label x:Name="tot_slider" Content="Time on test:" HorizontalAlignment="Left" Margin="36,206,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="tot_slider" Content="Time on test:&#xD;&#xA;(in minutes)" HorizontalAlignment="Left" Margin="36,206,0,0" VerticalAlignment="Top"/>
                         <CheckBox x:Name="showresult_cb" Content="Show students the result? " HorizontalAlignment="Left" Margin="36,260,0,0" VerticalAlignment="Top"/>
                         <Button x:Name="cq_btn" Content="Create question" HorizontalAlignment="Left" Margin="36,308,0,0" VerticalAlignment="Top" Width="94" Click="Cq_btn_OnClick" RenderTransformOrigin="0.055,0.125"/>
                         <Button x:Name="cquiz_btn" Content="Create quiz" HorizontalAlignment="Left" Margin="330,353,0,0" VerticalAlignment="Top" Width="75" Click="cquiz_btn_Click" />
