@@ -68,10 +68,6 @@
                                     Content="Create question"
                     Click="cq_btn"
                                     />
-            <Button Margin="10" 
-                                    Width="100" 
-                                    Content="Delete question" 
-                                    />
         </StackPanel>
     </Grid>
 

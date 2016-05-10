@@ -42,21 +42,28 @@
                     </Grid>
                 </TabItem>
                 <TabItem Header="Quizes">
-                   
+
                 </TabItem>
                 <TabItem Header="Create quiz">
                     <Grid Background="White">
                         <Label x:Name="label" Content="Quiz name:&#xD;&#xA;" HorizontalAlignment="Left" Margin="36,53,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.688,0.167" Height="27"/>
-                        <DatePicker HorizontalAlignment="Left" Margin="129,101,0,0" VerticalAlignment="Top"/>
-                        <DatePicker HorizontalAlignment="Left" Margin="129,146,0,0" VerticalAlignment="Top"/>
+                        <DatePicker x:Name="start_dp" HorizontalAlignment="Left" Margin="129,101,0,0" VerticalAlignment="Top"/>
+                        <DatePicker x:Name="end_dp" HorizontalAlignment="Left" Margin="129,146,0,0" VerticalAlignment="Top"/>
                         <Slider x:Name="slider" HorizontalAlignment="Left" Margin="129,214,0,0" VerticalAlignment="Top" Width="102"/>
                         <Label x:Name="sd_picker" Content="Start date:" HorizontalAlignment="Left" Margin="36,100,0,0" VerticalAlignment="Top"/>
                         <Label x:Name="ed_picker" Content="End date:" HorizontalAlignment="Left" Margin="36,145,0,0" VerticalAlignment="Top"/>
                         <Label x:Name="tot_slider" Content="Time on test:" HorizontalAlignment="Left" Margin="36,206,0,0" VerticalAlignment="Top"/>
-                        <CheckBox x:Name="checkBox" Content="CheckBox" HorizontalAlignment="Left" Margin="111,255,0,0" VerticalAlignment="Top"/>
-                        <Button x:Name="cq_btn" Content="Create question" HorizontalAlignment="Left" Margin="112,308,0,0" VerticalAlignment="Top" Width="94" Click="Cq_btn_OnClick"/>
-                        <Button x:Name="cquiz_btn" Content="Create quiz" HorizontalAlignment="Left" Margin="273,308,0,0" VerticalAlignment="Top" Width="75" />
+                        <CheckBox x:Name="showresult_cb" Content="CheckBox" HorizontalAlignment="Left" Margin="111,255,0,0" VerticalAlignment="Top"/>
+                        <Button x:Name="cq_btn" Content="Create question" HorizontalAlignment="Left" Margin="36,308,0,0" VerticalAlignment="Top" Width="94" Click="Cq_btn_OnClick" RenderTransformOrigin="0.055,0.125"/>
+                        <Button x:Name="cquiz_btn" Content="Create quiz" HorizontalAlignment="Left" Margin="330,353,0,0" VerticalAlignment="Top" Width="75" Click="cquiz_btn_Click" />
                         <TextBox x:Name="qn_tbx" HorizontalAlignment="Left" Height="23" Margin="129,57,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                        <ListView x:Name="listView" HorizontalAlignment="Left" Height="308" Margin="283,19,0,0" VerticalAlignment="Top" Width="177">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Questions"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
                     </Grid>
                 </TabItem>
             </TabControl>

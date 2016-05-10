@@ -59,7 +59,7 @@ namespace TestVerktyg_grp5
             }
             else
             {
-                
+                _nq.RightAnswer = 0;
             }
             _nq.QuizId = 1;
 
