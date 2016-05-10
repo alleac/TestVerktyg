@@ -38,7 +38,7 @@ namespace TestVerktyg_grp5
 
             }
         }
-        Repository Repo = new Repository();
+        
         public MainWindow()
         {
             InitializeComponent();
