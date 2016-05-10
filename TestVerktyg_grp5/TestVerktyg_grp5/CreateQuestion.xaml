@@ -33,38 +33,40 @@
                 <Label Padding="0,0,0,5"  
                                        Content="Answer 1:"
                                        />
-                <RadioButton x:Name="j" 
+                <RadioButton x:Name="a_one_rbn" 
                                              >
-                    <TextBox Width="210" 
+                    <TextBox x:Name="a_one_tbx" Width="210" 
                                              />
                 </RadioButton>
                 <Label Padding="0,0,0,5"  
                                        Content="Answer 2:"
                                    />
-                <RadioButton x:Name="d" 
+                <RadioButton x:Name="a_two_rbn" 
                                              >
-                    <TextBox Width="210"/>
+                    <TextBox x:Name="a_two_tbx" Width="210"/>
                 </RadioButton>
                 <Label Padding="0,0,0,5"  
                                        Content="Answer 3:"
                                        />
-                <RadioButton x:Name="i" 
+                <RadioButton x:Name="a_three_rbn" 
                                          >
-                    <TextBox Width="210"
+                    <TextBox x:Name="a_three_tbx" Width="210"
                                              />
                 </RadioButton>
                 <Label Padding="0,0,0,5"  
                                        Content="Answer 4:"
                                    />
-                <RadioButton x:Name="c" 
+                <RadioButton x:Name="a_four_rbn" 
                                              >
-                    <TextBox Width="210"
+                    <TextBox x:Name="a_four_tbx"
+                             Width="210"
                                              />
                 </RadioButton>
             </StackPanel>
             <Button Margin="10" 
                                     Width="100" 
-                                    Content="Create question" 
+                                    Content="Create question"
+                    Click="cq_btn"
                                     />
             <Button Margin="10" 
                                     Width="100" 
