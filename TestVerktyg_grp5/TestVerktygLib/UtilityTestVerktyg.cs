@@ -11,7 +11,9 @@ namespace TestVerktygLib
     {
         public static Repository Repo { get; set; } = new Repository();
         public static ObservableCollection<Quiz> Quizzes { get; set; } 
+        public static ObservableCollection<Question> QuizQuestions { get; set; } = new ObservableCollection<Question>();
         public static Quiz SelectedQuiz { get; set; }
+        public static Question SelectedQuestion { get; set; }
 
         public static int SelectedQuizId { get; set; }
         public static int QuizLength { get; set; }

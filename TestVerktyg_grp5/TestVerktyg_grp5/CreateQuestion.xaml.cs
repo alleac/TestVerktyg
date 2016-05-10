@@ -81,7 +81,11 @@ namespace TestVerktyg_grp5
                 a_four_tbx.Clear();
             }
 
-            Repo.AddQuestion(_nq);
+            UtilityTestVerktyg.QuizQuestions.Add(_nq);
+
+            this.Close();
         }
+
+
     }
 }

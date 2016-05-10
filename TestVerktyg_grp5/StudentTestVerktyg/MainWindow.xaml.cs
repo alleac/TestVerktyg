@@ -22,7 +22,6 @@ namespace StudentTestVerktyg
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Repository repo { get; set; } = new Repository();
         public List<Quiz> Quizzes { get; set; }
 
         private Quiz _selectedQuiz;

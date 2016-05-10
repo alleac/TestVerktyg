@@ -35,7 +35,6 @@
             <ListView x:Name="lv_QuizList"
                                       Width="400" 
                                       Height="250"
-                      ItemsSource="{Binding Path=Quizzes}"
                       ItemTemplate="{StaticResource ListViewQuizTemplate}"
                       SelectedItem="{Binding SelectedQuiz, Mode=TwoWay}"/>
             
