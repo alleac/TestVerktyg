@@ -103,7 +103,7 @@ namespace TestVerktyg_grp5
 
         private void del_btn_Click(object sender, RoutedEventArgs e)
         {
-            UtilityTestVerktyg.QuizQuestions.Remove(_selectedQuestion);
+             UtilityTestVerktyg.QuizQuestions.Remove(_selectedQuestion);
         }
     }
 }
