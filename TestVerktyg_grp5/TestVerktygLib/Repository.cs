@@ -79,10 +79,10 @@ namespace TestVerktygLib
         {
             using (var db = new QuizDatabase())
             {
-                List<int> query2 = db.Grades.Where(g => g.UserId == 1).Select(u => u.QuizId).ToList();
+                List<int> quizIdsList = db.Grades.Where(g => g.UserId == 1).Select(g => g.QuizId).ToList();
 
 
-                return db.Quizs.Where(q => !query2.Contains(q.Id)).ToList();
+                return db.Quizs.Where(q => !quizIdsList.Contains(q.Id)).ToList();
 
 
             }
