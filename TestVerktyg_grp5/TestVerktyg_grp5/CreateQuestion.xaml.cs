@@ -75,10 +75,10 @@ namespace TestVerktyg_grp5
                 Console.WriteLine(item.RightAnswer);
 
                 q_tbx.Clear();
-                //a_one_tbx.Clear();
-                //a_two_tbx.Clear();
-                //a_three_tbx.Clear();
-                //a_four_tbx.Clear();
+                a_one_tbx.Clear();
+                a_two_tbx.Clear();
+                a_three_tbx.Clear();
+                a_four_tbx.Clear();
             }
 
             Repo.AddQuestion(_nq);
