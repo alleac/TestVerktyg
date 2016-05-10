@@ -24,7 +24,6 @@ namespace TestVerktyg_grp5
     {
 
         private Question _selectedQuestion;
-
         public Question SelectedQuestion
         {
             get { return _selectedQuestion; }
@@ -35,7 +34,6 @@ namespace TestVerktyg_grp5
                     _selectedQuestion = value;
                     UtilityTestVerktyg.SelectedQuestion = value;
                 }
-
             }
         }
 
@@ -46,7 +44,7 @@ namespace TestVerktyg_grp5
             grid_loggedin.Visibility = Visibility.Visible; // ska vara hidden
 
             GridCreateQuiz.DataContext = this;
-            listViewQuestion.ItemsSource = UtilityTestVerktyg.QuizQuestions;    
+            listViewQuestion.ItemsSource = UtilityTestVerktyg.QuizQuestions;
         }
 
         private void SwitchScreen()
@@ -95,8 +93,17 @@ namespace TestVerktyg_grp5
             quiz.TimeToComplete = (slider.Value <= 0) ? 10 : (int)slider.Value;
 
             if (showresult_cb.IsChecked != null) quiz.ShowResult = showresult_cb.IsChecked.Value;
+
+            Console.WriteLine(quiz.Name);
+            Console.WriteLine(quiz.CreationDate);
+            Console.WriteLine(quiz.EndDate);
+            Console.WriteLine(quiz.TimeToComplete);
+            Console.WriteLine(quiz.ShowResult);
         }
 
-
+        private void del_btn_Click(object sender, RoutedEventArgs e)
+        {
+            UtilityTestVerktyg.QuizQuestions.Remove(_selectedQuestion);
+        }
     }
 }

@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:TestVerktyg_grp5"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="500">
-    
-    
-    
-    
-    
+
+
+
+
+
     <Grid>
         <Grid x:Name="grid_loggedin">
             <TabControl x:Name="tabControl" 
@@ -60,22 +60,23 @@
                         <Label x:Name="ed_picker" Content="End date:" HorizontalAlignment="Left" Margin="36,145,0,0" VerticalAlignment="Top"/>
                         <Label x:Name="tot_slider" Content="Time on test:&#xD;&#xA;(in minutes)" HorizontalAlignment="Left" Margin="36,206,0,0" VerticalAlignment="Top"/>
                         <CheckBox x:Name="showresult_cb" Content="Show students the result? " HorizontalAlignment="Left" Margin="36,260,0,0" VerticalAlignment="Top"/>
-                        <Button x:Name="cq_btn" Content="Create question" HorizontalAlignment="Left" Margin="36,308,0,0" VerticalAlignment="Top" Width="94" Click="Cq_btn_OnClick" RenderTransformOrigin="0.055,0.125"/>
-                        <Button x:Name="cquiz_btn" Content="Create quiz" HorizontalAlignment="Left" Margin="330,353,0,0" VerticalAlignment="Top" Width="75" Click="cquiz_btn_Click" />
+                        <Button x:Name="cq_btn" Content="Create question" HorizontalAlignment="Left" Margin="269,348,0,0" VerticalAlignment="Top" Width="94" Click="Cq_btn_OnClick" RenderTransformOrigin="0.055,0.125"/>
+                        <Button x:Name="cquiz_btn" Content="Create quiz" HorizontalAlignment="Left" Margin="36,312,0,0" VerticalAlignment="Top" Width="75" Click="cquiz_btn_Click" />
                         <TextBox x:Name="qn_tbx" HorizontalAlignment="Left" Height="23" Margin="129,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                         <ListView x:Name="listViewQuestion"
                                   SelectedItem="{Binding SelectedQuestion, Mode=TwoWay}"
                                   HorizontalAlignment="Left"
-                                  Height="308"
-                                  Margin="283,19,0,0"
+                                  Height="312"
+                                  Margin="269,19,0,0"
                                   VerticalAlignment="Top"
-                                  Width="177">
+                                  Width="200">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Questions" DisplayMemberBinding="{Binding Title}"/>
                                 </GridView>
                             </ListView.View>
                         </ListView>
+                        <Button x:Name="del_btn" Content="Delete Question" HorizontalAlignment="Left" Margin="377,348,0,0" VerticalAlignment="Top" Width="92" Click="del_btn_Click"/>
                     </Grid>
                 </TabItem>
             </TabControl>
