@@ -46,7 +46,7 @@ namespace TestVerktyg_grp5
             grid_loggedin.Visibility = Visibility.Visible; // ska vara hidden
 
             GridCreateQuiz.DataContext = this;
-            listViewQuestion.ItemsSource = UtilityTestVerktyg.QuizQuestions;
+            listViewQuestion.ItemsSource = UtilityTestVerktyg.QuizQuestions;    
         }
 
         private void SwitchScreen()
