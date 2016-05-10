@@ -44,7 +44,7 @@ namespace StudentTestVerktyg
 
             InitializeComponent();
             QuizGrid.DataContext = this;
-            Quizzes = repo.GetQuizzes();
+            Quizzes = repo.GetQuizForUser(1); // ***** CHANGE TO DEYNAMIC USERID *******
 
 
         }
