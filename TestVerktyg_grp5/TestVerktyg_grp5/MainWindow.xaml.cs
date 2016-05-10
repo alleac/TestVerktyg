@@ -22,6 +22,7 @@ namespace TestVerktyg_grp5
     /// </summary>
     public partial class MainWindow : Window
     {
+        Repository Repo = new Repository();
 
         private Question _selectedQuestion;
         public Question SelectedQuestion
@@ -45,6 +46,10 @@ namespace TestVerktyg_grp5
 
             GridCreateQuiz.DataContext = this;
             listViewQuestion.ItemsSource = UtilityTestVerktyg.QuizQuestions;
+
+            var UserList = Repo.Users;
+
+            lv_userList.DataContext = UserList;
         }
 
         private void SwitchScreen()

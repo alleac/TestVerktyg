@@ -22,8 +22,6 @@ namespace TestVerktygLib
             get { return FirstName + " " + LastName; }
             set { _FullName = value; }
         }
-
-
         public string Email { get; set; }
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
