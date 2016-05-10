@@ -38,7 +38,7 @@ namespace TestVerktyg_grp5
 
             }
         }
-        
+
         public MainWindow()
         {
             InitializeComponent();
@@ -92,8 +92,7 @@ namespace TestVerktyg_grp5
             if (start_dp.SelectedDate != null) quiz.CreationDate = start_dp.SelectedDate.Value;
             if (end_dp.SelectedDate != null) quiz.EndDate = end_dp.SelectedDate.Value;
 
-            quiz.TimeToComplete = (int) slider.Value;
-
+            quiz.TimeToComplete = (slider.Value <= 0) ? 10 : (int)slider.Value;
 
             if (showresult_cb.IsChecked != null) quiz.ShowResult = showresult_cb.IsChecked.Value;
         }
