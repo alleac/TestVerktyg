@@ -47,9 +47,11 @@ namespace TestVerktyg_grp5
             GridCreateQuiz.DataContext = this;
             listViewQuestion.ItemsSource = UtilityTestVerktyg.QuizQuestions;
 
-            var UserList = Repo.Users;
+            var UserList = Repo.GetUsers();
 
             lv_userList.DataContext = UserList;
+
+            Console.WriteLine(UserList.Count);
         }
 
         private void SwitchScreen()
