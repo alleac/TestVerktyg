@@ -23,7 +23,7 @@ namespace TestVerktygLib
             WriteLine("All done");
         }
 
-        public List<User> Users;
+        public ObservableCollection<User> Users = new ObservableCollection<User>();
 
 
         public void AddUser(User user)
@@ -32,6 +32,19 @@ namespace TestVerktygLib
             {
                 db.Users.Add(user);
                 db.SaveChanges();
+            }
+        }
+
+        public ObservableCollection<User> GetUsers()
+        {
+            using (QuizDatabase db = new QuizDatabase())
+            {
+                foreach (var item in db.Users.ToList())
+                {
+                    Users.Add(item);
+                }
+
+                return Users;
             }
         }
 
