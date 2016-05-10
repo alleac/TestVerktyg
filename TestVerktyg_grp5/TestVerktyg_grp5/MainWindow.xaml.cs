@@ -72,7 +72,10 @@ namespace TestVerktyg_grp5
             quiz.Name = qn_tbx.Text;
             if (start_dp.SelectedDate != null) quiz.CreationDate = start_dp.SelectedDate.Value;
             if (end_dp.SelectedDate != null) quiz.EndDate = end_dp.SelectedDate.Value;
+
             quiz.TimeToComplete = (int) slider.Value;
+
+
             if (showresult_cb.IsChecked != null) quiz.ShowResult = showresult_cb.IsChecked.Value;
         }
 

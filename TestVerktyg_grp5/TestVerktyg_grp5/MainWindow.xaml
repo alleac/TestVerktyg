@@ -53,10 +53,10 @@
                         <Label x:Name="sd_picker" Content="Start date:" HorizontalAlignment="Left" Margin="36,100,0,0" VerticalAlignment="Top"/>
                         <Label x:Name="ed_picker" Content="End date:" HorizontalAlignment="Left" Margin="36,145,0,0" VerticalAlignment="Top"/>
                         <Label x:Name="tot_slider" Content="Time on test:" HorizontalAlignment="Left" Margin="36,206,0,0" VerticalAlignment="Top"/>
-                        <CheckBox x:Name="showresult_cb" Content="CheckBox" HorizontalAlignment="Left" Margin="111,255,0,0" VerticalAlignment="Top"/>
+                        <CheckBox x:Name="showresult_cb" Content="Show students the result? " HorizontalAlignment="Left" Margin="36,260,0,0" VerticalAlignment="Top"/>
                         <Button x:Name="cq_btn" Content="Create question" HorizontalAlignment="Left" Margin="36,308,0,0" VerticalAlignment="Top" Width="94" Click="Cq_btn_OnClick" RenderTransformOrigin="0.055,0.125"/>
                         <Button x:Name="cquiz_btn" Content="Create quiz" HorizontalAlignment="Left" Margin="330,353,0,0" VerticalAlignment="Top" Width="75" Click="cquiz_btn_Click" />
-                        <TextBox x:Name="qn_tbx" HorizontalAlignment="Left" Height="23" Margin="129,57,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                        <TextBox x:Name="qn_tbx" HorizontalAlignment="Left" Height="23" Margin="129,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                         <ListView x:Name="listView" HorizontalAlignment="Left" Height="308" Margin="283,19,0,0" VerticalAlignment="Top" Width="177">
                             <ListView.View>
                                 <GridView>
