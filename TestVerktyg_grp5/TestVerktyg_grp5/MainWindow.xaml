@@ -55,7 +55,7 @@
                         <DatePicker x:Name="start_dp" HorizontalAlignment="Left" Margin="129,101,0,0" VerticalAlignment="Top"/>
                         <DatePicker x:Name="end_dp" HorizontalAlignment="Left" Margin="129,146,0,0" VerticalAlignment="Top"/>
                         <TextBox Text="{Binding ElementName=slider, Path=Value, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" TextAlignment="Left" Width="23" Margin="236,214,0,153" RenderTransformOrigin="0.568,-0.169" BorderThickness="0" />
-                        <Slider Maximum="60" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" Name="slider" HorizontalAlignment="Left" Margin="129,214,0,0" VerticalAlignment="Top" Width="102" />
+                        <Slider Maximum="60" TickFrequency="1" IsSnapToTickEnabled="True" Name="slider" HorizontalAlignment="Left" Margin="129,214,0,0" VerticalAlignment="Top" Width="102" />
                         <Label x:Name="sd_picker" Content="Start date:" HorizontalAlignment="Left" Margin="36,100,0,0" VerticalAlignment="Top"/>
                         <Label x:Name="ed_picker" Content="End date:" HorizontalAlignment="Left" Margin="36,145,0,0" VerticalAlignment="Top"/>
                         <Label x:Name="tot_slider" Content="Time on test:&#xD;&#xA;(in minutes)" HorizontalAlignment="Left" Margin="36,206,0,0" VerticalAlignment="Top"/>
