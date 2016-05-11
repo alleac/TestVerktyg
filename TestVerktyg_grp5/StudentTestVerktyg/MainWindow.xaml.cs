@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,7 +62,14 @@ namespace StudentTestVerktyg
         {
             //Update Utilityclass
             var quizWin = new QuizWindow();
+            quizWin.Closed += QuizQindowClosed;
             quizWin.Show();
+        }
+
+        private void QuizQindowClosed(object sender, EventArgs e)
+        {
+            MessageBox.Show(CurrentPoints.Sum().ToString());
+            UtilityTestVerktyg.Quizzes.Remove(UtilityTestVerktyg.SelectedQuiz);
         }
 
 
