@@ -60,10 +60,15 @@ namespace StudentTestVerktyg
 
         private void btn_TakeQuiz_Click(object sender, RoutedEventArgs e)
         {
-            //Update Utilityclass
-            var quizWin = new QuizWindow();
-            quizWin.Closed += QuizQindowClosed;
-            quizWin.Show();
+
+            if (SelectedQuiz != null)
+            {
+                //Update Utilityclass
+                var quizWin = new QuizWindow();
+                quizWin.Closed += QuizQindowClosed;
+                quizWin.Show();
+            }
+            
         }
 
         private void QuizQindowClosed(object sender, EventArgs e)
