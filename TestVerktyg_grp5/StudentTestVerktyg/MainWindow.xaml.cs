@@ -89,7 +89,7 @@ namespace StudentTestVerktyg
             }
             else
             {
-                User user = Repo.CheckPassword(tbx_inloggEmail.Text);
+                User user = Repo.CheckEmail(tbx_inloggEmail.Text);
 
                 if (user != null)
                 {

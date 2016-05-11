@@ -40,23 +40,30 @@ namespace TestVerktyg_grp5
             {
                 if (tbx_password.Text == tbx_repeatPassword.Text)
                 {
-                    var newUser = new User()
+                    if (!Repo.CheckEmailExicts(tbx_eMail.Text))
                     {
-                        FirstName = tbx_firstName.Text,
-                        LastName = tbx_lastName.Text,
-                        Email = tbx_eMail.Text,
-                        Password = tbx_password.Text,
-                        IsAdmin = cbx_adminTeacher.IsChecked.Value
-                    };
+                        var newUser = new User()
+                        {
+                            FirstName = tbx_firstName.Text,
+                            LastName = tbx_lastName.Text,
+                            Email = tbx_eMail.Text,
+                            Password = tbx_password.Text,
+                            IsAdmin = cbx_adminTeacher.IsChecked.Value
+                        };
 
-                    Repo.AddUser(newUser);
-                    UtilityTestVerktyg.Users.Add(newUser);
+                        Repo.AddUser(newUser);
+                        UtilityTestVerktyg.Users.Add(newUser);
 
-                    this.Close();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("User already excists");
+                    } 
                 }
                 else
                 {
-                    MessageBox.Show("Not the same password!");
+                    MessageBox.Show("Passwords doesn't match");
                 }           
             }
         }

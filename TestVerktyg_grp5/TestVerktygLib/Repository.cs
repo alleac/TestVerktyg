@@ -110,11 +110,19 @@ namespace TestVerktygLib
             }
         }
 
-        public User CheckPassword(string email)
+        public User CheckEmail(string email)
         {
             using (QuizDatabase db = new QuizDatabase())
             {
                 return db.Users.FirstOrDefault(u => u.Email == email);
+            }
+        }
+
+        public bool CheckEmailExicts(string email)
+        {
+            using (QuizDatabase db = new QuizDatabase())
+            {
+                return db.Users.Any(u => u.Email == email);
             }
         }
     }

@@ -71,17 +71,17 @@ namespace TestVerktyg_grp5
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
             if (String.IsNullOrEmpty(tbx_inloggEmail.Text) ||
-                String.IsNullOrEmpty(tbx_login.Text))
+                String.IsNullOrEmpty(tbx_login.Password))
             {
                 MessageBox.Show("All fields must be filled");
             }
             else
             {
-                User user = Repo.CheckPassword(tbx_inloggEmail.Text);
+                User user = Repo.CheckEmail(tbx_inloggEmail.Text);
 
                 if (user != null)
                 {
-                    if (user.Password == tbx_login.Text &&
+                    if (user.Password == tbx_login.Password &&
                         user.IsAdmin == true)
                     {
                         SwitchScreen();                       

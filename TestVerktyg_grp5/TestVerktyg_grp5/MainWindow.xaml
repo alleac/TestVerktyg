@@ -103,14 +103,12 @@
                          VerticalAlignment="Top" 
                          Width="200"
                          />
-                <TextBox x:Name="tbx_login"
-                         Margin="10"
-                         Height="23"  
-                         TextWrapping="Wrap" 
-                         Text="Password" 
-                         VerticalAlignment="Top" 
-                         Width="120"
-                         />
+                <PasswordBox x:Name="tbx_login"
+                             Margin="10"
+                             Height="23"                           
+                             VerticalAlignment="Top" 
+                             Width="120"
+                             />
             </StackPanel>
             <StackPanel>
                 <Button x:Name="btn_login"
