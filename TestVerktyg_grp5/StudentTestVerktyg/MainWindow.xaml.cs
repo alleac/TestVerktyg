@@ -48,7 +48,7 @@ namespace StudentTestVerktyg
 
             InitializeComponent();
             QuizGrid.DataContext = this;
-            LoggedInUserId = 1;
+            LoggedInUserId = 1; // CHANGE THAT MATCH THE LOGGED IN USER DYNAMICLY
             UtilityTestVerktyg.GetQuizForUser();
             lv_QuizList.ItemsSource = UtilityTestVerktyg.Quizzes;
 

@@ -24,6 +24,18 @@ namespace TestVerktyg_grp5
     {
         Repository Repo = new Repository();
 
+        private User _selectedUser;
+
+        public User SelectedUser
+        {
+            get { return _selectedUser; }
+            set
+            {
+                _selectedUser = value;
+            }
+        }
+
+
         private Question _selectedQuestion;
         public Question SelectedQuestion
         {
@@ -44,14 +56,12 @@ namespace TestVerktyg_grp5
 
             grid_loggedin.Visibility = Visibility.Visible; // ska vara hidden
 
-            GridCreateQuiz.DataContext = this;
+            DataContext = this;
             listViewQuestion.ItemsSource = UtilityTestVerktyg.QuizQuestions;
+            UtilityTestVerktyg.GetUsers(); // Ropa på utility för att hämta users till utitlity.Users
+            lv_userList.ItemsSource = UtilityTestVerktyg.Users; // binding för Utility.Users
 
-            var UserList = Repo.GetUsers();
 
-            lv_userList.DataContext = UserList;
-
-            Console.WriteLine(UserList.Count);
         }
 
         private void SwitchScreen()
@@ -110,7 +120,7 @@ namespace TestVerktyg_grp5
 
         private void del_btn_Click(object sender, RoutedEventArgs e)
         {
-             UtilityTestVerktyg.QuizQuestions.Remove(_selectedQuestion);
+            UtilityTestVerktyg.QuizQuestions.Remove(_selectedQuestion);
         }
     }
 }

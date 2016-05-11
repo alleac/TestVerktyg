@@ -51,6 +51,7 @@ namespace TestVerktyg_grp5
 
 
                     Repo.AddUser(newUser);
+                    UtilityTestVerktyg.Users.Add(newUser);
 
                     tbx_firstName.Text = "";
                     tbx_lastName.Text = "";
@@ -63,6 +64,8 @@ namespace TestVerktyg_grp5
                 {
                     MessageBox.Show("Not the same password!");
                 }
+
+                this.Close();
             }
         }
     }

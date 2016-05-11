@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TestVerktygLib
 {
@@ -12,6 +13,7 @@ namespace TestVerktygLib
         public static Repository Repo { get; set; } = new Repository();
         public static ObservableCollection<Quiz> Quizzes { get; set; } 
         public static ObservableCollection<Question> QuizQuestions { get; set; } = new ObservableCollection<Question>();
+        public static ObservableCollection<User> Users { get; set; } = new ObservableCollection<User>(); 
         public static Quiz SelectedQuiz { get; set; }
         public static Question SelectedQuestion { get; set; }
 
@@ -26,6 +28,11 @@ namespace TestVerktygLib
         public static void GetQuizForUser()
         {
             Quizzes = Repo.GetQuizForUser(1);
-        } 
+        }
+
+        public static void GetUsers()
+        {
+            Users = Repo.GetUsers();
+        }
     }
 }

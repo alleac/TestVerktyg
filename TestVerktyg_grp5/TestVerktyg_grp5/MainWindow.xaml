@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="500">
 
+    <Window.Resources>
+        <DataTemplate x:Key="ListViewUsers">
+            <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal">
+                <TextBlock Text="{Binding Path=FullName}" />
+                <TextBlock Text=" | " />
+                <TextBlock Text="{Binding Path=Email}" />
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    
     <Grid>
         <Grid x:Name="grid_loggedin">
             <TabControl x:Name="tabControl" 
@@ -24,7 +34,8 @@
                             <ListView x:Name="lv_userList"
                                       Width="400" 
                                       Height="250"
-                                      ItemsSource="{Binding UserList}"
+                                      ItemTemplate="{StaticResource ListViewUsers}"
+                                      SelectedItem="{Binding SelectedUser, Mode=TwoWay}"
                                       >
                             </ListView>   
                             <StackPanel Orientation="Horizontal" 
