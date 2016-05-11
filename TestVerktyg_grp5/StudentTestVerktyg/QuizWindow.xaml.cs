@@ -162,6 +162,16 @@ namespace StudentTestVerktyg
         {
             MessageBox.Show(CurrentPoints.Sum().ToString());
             UtilityTestVerktyg.Quizzes.Remove(UtilityTestVerktyg.SelectedQuiz);
+            var userGrade = new Grade
+            {
+                CompletionDate = DateTime.Now,
+                QuizId = SelectedQuizId,
+                UserId = LoggedInUserId,
+                UserScore = CurrentPoints.Sum(),
+                UserGrade = (CurrentPoints.Sum() > QuizLength/2) ? "G" : "IG"
+
+            };
+            Repo.SaveUserQuizScore(userGrade);
             this.Close();
         }
     }

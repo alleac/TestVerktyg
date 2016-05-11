@@ -23,7 +23,7 @@ namespace StudentTestVerktyg
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<Quiz> Quizzes { get; set; }
+        //public List<Quiz> Quizzes { get; set; }
 
         private Quiz _selectedQuiz;
 

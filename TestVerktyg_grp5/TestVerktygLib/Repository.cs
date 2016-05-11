@@ -101,5 +101,14 @@ namespace TestVerktygLib
 
             }
         }
+
+        public void SaveUserQuizScore(Grade userGrade)
+        {
+            using (var db = new QuizDatabase())
+            {
+                db.Grades.Add(userGrade);
+                db.SaveChanges();
+            }
+        }
     }
 }
