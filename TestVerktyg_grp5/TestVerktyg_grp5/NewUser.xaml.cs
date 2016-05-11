@@ -49,7 +49,6 @@ namespace TestVerktyg_grp5
                         IsAdmin = cbx_adminTeacher.IsChecked.Value
                     };
 
-
                     Repo.AddUser(newUser);
                     UtilityTestVerktyg.Users.Add(newUser);
 
@@ -58,9 +57,7 @@ namespace TestVerktyg_grp5
                 else
                 {
                     MessageBox.Show("Not the same password!");
-                }
-
-                
+                }           
             }
         }
     }
