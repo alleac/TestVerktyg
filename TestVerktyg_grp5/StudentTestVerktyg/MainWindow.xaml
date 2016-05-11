@@ -10,7 +10,8 @@
 
     <Window.Resources>
         <DataTemplate x:Key="ListViewQuizTemplate">
-            <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal">
+            <StackPanel FlowDirection="LeftToRight" 
+                        Orientation="Horizontal">
                 <TextBlock Text="{Binding Path=Name}" />
                 <TextBlock Text=" |  Maxpoints :  " />
                 <TextBlock Text="{Binding Path=MaxPoints}" />
@@ -21,35 +22,29 @@
         <Grid x:Name="grid_loggedin">
             <TabControl x:Name="TabControlStudent">
                 <TabItem Header="Quizzes">
-                    <Grid Background="White" x:Name="QuizGrid">
-
-
-
+                    <Grid Background="White" 
+                          x:Name="QuizGrid">
                         <StackPanel HorizontalAlignment="Center">
-
                             <Label HorizontalAlignment="Center" 
                                    FontSize="24" 
                                    Content="Quizzes"
                                    />
-
                             <ListView x:Name="lv_QuizList"
                                       Width="400" 
                                       Height="250"
-                      ItemTemplate="{StaticResource ListViewQuizTemplate}"
-                      SelectedItem="{Binding SelectedQuiz, Mode=TwoWay}"/>
-
-
-
+                                      ItemTemplate="{StaticResource ListViewQuizTemplate}"
+                                      SelectedItem="{Binding SelectedQuiz, Mode=TwoWay}"
+                                      />
                             <StackPanel Orientation="Horizontal" 
                                         HorizontalAlignment="Center"
                                         >
-
                                 <Button x:Name="btn_TakeQuiz"
                                         Content="Take Quiz" 
-                                        Margin="10" Width="100" 
-                                        Height="20" Click="btn_TakeQuiz_Click"
+                                        Margin="10" 
+                                        Width="100" 
+                                        Height="20" 
+                                        Click="btn_TakeQuiz_Click"
                                         />
-
                             </StackPanel>
                         </StackPanel>
                     </Grid>
@@ -65,22 +60,30 @@
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
                         Margin="0,120,0,0">
+                <StackPanel>
+                    <Label Content="Email"
+                           Margin="9,0,0,0"
+                           Padding="1"
+                           />
                 <TextBox x:Name="tbx_inloggEmail"
-                         Margin="10"
-                         Height="23"  
-                         TextWrapping="Wrap" 
-                         Text="Email" 
+                         Margin="10,4,0,0"
+                         Height="23"                          
                          VerticalAlignment="Top" 
                          Width="200"
                          />
-                <TextBox x:Name="tbx_login"
-                         Margin="10"
-                         Height="23"  
-                         TextWrapping="Wrap" 
-                         Text="Password" 
-                         VerticalAlignment="Top" 
-                         Width="120"
-                         />
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Password"
+                           Margin="10,0,0,0"
+                           Padding="1"
+                           />
+                <PasswordBox x:Name="tbx_login"
+                             Margin="10,4,0,0"
+                             Height="23"                              
+                             VerticalAlignment="Top" 
+                             Width="120"
+                             />
+                </StackPanel>
             </StackPanel>
             <StackPanel>
                 <Button x:Name="btn_login"

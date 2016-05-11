@@ -82,7 +82,7 @@ namespace StudentTestVerktyg
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
             if (String.IsNullOrEmpty(tbx_inloggEmail.Text) ||
-                String.IsNullOrEmpty(tbx_login.Text))
+                String.IsNullOrEmpty(tbx_login.Password))
             {
 
                 MessageBox.Show("All fields must be filled");
@@ -93,7 +93,7 @@ namespace StudentTestVerktyg
 
                 if (user != null)
                 {
-                    if (user.Password == tbx_login.Text &&
+                    if (user.Password == tbx_login.Password &&
                         user.IsAdmin == false)
                     {
                         SwitchScreen();
