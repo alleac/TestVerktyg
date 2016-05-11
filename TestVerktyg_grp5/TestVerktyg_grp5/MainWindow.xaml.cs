@@ -54,7 +54,7 @@ namespace TestVerktyg_grp5
         {
             InitializeComponent();
 
-            grid_loggedin.Visibility = Visibility.Visible; // ska vara hidden
+            grid_loggedin.Visibility = Visibility.Hidden;
 
             DataContext = this;
             listViewQuestion.ItemsSource = UtilityTestVerktyg.QuizQuestions;
@@ -67,21 +67,39 @@ namespace TestVerktyg_grp5
         private void SwitchScreen()
         {
             grid_loggedin.Visibility = Visibility.Visible;
-            //grd_loginscreen.Visibility = Visibility.Hidden;
+            grd_loginscreen.Visibility = Visibility.Hidden;
         }
 
-        //private void btn_login_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (tbx_login.Text == "admin" ||
-        //        tbx_login.Text == "Admin")
-        //    {
-        //        SwitchScreen();
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Error password");
-        //    }
-        //}
+        private void btn_login_Click(object sender, RoutedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(tbx_inloggEmail.Text) ||
+                String.IsNullOrEmpty(tbx_login.Text))
+            {
+                MessageBox.Show("All fields must be filled");
+            }
+            else
+            {
+                User user = Repo.CheckPassword(tbx_inloggEmail.Text);
+
+                if (user != null)
+                {
+                    if (user.Password == tbx_login.Text &&
+                        user.IsAdmin == true)
+                    {
+                        SwitchScreen();                       
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong password");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("User doesn't excist");
+                }
+            }
+             
+        }
 
         private void btn_newUser_Click(object sender, RoutedEventArgs e)
         {

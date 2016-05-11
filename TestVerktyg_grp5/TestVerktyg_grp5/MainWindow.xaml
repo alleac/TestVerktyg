@@ -91,7 +91,7 @@
                 </TabItem>
             </TabControl>
         </Grid>
-        <!--<Grid Name="grd_loginscreen">
+        <Grid Name="grd_loginscreen">
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
                         Margin="0,120,0,0">
@@ -121,6 +121,6 @@
                         Height="23" Click="btn_login_Click"
                         />
             </StackPanel>
-        </Grid>-->
+        </Grid>
     </Grid>
 </Window>

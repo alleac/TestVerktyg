@@ -21,7 +21,10 @@ namespace TestVerktygLib
                 WriteLine(wasDbCreated ? "Database was created" : "Database already excists");
             }
             WriteLine("All done");
-        }       
+        }
+
+        public ObservableCollection<User> Users = new ObservableCollection<User>();
+
 
         public void AddUser(User user)
         {
@@ -30,7 +33,20 @@ namespace TestVerktygLib
                 db.Users.Add(user);
                 db.SaveChanges();
             }
-        }       
+        }
+
+        public ObservableCollection<User> GetUsers()
+        {
+            using (QuizDatabase db = new QuizDatabase())
+            {
+                foreach (var item in db.Users.ToList())
+                {
+                    Users.Add(item);
+                }
+
+                return Users;
+            }
+        }
 
         public void RemoveUser(User user)
         {
@@ -96,6 +112,14 @@ namespace TestVerktygLib
             {
                 db.Grades.Add(userGrade);
                 db.SaveChanges();
+            }
+        }
+
+        public User CheckPassword(string email)
+        {
+            using (QuizDatabase db = new QuizDatabase())
+            {
+                return db.Users.FirstOrDefault(u => u.Email == email);
             }
         }
     }
