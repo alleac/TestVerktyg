@@ -34,12 +34,6 @@ namespace TestVerktyg_grp5
         private void cq_btn(object sender, RoutedEventArgs e)
         {
             var _nq = new Question();
-            _nq.Title = q_tbx.Text;
-            _nq.AnswerOne = a_one_tbx.Text;
-            _nq.AnswerTwo = a_two_tbx.Text;
-            _nq.AnswerThree = a_three_tbx.Text;
-            _nq.AnswerFour = a_four_tbx.Text;
-
 
             if (a_one_rbn.IsChecked == true)
             {
@@ -61,31 +55,40 @@ namespace TestVerktyg_grp5
             {
                 _nq.RightAnswer = 0;
             }
-            _nq.QuizId = 1;
 
-            Questions.Add(_nq);
+            var textBoxes = new TextBox[] { q_tbx, a_one_tbx, a_two_tbx, a_three_tbx, a_four_tbx };
+            var radioButtons = new RadioButton[] { a_one_rbn, a_two_rbn, a_three_rbn, a_four_rbn };
+
+            if (textBoxes.Any(tb => tb.Text == String.Empty))
+            {
+                MessageBox.Show("All fields must be filled");
+            }
+            else if (radioButtons.Any(rb => rb.IsChecked.Value == true))
+            {
+                _nq.Title = q_tbx.Text;
+                _nq.AnswerOne = a_one_tbx.Text;
+                _nq.AnswerTwo = a_two_tbx.Text;
+                _nq.AnswerThree = a_three_tbx.Text;
+                _nq.AnswerFour = a_four_tbx.Text;
+
+                Questions.Add(_nq);
+                UtilityTestVerktyg.QuizQuestions.Add(_nq);
+
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("All fields must be filled");
+            }
 
             foreach (var item in Questions)
             {
-                Console.WriteLine(item.Title);
-                Console.WriteLine(item.AnswerOne);
-                Console.WriteLine(item.AnswerTwo);
-                Console.WriteLine(item.AnswerThree);
-                Console.WriteLine(item.AnswerFour);
-                Console.WriteLine(item.RightAnswer);
-
                 q_tbx.Clear();
                 a_one_tbx.Clear();
                 a_two_tbx.Clear();
                 a_three_tbx.Clear();
                 a_four_tbx.Clear();
             }
-
-            UtilityTestVerktyg.QuizQuestions.Add(_nq);
-
-            this.Close();
         }
-
-
     }
 }
