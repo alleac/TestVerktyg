@@ -128,11 +128,16 @@ namespace TestVerktyg_grp5
 
             if (showresult_cb.IsChecked != null) quiz.ShowResult = showresult_cb.IsChecked.Value;
 
-            Console.WriteLine(quiz.Name);
-            Console.WriteLine(quiz.CreationDate);
-            Console.WriteLine(quiz.EndDate);
-            Console.WriteLine(quiz.TimeToComplete);
-            Console.WriteLine(quiz.ShowResult);
+            if (UtilityTestVerktyg.QuizQuestions.Count > 0)
+            {
+                quiz.Questions = UtilityTestVerktyg.QuizQuestions.ToList();
+                Repo.AddQuiz(quiz);
+                UtilityTestVerktyg.QuizQuestions.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Couldnt find any questions");
+            }
         }
 
         private void del_btn_Click(object sender, RoutedEventArgs e)
