@@ -17,6 +17,7 @@ namespace TestVerktygLib
         public int TimeToComplete { get; set; } = 10; // 10 is default time to complete test if nothing overrides it
         public int MaxPoints { get; set; }
         public bool ShowResult { get; set; }
+        public virtual List<Question> Questions { get; set; } 
 
 
     }

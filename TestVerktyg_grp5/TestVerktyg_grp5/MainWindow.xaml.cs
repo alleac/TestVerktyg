@@ -122,5 +122,7 @@ namespace TestVerktyg_grp5
         {
             UtilityTestVerktyg.QuizQuestions.Remove(_selectedQuestion);
         }
+
+       
     }
 }
