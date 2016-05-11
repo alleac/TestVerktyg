@@ -60,6 +60,7 @@ namespace TestVerktygLib
         {
             using (var db = new QuizDatabase())
             {
+                
                 db.Quizs.Add(quiz);
                 db.SaveChanges();
             }
