@@ -53,19 +53,14 @@ namespace TestVerktyg_grp5
                     Repo.AddUser(newUser);
                     UtilityTestVerktyg.Users.Add(newUser);
 
-                    tbx_firstName.Text = "";
-                    tbx_lastName.Text = "";
-                    tbx_eMail.Text = "";
-                    tbx_password.Text = "";
-                    tbx_repeatPassword.Text = "";
-                    cbx_adminTeacher.IsChecked = false;
+                    this.Close();
                 }
                 else
                 {
                     MessageBox.Show("Not the same password!");
                 }
 
-                this.Close();
+                
             }
         }
     }
