@@ -93,8 +93,6 @@ namespace TestVerktyg_grp5
         {
             Repo.RemoveUser(_selectedUser);
             UtilityTestVerktyg.Users.Remove(_selectedUser);
-
-            lv_userList.Items.Refresh();
         }
 
         private void Cq_btn_OnClick(object sender, RoutedEventArgs e)

@@ -12,9 +12,9 @@ namespace TestVerktygLib
     {
         [Key]
         public int Id { get; set; }
-        [NotMapped]
+        //[NotMapped]
         public string FirstName { get; set; }
-        [NotMapped]
+        //[NotMapped]
         public string LastName { get; set; }
         private string _FullName;
         public string FullName
