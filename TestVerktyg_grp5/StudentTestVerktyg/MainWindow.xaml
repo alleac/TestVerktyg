@@ -17,47 +17,80 @@
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
-    
-    
-    <TabControl x:Name="TabControlStudent">
-        <TabItem Header="Quizzes">
-    <Grid Background="White" x:Name="QuizGrid">
+    <Grid>
+        <Grid x:Name="grid_loggedin">
+            <TabControl x:Name="TabControlStudent">
+                <TabItem Header="Quizzes">
+                    <Grid Background="White" x:Name="QuizGrid">
 
-        
 
-        <StackPanel HorizontalAlignment="Center">
 
-            <Label HorizontalAlignment="Center" 
+                        <StackPanel HorizontalAlignment="Center">
+
+                            <Label HorizontalAlignment="Center" 
                                    FontSize="24" 
                                    Content="Quizzes"
                                    />
 
-            <ListView x:Name="lv_QuizList"
+                            <ListView x:Name="lv_QuizList"
                                       Width="400" 
                                       Height="250"
                       ItemTemplate="{StaticResource ListViewQuizTemplate}"
                       SelectedItem="{Binding SelectedQuiz, Mode=TwoWay}"/>
-            
-            
 
-            <StackPanel Orientation="Horizontal" 
+
+
+                            <StackPanel Orientation="Horizontal" 
                                         HorizontalAlignment="Center"
                                         >
 
-                <Button x:Name="btn_TakeQuiz"
+                                <Button x:Name="btn_TakeQuiz"
                                         Content="Take Quiz" 
                                         Margin="10" Width="100" 
                                         Height="20" Click="btn_TakeQuiz_Click"
                                         />
 
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Results">
+                    <Grid>
+
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+        <Grid Name="grd_loginscreen">
+            <StackPanel Orientation="Horizontal" 
+                        HorizontalAlignment="Center"
+                        Margin="0,120,0,0">
+                <TextBox x:Name="tbx_inloggEmail"
+                         Margin="10"
+                         Height="23"  
+                         TextWrapping="Wrap" 
+                         Text="Email" 
+                         VerticalAlignment="Top" 
+                         Width="200"
+                         />
+                <TextBox x:Name="tbx_login"
+                         Margin="10"
+                         Height="23"  
+                         TextWrapping="Wrap" 
+                         Text="Password" 
+                         VerticalAlignment="Top" 
+                         Width="120"
+                         />
             </StackPanel>
-        </StackPanel>
-            </Grid>
-        </TabItem>
-        <TabItem Header="Results">
-            <Grid>
-                
-            </Grid>
-        </TabItem>
-    </TabControl>
+            <StackPanel>
+                <Button x:Name="btn_login"
+                        Margin="0,170,0,0"
+                        Content="Login"                       
+                        VerticalAlignment="Top" 
+                        Width="100"
+                        Height="23" Click="btn_login_Click"
+                        />
+            </StackPanel>
+        </Grid>
+    </Grid>
 </Window>

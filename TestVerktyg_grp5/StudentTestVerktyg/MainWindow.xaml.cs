@@ -38,29 +38,25 @@ namespace StudentTestVerktyg
                     SelectedQuizId = value.Id;
                     UtilityTestVerktyg.SelectedQuiz = value;
                 }
-                
             }
         }
 
-
-
         public MainWindow()
         {
-
             InitializeComponent();
+
+            grid_loggedin.Visibility = Visibility.Hidden;
+
             QuizGrid.DataContext = this;
             LoggedInUserId = 1; // CHANGE THAT MATCH THE LOGGED IN USER DYNAMICLY
             UtilityTestVerktyg.GetQuizForUser();
             lv_QuizList.ItemsSource = UtilityTestVerktyg.Quizzes;
 
             //Quizzes = repo.GetQuizForUser(1); // ***** CHANGE TO DEYNAMIC USERID *******
-
-
         }
 
         private void btn_TakeQuiz_Click(object sender, RoutedEventArgs e)
         {
-
             if (SelectedQuiz != null)
             {
                 //Update Utilityclass
@@ -68,7 +64,6 @@ namespace StudentTestVerktyg
                 quizWin.Closed += QuizQindowClosed;
                 quizWin.Show();
             }
-            
         }
 
         private void QuizQindowClosed(object sender, EventArgs e)
@@ -77,6 +72,44 @@ namespace StudentTestVerktyg
             UtilityTestVerktyg.Quizzes.Remove(UtilityTestVerktyg.SelectedQuiz);
         }
 
+        private void SwitchScreen()
+        {
+            grid_loggedin.Visibility = Visibility.Visible;
+            grd_loginscreen.Visibility = Visibility.Hidden;
+        }
 
+
+        private void btn_login_Click(object sender, RoutedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(tbx_inloggEmail.Text) ||
+                String.IsNullOrEmpty(tbx_login.Text))
+            {
+
+                MessageBox.Show("All fields must be filled");
+            }
+            else
+            {
+                User user = Repo.CheckPassword(tbx_inloggEmail.Text);
+
+                if (user != null)
+                {
+                    if (user.Password == tbx_login.Text &&
+                        user.IsAdmin == false)
+                    {
+                        SwitchScreen();
+                        LoggedInUserId = user.Id;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wrong password");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("User doesn't excist");
+                }
+            }
+
+        }
     }
 }

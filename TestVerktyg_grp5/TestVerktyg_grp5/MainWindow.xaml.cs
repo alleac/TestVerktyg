@@ -60,8 +60,6 @@ namespace TestVerktyg_grp5
             listViewQuestion.ItemsSource = UtilityTestVerktyg.QuizQuestions;
             UtilityTestVerktyg.GetUsers(); // Ropa på utility för att hämta users till utitlity.Users
             lv_userList.ItemsSource = UtilityTestVerktyg.Users; // binding för Utility.Users
-
-
         }
 
         private void SwitchScreen()
