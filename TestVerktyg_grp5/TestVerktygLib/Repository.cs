@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Console;
+using static TestVerktygLib.UtilityTestVerktyg;
 
 namespace TestVerktygLib
 {
@@ -124,6 +125,14 @@ namespace TestVerktygLib
             using (QuizDatabase db = new QuizDatabase())
             {
                 return db.Users.Any(u => u.Email == email);
+            }
+        }
+
+        public bool DoesGradeExcist(int quizId, int userId)
+        {
+            using (var db = new QuizDatabase())
+            {
+                return db.Grades.Any(g => g.QuizId == SelectedQuizId && g.UserId == LoggedInUserId);
             }
         }
     }

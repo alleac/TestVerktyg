@@ -19,6 +19,7 @@ namespace TestVerktygLib
         public string UserGrade { get; set; }
         public int UserScore { get; set; }
         public DateTime CompletionDate { get; set; }
+        public string TimeToComplete { get; set; }
 
     }
 }

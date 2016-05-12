@@ -64,19 +64,27 @@ namespace StudentTestVerktyg
 
         private void QuizQindowClosed(object sender, EventArgs e)
         {
-            MessageBox.Show(CurrentPoints.Sum().ToString());
-            UtilityTestVerktyg.Quizzes.Remove(UtilityTestVerktyg.SelectedQuiz);
+            
+            
 
-            var userGrade = new Grade
+            if (!Repo.DoesGradeExcist(SelectedQuizId,LoggedInUserId))
             {
-                CompletionDate = DateTime.Now,
-                QuizId = SelectedQuizId,
-                UserId = LoggedInUserId,
-                UserScore = CurrentPoints.Sum(),
-                UserGrade = (CurrentPoints.Sum() > QuizLength / 2) ? "G" : "IG"
 
-            };
-            Repo.SaveUserQuizScore(userGrade);
+                MessageBox.Show(CurrentPoints.Sum().ToString());
+                UtilityTestVerktyg.Quizzes.Remove(UtilityTestVerktyg.SelectedQuiz);
+
+                var userGrade = new Grade
+                {
+                    CompletionDate = DateTime.Now,
+                    QuizId = SelectedQuizId,
+                    UserId = LoggedInUserId,
+                    UserScore = CurrentPoints.Sum(),
+                    UserGrade = (CurrentPoints.Sum() > QuizLength / 2) ? "G" : "IG"
+
+                };
+                Repo.SaveUserQuizScore(userGrade);
+            }
+            
         }
 
         private void SwitchScreen()

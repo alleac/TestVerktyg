@@ -201,6 +201,8 @@ namespace StudentTestVerktyg
 
         private void btn_FinnishQuiz_Click(object sender, RoutedEventArgs e)
         {
+            TimeSpan testDuration = TimeSpan.FromSeconds((SelectedQuiz.TimeToComplete * 60) - time);
+
             MessageBox.Show(CurrentPoints.Sum().ToString());
             UtilityTestVerktyg.Quizzes.Remove(UtilityTestVerktyg.SelectedQuiz);
             var userGrade = new Grade
@@ -209,7 +211,9 @@ namespace StudentTestVerktyg
                 QuizId = SelectedQuizId,
                 UserId = LoggedInUserId,
                 UserScore = CurrentPoints.Sum(),
-                UserGrade = (CurrentPoints.Sum() > QuizLength/2) ? "G" : "IG"
+                UserGrade = (CurrentPoints.Sum() > QuizLength / 2) ? "G" : "IG",
+                TimeToComplete = testDuration.ToString(@"mm\:ss")
+                
 
             };
 
