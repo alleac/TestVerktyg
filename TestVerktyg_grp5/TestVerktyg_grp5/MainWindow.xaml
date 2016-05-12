@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestVerktyg_grp5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="620">
+        Title="MainWindow" Height="450" Width="500">
 
     <Grid>
         <Grid x:Name="grid_loggedin">
@@ -145,7 +145,7 @@
                                   Width="200">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="Questions" Width="Auto" DisplayMemberBinding="{Binding Title}"/>
+                                    <GridViewColumn Header="Questions" DisplayMemberBinding="{Binding Title}"/>
                                 </GridView>
                             </ListView.View>
                         </ListView>
@@ -159,41 +159,37 @@
                                   Height="280"
                                   HorizontalContentAlignment="Stretch"
                                   VerticalAlignment="Stretch"
-                                  SelectedItem="{Binding UserGrades, Mode=TwoWay}"
-                                  Margin="10,0,10,10"
+                                  SelectedItem="{Binding SelectedQuiz, Mode=TwoWay}"
+                                  Margin="10,60,10,10"
                                   >
                             <ListView.View>
                                 <GridView>
-                                    
-                                    <GridViewColumn Header="Quiz name" 
-                                                DisplayMemberBinding="{Binding Quiz.Name}" 
-                                                Width="80"
+                                    <GridViewColumn Header="Number of passed tests" 
+                                                DisplayMemberBinding="{Binding }" 
+                                                Width="150"
                                                 />
-                                    <GridViewColumn Header="User name" 
-                                                DisplayMemberBinding="{Binding User.FullName}" 
-                                                Width="80"
+                                    <GridViewColumn Header="Average score" 
+                                                DisplayMemberBinding="{Binding }" 
+                                                Width="150" 
                                                 />
-                                    <GridViewColumn Header="Max points" 
-                                                DisplayMemberBinding="{Binding Quiz.MaxPoints }" 
-                                                Width="130"
-                                                />
-                                    <GridViewColumn Header="Score" 
-                                                DisplayMemberBinding="{Binding UserScore}" 
-                                                Width="130" 
-                                                />
-                                    <GridViewColumn Header="Grade" 
-                                                DisplayMemberBinding="{Binding UserGrade}"
-                                                Width="130" 
+                                    <GridViewColumn Header="Averge completion time" 
+                                                DisplayMemberBinding="{Binding }"
+                                                Width="150" 
                                                 />
                                 </GridView>
                             </ListView.View>
                         </ListView>
+                        <ComboBox x:Name="cbx_Quiz" HorizontalAlignment="Left" Margin="81,38,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
+                        <ComboBox x:Name="cbx_Students" HorizontalAlignment="Left" Margin="81,10,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
+                        <Label x:Name="label1" Content="Label" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="label1_Copy" Content="Label" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
+                        <Button x:Name="btn_sort" Content="Sort" HorizontalAlignment="Left" Margin="216,23,0,0" VerticalAlignment="Top" Width="75"/>
                     </Grid>
                 </TabItem>
             </TabControl>
-            
+
         </Grid>
-        <Grid Name="grd_loginscreen"
+        <!--<Grid Name="grd_loginscreen"
               Background="Orange">
             <StackPanel HorizontalAlignment="Center"
                         Margin="0,20,0,0">
@@ -201,7 +197,7 @@
                        FontSize="18"
                        FontWeight="Bold"
                        Foreground="WhiteSmoke"/>
-                       
+
             </StackPanel>
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
@@ -240,6 +236,6 @@
                         Height="23" Click="btn_login_Click"
                         />
             </StackPanel>
-        </Grid>
+        </Grid>-->
     </Grid>
 </Window>
