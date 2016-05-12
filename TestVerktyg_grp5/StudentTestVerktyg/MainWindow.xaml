@@ -53,7 +53,7 @@
                         </ListView>
                         <Button x:Name="btn_TakeQuiz"
                                     Content="Take Quiz" 
-                                    Width="100"/>
+                                    Width="100" Click="btn_TakeQuiz_Click"/>
                     </StackPanel>
                 </TabItem>
                     <TabItem Header="Results">
@@ -104,7 +104,7 @@
                 </TabItem>
             </TabControl>
         </Grid>
-        <!--<Grid Name="grd_loginscreen"
+        <Grid Name="grd_loginscreen"
               Background="Orange">
             <StackPanel HorizontalAlignment="Center"
                         Margin="0,20,0,0">
@@ -150,6 +150,6 @@
                         Height="23" Click="btn_login_Click"
                         />
             </StackPanel>
-        </Grid>-->
+        </Grid>
     </Grid>
 </Window>

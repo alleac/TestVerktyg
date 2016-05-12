@@ -63,12 +63,12 @@ namespace StudentTestVerktyg
             if (UtilityTestVerktyg.SelectedQuiz != null)
             {
                 var quizWin = new QuizWindow();
-                quizWin.Closed += QuizQindowClosed;
+                quizWin.Closed += QuizWindowClosed;
                 quizWin.Show();
             }
         }
 
-        private void QuizQindowClosed(object sender, EventArgs e)
+        private void QuizWindowClosed(object sender, EventArgs e)
         {
             UtilityTestVerktyg.SelectedQuiz = null;
 
@@ -137,5 +137,7 @@ namespace StudentTestVerktyg
             }
 
         }
+
+
     }
 }
