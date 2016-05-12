@@ -164,6 +164,10 @@ namespace TestVerktyg_grp5
                 UtilityTestVerktyg.CreateQuestionNumber = 1;
 
                 qn_tbx.Text = "";
+                start_dp.SelectedDate = DateTime.Now;
+                end_dp.SelectedDate = DateTime.Now.AddDays(7);
+                slider.Value = 0;
+                showresult_cb.IsChecked = false;
                
             }
             else
