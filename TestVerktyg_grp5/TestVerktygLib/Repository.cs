@@ -74,11 +74,11 @@ namespace TestVerktygLib
                 db.SaveChanges();
             }
         }
-        public List<Quiz> GetQuizzes()
+        public ObservableCollection<Quiz> GetQuizzes()
         {
             using (var db = new QuizDatabase())
             {
-                return db.Quizs.ToList();
+                return new ObservableCollection<Quiz>(db.Quizs.ToList());
             }
         }
 

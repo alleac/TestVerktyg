@@ -50,6 +50,15 @@ namespace TestVerktyg_grp5
             }
         }
 
+        private Quiz _selectedQuiz;
+
+        public Quiz SelectedQuiz
+        {
+            get { return _selectedQuiz; }
+            set { _selectedQuiz = value; }
+        }
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -60,6 +69,9 @@ namespace TestVerktyg_grp5
             listViewQuestion.ItemsSource = UtilityTestVerktyg.QuizQuestions;
             UtilityTestVerktyg.GetUsers(); // Ropa på utility för att hämta users till utitlity.Users
             lv_userList.ItemsSource = UtilityTestVerktyg.Users; // binding för Utility.Users
+            UtilityTestVerktyg.GetQuizForAdmin();
+            lv_QuizList.ItemsSource = UtilityTestVerktyg.AdminQuizzes;
+            
         }
 
         private void SwitchScreen()
@@ -120,7 +132,16 @@ namespace TestVerktyg_grp5
         private void cquiz_btn_Click(object sender, RoutedEventArgs e)
         {
             var quiz = new Quiz();
-            quiz.Name = qn_tbx.Text;
+            if (qn_tbx.Text != "")
+            {
+                quiz.Name = qn_tbx.Text;
+            }
+            else
+            {
+                MessageBox.Show("Please enter a name for the Quiz");
+                return;
+            }
+            
             if (start_dp.SelectedDate != null) quiz.CreationDate = start_dp.SelectedDate.Value;
             if (end_dp.SelectedDate != null) quiz.EndDate = end_dp.SelectedDate.Value;
 
@@ -133,8 +154,12 @@ namespace TestVerktyg_grp5
                 quiz.MaxPoints = UtilityTestVerktyg.QuizQuestions.Count();
                 quiz.Questions = UtilityTestVerktyg.QuizQuestions.ToList();
                 Repo.AddQuiz(quiz);
+                UtilityTestVerktyg.AdminQuizzes.Add(quiz);
                 UtilityTestVerktyg.QuizQuestions.Clear();
                 UtilityTestVerktyg.CreateQuestionNumber = 1;
+
+                qn_tbx.Text = "";
+               
             }
             else
             {
