@@ -189,7 +189,7 @@
             </TabControl>
 
         </Grid>
-        <!--<Grid Name="grd_loginscreen"
+        <Grid Name="grd_loginscreen"
               Background="Orange">
             <StackPanel HorizontalAlignment="Center"
                         Margin="0,20,0,0">
@@ -236,6 +236,6 @@
                         Height="23" Click="btn_login_Click"
                         />
             </StackPanel>
-        </Grid>-->
+        </Grid>
     </Grid>
 </Window>

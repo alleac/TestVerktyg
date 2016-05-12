@@ -203,6 +203,8 @@ namespace StudentTestVerktyg
         {
             TimeSpan testDuration = TimeSpan.FromSeconds((SelectedQuiz.TimeToComplete * 60) - time);
 
+            _timer.Stop();
+
             if (SelectedQuiz.ShowResult == true)
             {
                 MessageBox.Show("Thanks for doing the Quiz your score is : " + CurrentPoints.Sum().ToString());
@@ -225,7 +227,6 @@ namespace StudentTestVerktyg
 
             };
 
-            _timer.Stop();
             Repo.SaveUserQuizScore(userGrade);
             this.Close();
         }
