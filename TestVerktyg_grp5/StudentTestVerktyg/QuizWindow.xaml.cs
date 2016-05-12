@@ -83,7 +83,7 @@ namespace StudentTestVerktyg
                     }
                     else
                     {
-                        tb_Timer.Foreground = new SolidColorBrush(Colors.White);
+                        tb_Timer.Foreground = new SolidColorBrush(Colors.Black);
                     }
                 }
                 time--;
@@ -203,7 +203,15 @@ namespace StudentTestVerktyg
         {
             TimeSpan testDuration = TimeSpan.FromSeconds((SelectedQuiz.TimeToComplete * 60) - time);
 
-            MessageBox.Show(CurrentPoints.Sum().ToString());
+            if (SelectedQuiz.ShowResult == true)
+            {
+                MessageBox.Show("Thanks for doing the Quiz your score is : " + CurrentPoints.Sum().ToString());
+            }
+            else
+            {
+                MessageBox.Show("Your teacher will get back to you with a result");
+            }
+            
             UtilityTestVerktyg.Quizzes.Remove(UtilityTestVerktyg.SelectedQuiz);
             var userGrade = new Grade
             {
