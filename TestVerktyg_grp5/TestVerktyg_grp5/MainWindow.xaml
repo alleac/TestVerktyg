@@ -82,10 +82,10 @@
                     </Grid>
                 </TabItem>
                 <TabItem Header="Quizes">
-                    <StackPanel Background="Orange">
+                    <StackPanel>
                         <Label HorizontalAlignment="Center" 
                                    FontSize="24" 
-                                   Content="Quizes"
+                                   Content="Quizzes"
                                    />
                         <ListView x:Name="lv_QuizList"
                                   Height="280"
