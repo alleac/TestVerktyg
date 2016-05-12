@@ -28,7 +28,7 @@
                                    Content="Quizes"
                                    />
                         <ListView x:Name="lv_QuizList"
-                                  Height="280"
+                                  Height="260"
                               HorizontalContentAlignment="Stretch"
                               VerticalAlignment="Stretch"
                               SelectedItem="{Binding SelectedQuiz, Mode=TwoWay}"
@@ -63,6 +63,9 @@
                                 </GridView>
                             </ListView.View>
                         </ListView>
+                        <Button x:Name="btn_TakeQuiz"
+                                    Content="Take Quiz" 
+                                    Width="100"/>
                     </StackPanel>
                 </TabItem>
                     <TabItem Header="Results">
@@ -108,12 +111,12 @@
                                     </GridView>
                                 </ListView.View>
                             </ListView>
-                        </StackPanel>
+                       </StackPanel>
                     </Grid>
                 </TabItem>
             </TabControl>
         </Grid>
-        <Grid Name="grd_loginscreen"
+        <!--<Grid Name="grd_loginscreen"
               Background="Orange">
             <StackPanel HorizontalAlignment="Center"
                         Margin="0,20,0,0">
@@ -159,6 +162,6 @@
                         Height="23" Click="btn_login_Click"
                         />
             </StackPanel>
-        </Grid>
+        </Grid>-->
     </Grid>
 </Window>
