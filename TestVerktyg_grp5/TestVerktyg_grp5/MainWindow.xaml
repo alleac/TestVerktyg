@@ -12,7 +12,27 @@
             <TabControl x:Name="tabControl" 
                     HorizontalAlignment="Stretch">
                 <TabItem Header="Main">
-                    <Grid Background="White"/>
+                    <Grid Background="Orange">
+
+
+                        <Label VerticalContentAlignment="Top" 
+                                    Margin="20"
+                                       HorizontalAlignment="Center"
+                                    FontSize="24" 
+                                        FontWeight="Bold"
+                               
+                                       Opacity="0.8" 
+                                       Content="Welcome to your digital test site&#xD;&#xA;&#xA;"
+                               Foreground="WhiteSmoke"/>
+                        
+
+                        <Image Name="Quiz" Width="317" Height="215" Stretch="Fill">
+
+                            <Image.Source >School_quiz.jpg</Image.Source>
+
+                        </Image>
+
+                    </Grid>
                 </TabItem>
                 <TabItem Header="Users">
                     <Grid Background="White">
