@@ -21,35 +21,52 @@
     <Grid x:Name="QuizGrid">
         <Grid x:Name="grid_loggedin">
             <TabControl x:Name="TabControlStudent">
-                <TabItem Header="Quizzes">
-                    <Grid Background="White">
-                        <StackPanel HorizontalAlignment="Center">
-                            <Label HorizontalAlignment="Center" 
+                <TabItem Header="Quizes">
+                    <StackPanel Background="Orange">
+                        <Label HorizontalAlignment="Center" 
                                    FontSize="24" 
-                                   Content="Quizzes"
+                                   Content="Quizes"
                                    />
-                            <ListView x:Name="lv_QuizList"
-                                      Width="400" 
-                                      Height="250"
-                                      ItemTemplate="{StaticResource ListViewQuizTemplate}"
-                                      SelectedItem="{Binding SelectedQuiz, Mode=TwoWay}"
-                                      />
-                            <StackPanel Orientation="Horizontal" 
-                                        HorizontalAlignment="Center"
-                                        >
-                                <Button x:Name="btn_TakeQuiz"
-                                        Content="Take Quiz" 
-                                        Margin="10" 
-                                        Width="100" 
-                                        Height="20" 
-                                        Click="btn_TakeQuiz_Click"
-                                        />
-                            </StackPanel>
-                        </StackPanel>
-                    </Grid>
+                        <ListView x:Name="lv_QuizList"
+                                  Height="280"
+                              HorizontalContentAlignment="Stretch"
+                              VerticalAlignment="Stretch"
+                              SelectedItem="{Binding SelectedQuiz, Mode=TwoWay}"
+                              Margin="10,0,10,10"
+                              >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Name" 
+                                                DisplayMemberBinding="{Binding Name}" 
+                                                Width="74"
+                                                />
+                                    <GridViewColumn Header="CreationDate" 
+                                                DisplayMemberBinding="{Binding CreationDate}" 
+                                                Width="74" 
+                                                />
+                                    <GridViewColumn Header="EndDate" 
+                                                DisplayMemberBinding="{Binding EndDate}"
+                                                Width="74" 
+                                                />
+                                    <GridViewColumn Header="TimeToComplete"
+                                                DisplayMemberBinding="{Binding TimeToComplete}" 
+                                                Width="74" 
+                                                />
+                                    <GridViewColumn Header="MaxPoints" 
+                                                DisplayMemberBinding="{Binding MaxPoints}"
+                                                Width="74" 
+                                                />
+                                    <GridViewColumn Header="ShowResult" 
+                                                DisplayMemberBinding="{Binding ShowResult}" 
+                                                Width="74" 
+                                                />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
                 </TabItem>
-                <TabItem Header="Results">
-                    <Grid>
+                    <TabItem Header="Results">
+                    <Grid Background="Orange">
                         <StackPanel>
                             <Label HorizontalAlignment="Center" 
                                    FontSize="24" 
@@ -96,7 +113,15 @@
                 </TabItem>
             </TabControl>
         </Grid>
-        <Grid Name="grd_loginscreen">
+        <Grid Name="grd_loginscreen"
+              Background="Orange">
+            <StackPanel HorizontalAlignment="Center"
+                        Margin="0,20,0,0">
+                <Label Content="Welcome to Newton student digital test center" 
+                       FontSize="18"
+                       FontWeight="Bold"
+                       Foreground="WhiteSmoke"/>
+            </StackPanel>
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
                         Margin="0,120,0,0">
@@ -121,7 +146,7 @@
                              Margin="10,4,0,0"
                              Height="23"                              
                              VerticalAlignment="Top" 
-                             Width="120"
+                             Width="200"
                              />
                 </StackPanel>
             </StackPanel>
