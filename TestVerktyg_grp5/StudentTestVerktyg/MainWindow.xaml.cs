@@ -53,7 +53,7 @@ namespace StudentTestVerktyg
 
         private void btn_TakeQuiz_Click(object sender, RoutedEventArgs e)
         {
-            if (SelectedQuiz != null)
+            if (UtilityTestVerktyg.SelectedQuiz != null)
             {
                 
                 var quizWin = new QuizWindow();
@@ -64,8 +64,7 @@ namespace StudentTestVerktyg
 
         private void QuizQindowClosed(object sender, EventArgs e)
         {
-            
-            
+            UtilityTestVerktyg.SelectedQuiz = null;
 
             if (!Repo.DoesGradeExcist(SelectedQuizId,LoggedInUserId))
             {

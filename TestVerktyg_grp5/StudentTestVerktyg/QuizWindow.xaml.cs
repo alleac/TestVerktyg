@@ -217,7 +217,7 @@ namespace StudentTestVerktyg
 
             };
 
-            
+            _timer.Stop();
             Repo.SaveUserQuizScore(userGrade);
             this.Close();
         }
