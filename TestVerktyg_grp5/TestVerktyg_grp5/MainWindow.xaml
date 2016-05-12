@@ -35,7 +35,7 @@
                     </Grid>
                 </TabItem>
                 <TabItem Header="Users">
-                    <Grid Background="White">
+                    <Grid Background="Orange">
                         <StackPanel HorizontalAlignment="Center">
                             <Label HorizontalAlignment="Center" 
                                    FontSize="24" 
@@ -82,7 +82,7 @@
                     </Grid>
                 </TabItem>
                 <TabItem Header="Quizes">
-                    <StackPanel>
+                    <StackPanel Background="Orange">
                         <Label HorizontalAlignment="Center" 
                                    FontSize="24" 
                                    Content="Quizes"
@@ -132,7 +132,7 @@
                     </StackPanel>
                 </TabItem>
                 <TabItem Header="Create quiz">
-                    <Grid Background="White" x:Name="GridCreateQuiz">
+                    <Grid Background="Orange" x:Name="GridCreateQuiz">
                         <Label x:Name="label" Content="Quiz name:&#xD;&#xA;" HorizontalAlignment="Left" Margin="36,53,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.688,0.167" Height="27"/>
                         <DatePicker x:Name="start_dp" HorizontalAlignment="Left" Margin="129,101,0,0" VerticalAlignment="Top"/>
                         <DatePicker x:Name="end_dp" HorizontalAlignment="Left" Margin="129,146,0,0" VerticalAlignment="Top"/>
@@ -161,9 +161,48 @@
                         <Button x:Name="del_btn" Content="Delete Question" HorizontalAlignment="Left" Margin="377,348,0,0" VerticalAlignment="Top" Width="92" Click="del_btn_Click"/>
                     </Grid>
                 </TabItem>
+
+                <TabItem Header="Statistiscs">
+                    <Grid Background="Orange">
+                        <ListView x:Name="lv_Statistiscs"
+                                  Height="280"
+                                  HorizontalContentAlignment="Stretch"
+                                  VerticalAlignment="Stretch"
+                                  SelectedItem="{Binding SelectedQuiz, Mode=TwoWay}"
+                                  Margin="10,0,10,10"
+                                  >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Number of approvad test" 
+                                                DisplayMemberBinding="{Binding }" 
+                                                Width="150"
+                                                />
+                                    <GridViewColumn Header="Number of avrage score" 
+                                                DisplayMemberBinding="{Binding }" 
+                                                Width="150" 
+                                                />
+                                    <GridViewColumn Header="Time to complete test" 
+                                                DisplayMemberBinding="{Binding }"
+                                                Width="150" 
+                                                />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </TabItem>
             </TabControl>
+            
         </Grid>
-        <Grid Name="grd_loginscreen">
+        <Grid Name="grd_loginscreen"
+              Background="Orange">
+            <StackPanel HorizontalAlignment="Center"
+                        Margin="0,20,0,0">
+                <Label Content="Welcome to Newton admin/teacher digital test center" 
+                       FontSize="18"
+                       FontWeight="Bold"
+                       Foreground="WhiteSmoke"/>
+                       
+            </StackPanel>
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
                         Margin="0,120,0,0">
@@ -188,13 +227,13 @@
                              Margin="10,4,0,0"
                              Height="23"                              
                              VerticalAlignment="Top" 
-                             Width="120"
+                             Width="200"
                              />
                 </StackPanel>
             </StackPanel>
             <StackPanel>
                 <Button x:Name="btn_login"
-                        Margin="0,170,0,0"
+                        Margin="0,200,0,0"
                         Content="Login"                       
                         VerticalAlignment="Top" 
                         Width="100"
