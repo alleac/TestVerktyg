@@ -81,11 +81,11 @@
                         </StackPanel>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Quizes">
+                <TabItem Header="Quizzes">
                     <StackPanel>
                         <Label HorizontalAlignment="Center" 
                                    FontSize="24" 
-                                   Content="Quizes"
+                                   Content="Quizzes"
                                    />
                         <ListView x:Name="lv_QuizList"
                                   Height="280"
