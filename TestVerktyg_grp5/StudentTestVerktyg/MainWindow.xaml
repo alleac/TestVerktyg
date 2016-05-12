@@ -51,7 +51,47 @@
                 </TabItem>
                 <TabItem Header="Results">
                     <Grid>
-
+                        <StackPanel>
+                            <Label HorizontalAlignment="Center" 
+                                   FontSize="24" 
+                                   Content="Results"
+                                   />
+                            <ListView x:Name="listViewQuest"
+                              HorizontalContentAlignment="Stretch"
+                              VerticalAlignment="Stretch"
+                              SelectedItem="{Binding SelectedQuestion, Mode=TwoWay}"
+                              Margin="10,0,10,10"
+                              >
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="QuizName" 
+                                                DisplayMemberBinding="{Binding QuizName}" 
+                                                Width="75" 
+                                                />
+                                        <GridViewColumn Header="MaxPoints" 
+                                                DisplayMemberBinding="{Binding MaxPoints}" 
+                                                Width="75" 
+                                                />
+                                        <GridViewColumn Header="UserScore" 
+                                                DisplayMemberBinding="{Binding UserScore}"
+                                                Width="75" 
+                                                />
+                                        <GridViewColumn Header="UserGrade"
+                                                DisplayMemberBinding="{Binding UserGrade}" 
+                                                Width="75" 
+                                                />
+                                        <GridViewColumn Header="CompletionDate" 
+                                                DisplayMemberBinding="{Binding CompletionDate}"
+                                                Width="100" 
+                                                />
+                                        <GridViewColumn Header="TimeToComplete" 
+                                                DisplayMemberBinding="{Binding TimeToComplete}" 
+                                                Width="75" 
+                                                />
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </StackPanel>
                     </Grid>
                 </TabItem>
             </TabControl>
