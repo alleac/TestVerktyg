@@ -23,6 +23,7 @@ namespace StudentTestVerktyg
     public partial class QuizWindow : Window, INotifyPropertyChanged
     {
         private Repository repo { get; set; } = new Repository();
+        public int QuizLengthNumber { get; set; }
         public List<Question> Questions { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -53,6 +54,7 @@ namespace StudentTestVerktyg
             CurrentPoints = new int[QuizLength];
 
             Question = Questions[SelectedQuestionNumber];
+            QuizLengthNumber = UtilityTestVerktyg.QuizLength;
             QuizWindowGrid.DataContext = this;
         }
 
@@ -171,6 +173,8 @@ namespace StudentTestVerktyg
                 UserGrade = (CurrentPoints.Sum() > QuizLength/2) ? "G" : "IG"
 
             };
+
+            
             Repo.SaveUserQuizScore(userGrade);
             this.Close();
         }

@@ -133,6 +133,7 @@ namespace TestVerktyg_grp5
                 quiz.Questions = UtilityTestVerktyg.QuizQuestions.ToList();
                 Repo.AddQuiz(quiz);
                 UtilityTestVerktyg.QuizQuestions.Clear();
+                UtilityTestVerktyg.CreateQuestionNumber = 1;
             }
             else
             {

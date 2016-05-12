@@ -24,6 +24,7 @@ namespace TestVerktygLib
         public static List<Question> CurrentQuizQuestions { get; set; }
         public static int[] CurrentPoints { get; set; }
         public static int LoggedInUserId { get; set; }
+        public static int CreateQuestionNumber { get; set; } = 1;
 
         public static void GetQuizForUser()
         {

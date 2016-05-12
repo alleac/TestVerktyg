@@ -6,9 +6,13 @@
         xmlns:local="clr-namespace:StudentTestVerktyg"
         mc:Ignorable="d"
         Title="QuizWindow" Height="500" Width="500">
+
+
+
     
     <Grid x:Name="QuizWindowGrid">
-
+        
+        
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
             <Label Content="{Binding Question.Title}" />
@@ -22,6 +26,10 @@
         <Button x:Name="btn_Back" Content="back" Height="50" Width="75" HorizontalAlignment="Left" Click="btn_Back_Click" Visibility="Hidden" />
         <Button x:Name="btn_Forward" Content="forward" Height="50" Width="75" HorizontalAlignment="Right" Click="btn_Forward_Click"/>
         <Button x:Name="btn_FinnishQuiz" Content="Finnish quiz" Height="50" Width="75" HorizontalAlignment="Right" Visibility="Hidden" Click="btn_FinnishQuiz_Click" />
+        <Label x:Name="lbl_QuestionNumber" Content="Question : " HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_MaxQuestion" Content="Of :" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tb_QuestionNumber" Text="{Binding Question.QuestionNumber}" HorizontalAlignment="Left" Margin="81,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tb_MaxQuestions" HorizontalAlignment="Left" Text="{Binding QuizLengthNumber}" Margin="44,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
 
     </Grid>

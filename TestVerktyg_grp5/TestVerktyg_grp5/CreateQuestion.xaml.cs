@@ -71,6 +71,7 @@ namespace TestVerktyg_grp5
                 _nq.AnswerThree = a_three_tbx.Text;
                 _nq.AnswerFour = a_four_tbx.Text;
 
+                _nq.QuestionNumber = UtilityTestVerktyg.CreateQuestionNumber++;
                 Questions.Add(_nq);
                 UtilityTestVerktyg.QuizQuestions.Add(_nq);
 
