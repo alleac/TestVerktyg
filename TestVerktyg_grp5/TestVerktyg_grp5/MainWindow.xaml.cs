@@ -149,7 +149,7 @@ namespace TestVerktyg_grp5
 
             if (showresult_cb.IsChecked != null) quiz.ShowResult = showresult_cb.IsChecked.Value;
 
-            if (UtilityTestVerktyg.QuizQuestions.Count > 0)
+            if (UtilityTestVerktyg.QuizQuestions.Count > 1)
             {
                 quiz.MaxPoints = UtilityTestVerktyg.QuizQuestions.Count();
                 quiz.Questions = UtilityTestVerktyg.QuizQuestions.ToList();
@@ -163,7 +163,7 @@ namespace TestVerktyg_grp5
             }
             else
             {
-                MessageBox.Show("Couldnt find any questions");
+                MessageBox.Show("please enter atleast two questions");
             }
         }
 
