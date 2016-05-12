@@ -94,6 +94,8 @@ namespace StudentTestVerktyg
                 };
                 Repo.SaveUserQuizScore(userGrade);
             }
+            UtilityTestVerktyg.GetUserGrade(LoggedInUserId);
+            lv_Result.ItemsSource = UtilityTestVerktyg.UserGrades;
             
         }
 
