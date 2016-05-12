@@ -62,10 +62,10 @@
                                    FontSize="24" 
                                    Content="Quizes"
                                    />
-                        <ListView x:Name="listViewQuest"
+                        <ListView x:Name="lv_QuizList"
                               HorizontalContentAlignment="Stretch"
                               VerticalAlignment="Stretch"
-                              SelectedItem="{Binding SelectedQuestion, Mode=TwoWay}"
+                              SelectedItem="{Binding SelectedQuiz, Mode=TwoWay}"
                               Margin="10,0,10,10"
                               >
                             <ListView.View>
