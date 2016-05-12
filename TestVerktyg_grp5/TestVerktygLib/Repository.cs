@@ -56,6 +56,15 @@ namespace TestVerktygLib
                 db.SaveChanges();
             }
         }
+        public void RemoveQuiz(Quiz quiz)
+        {
+            using (var db = new QuizDatabase())
+            {
+                db.Quizs.Attach(quiz);
+                db.Quizs.Remove(quiz);
+                db.SaveChanges();
+            }
+        }
 
         public void AddQuiz(Quiz quiz)
         {

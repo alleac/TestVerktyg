@@ -119,8 +119,13 @@ namespace TestVerktyg_grp5
 
         private void btn_deleteUser_Click(object sender, RoutedEventArgs e)
         {
-            Repo.RemoveUser(_selectedUser);
-            UtilityTestVerktyg.Users.Remove(_selectedUser);
+            if (_selectedUser != null)
+            {
+                Repo.RemoveUser(_selectedUser);
+                UtilityTestVerktyg.Users.Remove(_selectedUser);
+                _selectedUser = null;
+            }
+            
         }
 
         private void Cq_btn_OnClick(object sender, RoutedEventArgs e)
@@ -172,6 +177,15 @@ namespace TestVerktyg_grp5
             UtilityTestVerktyg.QuizQuestions.Remove(_selectedQuestion);
         }
 
-       
+        private void btn_DelQuiz_Click(object sender, RoutedEventArgs e)
+        {
+            if (_selectedQuiz != null)
+            {
+                Repo.RemoveQuiz(_selectedQuiz);
+                UtilityTestVerktyg.AdminQuizzes.Remove(_selectedQuiz);
+                _selectedQuiz = null;
+            }
+            
+        }
     }
 }
