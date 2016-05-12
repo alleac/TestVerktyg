@@ -130,6 +130,7 @@ namespace TestVerktyg_grp5
 
             if (UtilityTestVerktyg.QuizQuestions.Count > 0)
             {
+                quiz.MaxPoints = UtilityTestVerktyg.QuizQuestions.Count();
                 quiz.Questions = UtilityTestVerktyg.QuizQuestions.ToList();
                 Repo.AddQuiz(quiz);
                 UtilityTestVerktyg.QuizQuestions.Clear();
