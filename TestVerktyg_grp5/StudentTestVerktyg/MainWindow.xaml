@@ -8,16 +8,7 @@
         Title="MainWindow" Height="400" Width="525">
 
 
-    <Window.Resources>
-        <DataTemplate x:Key="ListViewQuizTemplate">
-            <StackPanel FlowDirection="LeftToRight" 
-                        Orientation="Horizontal">
-                <TextBlock Text="{Binding Name}" />
-                <TextBlock Text=" |  Maxpoints :  " />
-                <TextBlock Text="{Binding MaxPoints}" />
-            </StackPanel>
-        </DataTemplate>
-    </Window.Resources>
+    
     <Grid x:Name="QuizGrid">
         <Grid x:Name="grid_loggedin">
             <TabControl x:Name="TabControlStudent">
@@ -38,26 +29,23 @@
                                 <GridView>
                                     <GridViewColumn Header="Name" 
                                                 DisplayMemberBinding="{Binding Name}" 
-                                                Width="74"
+                                                Width="Auto"
                                                 />
-                                    <GridViewColumn Header="CreationDate" 
+                                    <GridViewColumn Header="Quiz start" 
                                                 DisplayMemberBinding="{Binding CreationDate}" 
                                                 Width="74" 
                                                 />
-                                    <GridViewColumn Header="EndDate" 
+                                    <GridViewColumn Header="Quiz end"  
                                                 DisplayMemberBinding="{Binding EndDate}"
                                                 Width="74" 
                                                 />
-                                    <GridViewColumn Header="TimeToComplete"
+                                    <GridViewColumn Header="Time to complete"
+
                                                 DisplayMemberBinding="{Binding TimeToComplete}" 
-                                                Width="74" 
+                                                Width="Auto" 
                                                 />
-                                    <GridViewColumn Header="MaxPoints" 
+                                    <GridViewColumn Header="Max points" 
                                                 DisplayMemberBinding="{Binding MaxPoints}"
-                                                Width="74" 
-                                                />
-                                    <GridViewColumn Header="ShowResult" 
-                                                DisplayMemberBinding="{Binding ShowResult}" 
                                                 Width="74" 
                                                 />
                                 </GridView>
