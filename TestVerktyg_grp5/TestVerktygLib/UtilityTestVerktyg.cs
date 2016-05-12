@@ -15,6 +15,7 @@ namespace TestVerktygLib
         public static ObservableCollection<Question> QuizQuestions { get; set; } = new ObservableCollection<Question>();
         public static ObservableCollection<User> Users { get; set; } = new ObservableCollection<User>();
         public static ObservableCollection<Quiz> AdminQuizzes { get; set; } = new ObservableCollection<Quiz>();
+        public static ObservableCollection<Grade> UserGrades { get; set; } = new ObservableCollection<Grade>();
         public static Quiz SelectedQuiz { get; set; }
         public static Question SelectedQuestion { get; set; }
 
@@ -39,6 +40,10 @@ namespace TestVerktygLib
         public  static void GetQuizForAdmin()
         {
             AdminQuizzes = Repo.GetQuizzes();
+        }
+        public static void GetUserGrade(int userId)
+        {
+            UserGrades = Repo.GetUserGrade(userId);
         }
     }
 }

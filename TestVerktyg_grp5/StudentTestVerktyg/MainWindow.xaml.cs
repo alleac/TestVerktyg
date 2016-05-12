@@ -41,6 +41,15 @@ namespace StudentTestVerktyg
             }
         }
 
+        private Grade _userGrade;
+
+        public Grade UserGrade
+        {
+            get { return _userGrade; }
+            set { _userGrade = value; }
+        }
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -48,6 +57,8 @@ namespace StudentTestVerktyg
             grid_loggedin.Visibility = Visibility.Hidden;
 
             QuizGrid.DataContext = this;
+
+            
             
         }
 
@@ -114,6 +125,8 @@ namespace StudentTestVerktyg
                         LoggedInUserId = user.Id;
                         GetQuizForUser(LoggedInUserId);
                         lv_QuizList.ItemsSource = Quizzes;
+                        UtilityTestVerktyg.GetUserGrade(LoggedInUserId);
+                        lv_Result.ItemsSource = UtilityTestVerktyg.UserGrades;
                     }
                     else
                     {
