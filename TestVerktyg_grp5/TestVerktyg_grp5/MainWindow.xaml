@@ -173,15 +173,15 @@
                                   >
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="Number of approvad test" 
+                                    <GridViewColumn Header="Number of passed tests" 
                                                 DisplayMemberBinding="{Binding }" 
                                                 Width="150"
                                                 />
-                                    <GridViewColumn Header="Number of avrage score" 
+                                    <GridViewColumn Header="Average score" 
                                                 DisplayMemberBinding="{Binding }" 
                                                 Width="150" 
                                                 />
-                                    <GridViewColumn Header="Time to complete test" 
+                                    <GridViewColumn Header="Averge completion time" 
                                                 DisplayMemberBinding="{Binding }"
                                                 Width="150" 
                                                 />
