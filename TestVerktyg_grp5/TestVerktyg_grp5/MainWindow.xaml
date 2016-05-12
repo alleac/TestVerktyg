@@ -16,7 +16,7 @@
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
-    
+
     <Grid>
         <Grid x:Name="grid_loggedin">
             <TabControl x:Name="tabControl" 
@@ -37,7 +37,7 @@
                                       ItemTemplate="{StaticResource ListViewUsers}"
                                       SelectedItem="{Binding SelectedUser, Mode=TwoWay}"
                                       >
-                            </ListView>   
+                            </ListView>
                             <StackPanel Orientation="Horizontal" 
                                         HorizontalAlignment="Center"
                                         >
@@ -57,7 +57,47 @@
                     </Grid>
                 </TabItem>
                 <TabItem Header="Quizes">
-
+                    <StackPanel>
+                        <Label HorizontalAlignment="Center" 
+                                   FontSize="24" 
+                                   Content="Quizes"
+                                   />
+                        <ListView x:Name="listViewQuest"
+                              HorizontalContentAlignment="Stretch"
+                              VerticalAlignment="Stretch"
+                              SelectedItem="{Binding SelectedQuestion, Mode=TwoWay}"
+                              Margin="10,0,10,10"
+                              >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Name" 
+                                                DisplayMemberBinding="{Binding Name}" 
+                                                Width="74" 
+                                                />
+                                    <GridViewColumn Header="CreationDate" 
+                                                DisplayMemberBinding="{Binding CreationDate}" 
+                                                Width="74" 
+                                                />
+                                    <GridViewColumn Header="EndDate" 
+                                                DisplayMemberBinding="{Binding EndDate}"
+                                                Width="74" 
+                                                />
+                                    <GridViewColumn Header="TimeToComplete"
+                                                DisplayMemberBinding="{Binding TimeToComplete}" 
+                                                Width="74" 
+                                                />
+                                    <GridViewColumn Header="MaxPoints" 
+                                                DisplayMemberBinding="{Binding MaxPoints}"
+                                                Width="74" 
+                                                />
+                                    <GridViewColumn Header="ShowResult" 
+                                                DisplayMemberBinding="{Binding ShowResult}" 
+                                                Width="74" 
+                                                />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </StackPanel>
                 </TabItem>
                 <TabItem Header="Create quiz">
                     <Grid Background="White" x:Name="GridCreateQuiz">
