@@ -63,6 +63,7 @@
                                    Content="Quizes"
                                    />
                         <ListView x:Name="lv_QuizList"
+                                  Height="280"
                               HorizontalContentAlignment="Stretch"
                               VerticalAlignment="Stretch"
                               SelectedItem="{Binding SelectedQuiz, Mode=TwoWay}"
@@ -97,6 +98,10 @@
                                 </GridView>
                             </ListView.View>
                         </ListView>
+                        <Button Content="Delete quiz" 
+                                Width="100"
+                                Margin="0,0,0,0"
+                                /> 
                     </StackPanel>
                 </TabItem>
                 <TabItem Header="Create quiz">
