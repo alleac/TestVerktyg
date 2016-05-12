@@ -50,15 +50,15 @@
                                     <GridView>
                                         <GridViewColumn Header="Name" 
                                                 DisplayMemberBinding="{Binding FullName}" 
-                                                Width="132"
+                                                Width="130"
                                                 />
                                         <GridViewColumn Header="Email" 
                                                 DisplayMemberBinding="{Binding Email}" 
-                                                Width="132" 
+                                                Width="130" 
                                                 />
                                         <GridViewColumn Header="Admin" 
                                                 DisplayMemberBinding="{Binding IsAdmin}"
-                                                Width="132" 
+                                                Width="130" 
                                                 />
                                     </GridView>
                                 </ListView.View>

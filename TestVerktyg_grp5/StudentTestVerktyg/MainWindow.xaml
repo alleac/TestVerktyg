@@ -18,12 +18,11 @@
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
-    <Grid>
+    <Grid x:Name="QuizGrid">
         <Grid x:Name="grid_loggedin">
             <TabControl x:Name="TabControlStudent">
                 <TabItem Header="Quizzes">
-                    <Grid Background="White" 
-                          x:Name="QuizGrid">
+                    <Grid Background="White">
                         <StackPanel HorizontalAlignment="Center">
                             <Label HorizontalAlignment="Center" 
                                    FontSize="24" 
@@ -56,20 +55,21 @@
                                    FontSize="24" 
                                    Content="Results"
                                    />
-                            <ListView x:Name="listViewQuest"
+                            <ListView x:Name="lv_Result"
                               HorizontalContentAlignment="Stretch"
+                                      Height="250"
                               VerticalAlignment="Stretch"
-                              SelectedItem="{Binding SelectedQuestion, Mode=TwoWay}"
+                              SelectedItem="{Binding SelectedGrade, Mode=TwoWay}"
                               Margin="10,0,10,10"
                               >
                                 <ListView.View>
                                     <GridView>
                                         <GridViewColumn Header="QuizName" 
-                                                DisplayMemberBinding="{Binding QuizName}" 
+                                                DisplayMemberBinding="{Binding Quiz.Name}" 
                                                 Width="75" 
                                                 />
                                         <GridViewColumn Header="MaxPoints" 
-                                                DisplayMemberBinding="{Binding MaxPoints}" 
+                                                DisplayMemberBinding="{Binding Quiz.MaxPoints}" 
                                                 Width="75" 
                                                 />
                                         <GridViewColumn Header="UserScore" 

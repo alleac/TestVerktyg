@@ -144,5 +144,14 @@ namespace TestVerktygLib
                 return db.Grades.Any(g => g.QuizId == SelectedQuizId && g.UserId == LoggedInUserId);
             }
         }
+
+        public ObservableCollection<Grade> GetUserGrade(int userId)
+        {
+            using (var db = new QuizDatabase())
+            {
+                return new ObservableCollection<Grade>(db.Grades.Include("Quiz").Where(g => g.UserId == userId));
+                    
+            }
+        }
     }
 }
