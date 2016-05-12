@@ -43,7 +43,19 @@ namespace TestVerktygLib
         }
         public static void GetUserGrade(int userId)
         {
-            UserGrades = Repo.GetUserGrade(userId);
+            var tempList = new ObservableCollection<Grade>();
+            tempList = Repo.GetUserGrade(userId);
+
+            foreach (var item in tempList)
+            {
+                if (item.Quiz.ShowResult == false)
+                {
+                    item.UserGrade = "N/A";
+                    item.UserScore = null;
+                }
+            }
+
+            UserGrades = tempList;
         }
     }
 }

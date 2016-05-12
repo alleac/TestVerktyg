@@ -55,18 +55,13 @@ namespace StudentTestVerktyg
             InitializeComponent();
 
             grid_loggedin.Visibility = Visibility.Hidden;
-
             QuizGrid.DataContext = this;
-
-            
-            
         }
 
         private void btn_TakeQuiz_Click(object sender, RoutedEventArgs e)
         {
             if (UtilityTestVerktyg.SelectedQuiz != null)
             {
-                
                 var quizWin = new QuizWindow();
                 quizWin.Closed += QuizQindowClosed;
                 quizWin.Show();
