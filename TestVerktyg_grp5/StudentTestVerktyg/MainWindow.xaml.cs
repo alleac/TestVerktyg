@@ -23,7 +23,7 @@ namespace StudentTestVerktyg
     /// </summary>
     public partial class MainWindow : Window
     {
-        //public List<Quiz> Quizzes { get; set; }
+        
 
         private Quiz _selectedQuiz;
 
@@ -48,18 +48,14 @@ namespace StudentTestVerktyg
             grid_loggedin.Visibility = Visibility.Hidden;
 
             QuizGrid.DataContext = this;
-            LoggedInUserId = 1; // CHANGE THAT MATCH THE LOGGED IN USER DYNAMICLY
-            UtilityTestVerktyg.GetQuizForUser();
-            lv_QuizList.ItemsSource = UtilityTestVerktyg.Quizzes;
-
-            //Quizzes = repo.GetQuizForUser(1); // ***** CHANGE TO DEYNAMIC USERID *******
+            
         }
 
         private void btn_TakeQuiz_Click(object sender, RoutedEventArgs e)
         {
             if (SelectedQuiz != null)
             {
-                //Update Utilityclass
+                
                 var quizWin = new QuizWindow();
                 quizWin.Closed += QuizQindowClosed;
                 quizWin.Show();
@@ -109,6 +105,8 @@ namespace StudentTestVerktyg
                     {
                         SwitchScreen();
                         LoggedInUserId = user.Id;
+                        UtilityTestVerktyg.GetQuizForUser(LoggedInUserId);
+                        lv_QuizList.ItemsSource = UtilityTestVerktyg.Quizzes;
                     }
                     else
                     {

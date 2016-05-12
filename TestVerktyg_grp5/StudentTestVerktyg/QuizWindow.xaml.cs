@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using TestVerktygLib;
 using static TestVerktygLib.UtilityTestVerktyg;
 
@@ -25,6 +26,9 @@ namespace StudentTestVerktyg
         private Repository repo { get; set; } = new Repository();
         public int QuizLengthNumber { get; set; }
         public List<Question> Questions { get; set; }
+
+        private int time { get; set; }
+        private DispatcherTimer _timer { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -56,8 +60,43 @@ namespace StudentTestVerktyg
             Question = Questions[SelectedQuestionNumber];
             QuizLengthNumber = UtilityTestVerktyg.QuizLength;
             QuizWindowGrid.DataContext = this;
+
+            time = SelectedQuiz.TimeToComplete * 60;
+
+            _timer = new DispatcherTimer();
+            _timer.Interval = new TimeSpan(0, 0, 1);
+            _timer.Tick += _timer_Tick;
+            _timer.Start();
         }
 
+        private void _timer_Tick(object sender, EventArgs e)
+        {
+            TimeSpan newTime = TimeSpan.FromSeconds(time);
+
+            if (time > 0)
+            {
+                if (time < 55)
+                {
+                    if (time%2 == 0)
+                    {
+                        tb_Timer.Foreground = new SolidColorBrush(Colors.Red);
+                    }
+                    else
+                    {
+                        tb_Timer.Foreground = new SolidColorBrush(Colors.White);
+                    }
+                }
+                time--;
+                tb_Timer.FontSize = 25;
+                tb_Timer.Text = newTime.ToString(@"mm\:ss");
+            }
+            else
+            {
+                _timer.Stop();
+                MessageBox.Show("Time's up");
+                this.Close();
+            }
+        }
 
         private void btn_Back_Click(object sender, RoutedEventArgs e)
         {

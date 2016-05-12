@@ -26,9 +26,9 @@ namespace TestVerktygLib
         public static int LoggedInUserId { get; set; }
         public static int CreateQuestionNumber { get; set; } = 1;
 
-        public static void GetQuizForUser()
+        public static void GetQuizForUser(int userId)
         {
-            Quizzes = Repo.GetQuizForUser(1);
+            Quizzes = Repo.GetQuizForUser(userId);
         }
 
         public static void GetUsers()

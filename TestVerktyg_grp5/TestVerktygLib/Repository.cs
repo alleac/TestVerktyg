@@ -93,7 +93,7 @@ namespace TestVerktygLib
         {
             using (var db = new QuizDatabase())
             {
-                List<int> quizIdsList = db.Grades.Where(g => g.UserId == 1).Select(g => g.QuizId).ToList();
+                List<int> quizIdsList = db.Grades.Where(g => g.UserId == userId).Select(g => g.QuizId).ToList();
 
                 return new ObservableCollection<Quiz>(db.Quizs.Where(q => !quizIdsList.Contains(q.Id))
                     .Where(q => q.CreationDate < DateTime.Now)
