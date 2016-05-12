@@ -70,7 +70,7 @@ namespace StudentTestVerktyg
             {
 
                 MessageBox.Show(CurrentPoints.Sum().ToString());
-                UtilityTestVerktyg.Quizzes.Remove(UtilityTestVerktyg.SelectedQuiz);
+                Quizzes.Remove(UtilityTestVerktyg.SelectedQuiz);
 
                 var userGrade = new Grade
                 {
@@ -95,8 +95,8 @@ namespace StudentTestVerktyg
 
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
-            if (String.IsNullOrEmpty(tbx_inloggEmail.Text) ||
-                String.IsNullOrEmpty(tbx_login.Password))
+            if (string.IsNullOrEmpty(tbx_inloggEmail.Text) ||
+                string.IsNullOrEmpty(tbx_login.Password))
             {
 
                 MessageBox.Show("All fields must be filled");
@@ -112,8 +112,8 @@ namespace StudentTestVerktyg
                     {
                         SwitchScreen();
                         LoggedInUserId = user.Id;
-                        UtilityTestVerktyg.GetQuizForUser(LoggedInUserId);
-                        lv_QuizList.ItemsSource = UtilityTestVerktyg.Quizzes;
+                        GetQuizForUser(LoggedInUserId);
+                        lv_QuizList.ItemsSource = Quizzes;
                     }
                     else
                     {

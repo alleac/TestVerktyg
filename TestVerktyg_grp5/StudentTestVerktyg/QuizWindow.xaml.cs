@@ -75,7 +75,7 @@ namespace StudentTestVerktyg
 
             if (time > 0)
             {
-                if (time < 55)
+                if (time < 60)
                 {
                     if (time%2 == 0)
                     {
@@ -94,7 +94,7 @@ namespace StudentTestVerktyg
             {
                 _timer.Stop();
                 MessageBox.Show("Time's up");
-                this.Close();
+                Close();
             }
         }
 

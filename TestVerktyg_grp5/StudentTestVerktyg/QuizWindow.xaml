@@ -31,7 +31,6 @@
         <TextBlock x:Name="tb_QuestionNumber" Text="{Binding Question.QuestionNumber}" HorizontalAlignment="Left" Margin="81,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="tb_MaxQuestions" HorizontalAlignment="Left" Text="{Binding QuizLengthNumber}" Margin="44,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
         <TextBlock x:Name="tb_Timer" HorizontalAlignment="Left" Margin="174,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="111"/>
-        <TextBlock x:Name="tb_test" HorizontalAlignment="Left" Margin="216,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="-0.242,0.448" Height="31" Width="82"/>
 
 
     </Grid>
