@@ -12,9 +12,9 @@
         <DataTemplate x:Key="ListViewQuizTemplate">
             <StackPanel FlowDirection="LeftToRight" 
                         Orientation="Horizontal">
-                <TextBlock Text="{Binding Path=Name}" />
+                <TextBlock Text="{Binding Name}" />
                 <TextBlock Text=" |  Maxpoints :  " />
-                <TextBlock Text="{Binding Path=MaxPoints}" />
+                <TextBlock Text="{Binding MaxPoints}" />
             </StackPanel>
         </DataTemplate>
     </Window.Resources>
