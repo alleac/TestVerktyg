@@ -7,16 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="500">
 
-    <Window.Resources>
-        <DataTemplate x:Key="ListViewUsers">
-            <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal">
-                <TextBlock Text="{Binding Path=FullName}" />
-                <TextBlock Text=" | " />
-                <TextBlock Text="{Binding Path=Email}" />
-            </StackPanel>
-        </DataTemplate>
-    </Window.Resources>
-
     <Grid>
         <Grid x:Name="grid_loggedin">
             <TabControl x:Name="tabControl" 
@@ -33,10 +23,25 @@
                                    />
                             <ListView x:Name="lv_userList"
                                       Width="400" 
-                                      Height="250"
-                                      ItemTemplate="{StaticResource ListViewUsers}"
+                                      Height="250"                                      
                                       SelectedItem="{Binding SelectedUser, Mode=TwoWay}"
                                       >
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Name" 
+                                                DisplayMemberBinding="{Binding FullName}" 
+                                                Width="132"
+                                                />
+                                        <GridViewColumn Header="Email" 
+                                                DisplayMemberBinding="{Binding Email}" 
+                                                Width="132" 
+                                                />
+                                        <GridViewColumn Header="Admin" 
+                                                DisplayMemberBinding="{Binding IsAdmin}"
+                                                Width="132" 
+                                                />
+                                    </GridView>
+                                </ListView.View>
                             </ListView>
                             <StackPanel Orientation="Horizontal" 
                                         HorizontalAlignment="Center"
@@ -103,7 +108,7 @@
                                 Width="100"
                                 Margin="0,0,0,0"
                                 Click="btn_DelQuiz_Click"
-                                /> 
+                                />
                     </StackPanel>
                 </TabItem>
                 <TabItem Header="Create quiz">
