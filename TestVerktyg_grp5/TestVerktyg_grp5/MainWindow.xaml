@@ -72,7 +72,7 @@
                                 <GridView>
                                     <GridViewColumn Header="Name" 
                                                 DisplayMemberBinding="{Binding Name}" 
-                                                Width="74" 
+                                                Width="74"
                                                 />
                                     <GridViewColumn Header="CreationDate" 
                                                 DisplayMemberBinding="{Binding CreationDate}" 
