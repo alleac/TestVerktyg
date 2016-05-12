@@ -160,7 +160,7 @@
                                   HorizontalContentAlignment="Stretch"
                                   VerticalAlignment="Stretch"
                                   SelectedItem="{Binding SelectedQuiz, Mode=TwoWay}"
-                                  Margin="10,0,10,10"
+                                  Margin="10,60,10,10"
                                   >
                             <ListView.View>
                                 <GridView>
@@ -179,12 +179,17 @@
                                 </GridView>
                             </ListView.View>
                         </ListView>
+                        <ComboBox x:Name="cbx_Quiz" HorizontalAlignment="Left" Margin="81,38,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
+                        <ComboBox x:Name="cbx_Students" HorizontalAlignment="Left" Margin="81,10,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
+                        <Label x:Name="label1" Content="Label" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="label1_Copy" Content="Label" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
+                        <Button x:Name="btn_sort" Content="Sort" HorizontalAlignment="Left" Margin="216,23,0,0" VerticalAlignment="Top" Width="75"/>
                     </Grid>
                 </TabItem>
             </TabControl>
-            
+
         </Grid>
-        <Grid Name="grd_loginscreen"
+        <!--<Grid Name="grd_loginscreen"
               Background="Orange">
             <StackPanel HorizontalAlignment="Center"
                         Margin="0,20,0,0">
@@ -192,7 +197,7 @@
                        FontSize="18"
                        FontWeight="Bold"
                        Foreground="WhiteSmoke"/>
-                       
+
             </StackPanel>
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
@@ -231,6 +236,6 @@
                         Height="23" Click="btn_login_Click"
                         />
             </StackPanel>
-        </Grid>
+        </Grid>-->
     </Grid>
 </Window>

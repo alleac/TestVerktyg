@@ -7,67 +7,71 @@
         mc:Ignorable="d"
         Title="CreateQuestion" Height="400" Width="300">
 
-    <Grid Background="White">
+    <Grid Background="Orange">
         <StackPanel HorizontalAlignment="Center">
             <Label HorizontalAlignment="Center" 
-                                   FontSize="24" 
-                                   Content="Create new test"/>
+                   FontSize="24" 
+                   Content="Create new test"/>
             <StackPanel Margin="0,0,0,10" 
-                                        Orientation="Horizontal"
-                                        >
+                        Orientation="Horizontal"
+                        >
                 <StackPanel Margin="20,0,0,0" 
-                                            HorizontalAlignment="Left"
-                                            >
+                            HorizontalAlignment="Left"
+                            >
                     <Label Padding="0,0,0,5"  
-                                           Content="Question:"
-                                           />
+                           Content="Question:"
+                           />
                     <TextBox x:Name="q_tbx" 
-                                             Width="230" 
-                                             />
+                             Width="230" 
+                             />
                 </StackPanel>
 
             </StackPanel>
             <StackPanel Margin="20,0,0,0" 
-                                        HorizontalAlignment="Left"
-                                        >
+                        HorizontalAlignment="Left"
+                        >
                 <Label Padding="0,0,0,5"  
-                                       Content="Answer 1:"
-                                       />
+                       Content="Answer 1:"
+                       />
                 <RadioButton x:Name="a_one_rbn" 
-                                             >
-                    <TextBox x:Name="a_one_tbx" Width="210" 
-                                             />
+                             >
+                    <TextBox x:Name="a_one_tbx" 
+                             Width="210" 
+                             />
                 </RadioButton>
                 <Label Padding="0,0,0,5"  
-                                       Content="Answer 2:"
-                                   />
+                       Content="Answer 2:"
+                        />
                 <RadioButton x:Name="a_two_rbn" 
                                              >
-                    <TextBox x:Name="a_two_tbx" Width="210"/>
+                    <TextBox x:Name="a_two_tbx" 
+                             Width="210"
+                             />
                 </RadioButton>
                 <Label Padding="0,0,0,5"  
-                                       Content="Answer 3:"
-                                       />
+                       Content="Answer 3:"
+                       />
                 <RadioButton x:Name="a_three_rbn" 
                                          >
-                    <TextBox x:Name="a_three_tbx" Width="210"
-                                             />
+                    <TextBox x:Name="a_three_tbx" 
+                             Width="210"
+                             />
                 </RadioButton>
                 <Label Padding="0,0,0,5"  
-                                       Content="Answer 4:"
-                                   />
+                       Content="Answer 4:"
+                       />
                 <RadioButton x:Name="a_four_rbn" 
-                                             >
+                             >
                     <TextBox x:Name="a_four_tbx"
                              Width="210"
-                                             />
+                             />
                 </RadioButton>
             </StackPanel>
             <Button Margin="10" 
-                                    Width="100" 
-                                    Content="Create question"
+                    Width="100" 
+                    Content="Create question"
                     Click="cq_btn"
-                                    />
+                    />
         </StackPanel>
     </Grid>
 
