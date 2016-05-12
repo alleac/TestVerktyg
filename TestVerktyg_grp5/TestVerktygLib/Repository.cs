@@ -153,5 +153,18 @@ namespace TestVerktygLib
                     
             }
         }
+        public List<Grade> GetQuizStats()
+        {
+            using (var db = new QuizDatabase())
+            {
+                List<Grade> Grades = new List<Grade>();
+
+                Grades = db.Grades.Include("Quiz").Include("User")
+                    .OrderBy(g => g.Quiz.Id)
+                    .ToList();
+
+                return Grades;
+            }
+        }
     }
 }

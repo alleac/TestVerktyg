@@ -58,6 +58,15 @@ namespace TestVerktyg_grp5
             set { _selectedQuiz = value; }
         }
 
+        private Grade _userGrades;
+
+        public Grade UserGrades
+        {
+            get { return _userGrades; }
+            set { _userGrades = value; }
+        }
+
+
 
         public MainWindow()
         {
@@ -71,6 +80,8 @@ namespace TestVerktyg_grp5
             lv_userList.ItemsSource = UtilityTestVerktyg.Users; // binding för Utility.Users
             UtilityTestVerktyg.GetQuizForAdmin();
             lv_QuizList.ItemsSource = UtilityTestVerktyg.AdminQuizzes;
+
+           lv_Statistiscs.ItemsSource=  Repo.GetQuizStats();
             
         }
 
