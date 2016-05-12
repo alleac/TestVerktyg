@@ -192,11 +192,27 @@
                                 </GridView>
                             </ListView.View>
                         </ListView>
-                        <ComboBox x:Name="cbx_Quiz" HorizontalAlignment="Left" Margin="81,38,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
-                        <ComboBox x:Name="cbx_Students" HorizontalAlignment="Left" Margin="81,10,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
-                        <Label x:Name="label1" Content="Label" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
-                        <Label x:Name="label1_Copy" Content="Label" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
-                        <Button x:Name="btn_sort" Content="Sort" HorizontalAlignment="Left" Margin="216,23,0,0" VerticalAlignment="Top" Width="75"/>
+                        <ComboBox x:Name="cbx_Students"
+                                  SelectedItem="{Binding CbxUser}"
+                                  DisplayMemberPath="FullName"
+                                  HorizontalAlignment="Left"
+                                  Margin="81,38,0,0"
+                                  VerticalAlignment="Top"
+                                  Width="120"
+                                  Height="23"/>
+                        
+                        <ComboBox x:Name="cbx_Quiz"
+                                  SelectedItem="{Binding CbxQuiz}"
+                                  DisplayMemberPath="Name"
+                                  HorizontalAlignment="Left"
+                                  Margin="81,10,0,0"
+                                  VerticalAlignment="Top"
+                                  Width="120"
+                                  Height="23"/>
+                        <Label x:Name="lbl_Quiz" Content="Quiz" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="lbl_Student" Content="Student" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
+                        <Button x:Name="btn_sort" Content="Sort" HorizontalAlignment="Left" Margin="216,23,0,0" VerticalAlignment="Top" Width="75" Click="btn_sort_Click"/>
+                        <Button x:Name="btn_clear" Content="Clear" HorizontalAlignment="Left" Margin="308,23,0,0" VerticalAlignment="Top" Width="75" Click="btn_clear_Click"/>
                     </Grid>
                 </TabItem>
             </TabControl>

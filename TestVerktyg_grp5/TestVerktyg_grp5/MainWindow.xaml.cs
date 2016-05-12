@@ -66,6 +66,22 @@ namespace TestVerktyg_grp5
             set { _userGrades = value; }
         }
 
+        private Quiz _cbxQuiz;
+
+        public Quiz CbxQuiz
+        {
+            get { return _cbxQuiz; }
+            set { _cbxQuiz = value; }
+        }
+        private User _cbxUser;
+
+        public User CbxUser
+        {
+            get { return _cbxUser; }
+            set { _cbxUser = value; }
+        }
+
+
 
 
         public MainWindow()
@@ -81,8 +97,23 @@ namespace TestVerktyg_grp5
             UtilityTestVerktyg.GetQuizForAdmin();
             lv_QuizList.ItemsSource = UtilityTestVerktyg.AdminQuizzes;
 
-           lv_Statistiscs.ItemsSource=  Repo.GetQuizStats();
+
+            UpdateStatistics();
+            UpdateCbxForStat();
             
+        }
+
+        private void UpdateStatistics()
+        {
+            lv_Statistiscs.ItemsSource = Repo.GetQuizStats();
+        }
+
+        private void UpdateCbxForStat()
+        {
+            cbx_Quiz.ItemsSource =  Repo.GetQuizName();
+            cbx_Students.ItemsSource = Repo.GetStudentName();
+            
+           
         }
 
         private void SwitchScreen()
@@ -199,6 +230,30 @@ namespace TestVerktyg_grp5
                 Repo.RemoveQuiz(_selectedQuiz);
                 UtilityTestVerktyg.AdminQuizzes.Remove(_selectedQuiz);
                 _selectedQuiz = null;
+            }
+            
+        }
+
+        private void btn_clear_Click(object sender, RoutedEventArgs e)
+        {
+            cbx_Quiz.SelectedItem = null;
+            cbx_Students.SelectedItem = null;
+            UpdateStatistics();
+        }
+
+        private void btn_sort_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbx_Quiz.SelectedItem != null && cbx_Students.SelectedItem != null)
+            {
+                lv_Statistiscs.ItemsSource = Repo.GetUserGradeFromQuizNameAndUserId(_cbxQuiz.Name, _cbxUser.Id);
+            }
+            else if (cbx_Students.SelectedItem != null && cbx_Quiz.SelectedItem == null)
+            {
+                lv_Statistiscs.ItemsSource = Repo.GetUserGrade(_cbxUser.Id);
+            }
+            else if (cbx_Quiz.SelectedItem != null && cbx_Students.SelectedItem == null)
+            {
+                lv_Statistiscs.ItemsSource = Repo.GetUserGradeFromQuizName(_cbxQuiz.Name);
             }
             
         }

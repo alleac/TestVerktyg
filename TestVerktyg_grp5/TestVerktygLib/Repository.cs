@@ -149,8 +149,23 @@ namespace TestVerktygLib
         {
             using (var db = new QuizDatabase())
             {
-                return new ObservableCollection<Grade>(db.Grades.Include("Quiz").Where(g => g.UserId == userId));
+                return new ObservableCollection<Grade>(db.Grades.Include("Quiz").Include("User").Where(g => g.UserId == userId));
                     
+            }
+        }
+        public List<Grade> GetUserGradeFromQuizName(string quizName)
+        {
+            using (var db = new QuizDatabase())
+            {
+                List<Grade> temp = db.Grades.Include("Quiz").Include("User").Where(g => g.Quiz.Name == quizName).ToList();
+                return db.Grades.Include("Quiz").Include("User").Where(g => g.Quiz.Name == quizName).ToList();
+            }
+        }
+        public List<Grade> GetUserGradeFromQuizNameAndUserId(string quizName, int userId)
+        {
+            using (var db = new QuizDatabase())
+            {
+                return db.Grades.Include("Quiz").Include("User").Where(g => g.Quiz.Name == quizName).Where(g => g.UserId == userId).ToList();
             }
         }
         public List<Grade> GetQuizStats()
@@ -166,5 +181,23 @@ namespace TestVerktygLib
                 return Grades;
             }
         }
+        public List<Quiz> GetQuizName()
+        {
+            using (var db = new QuizDatabase())
+            {
+                return db.Quizs.ToList();
+            }
+        }
+        public List<User> GetStudentName()
+        {
+            using (var db = new QuizDatabase())
+            {
+                return db.Users.ToList();
+            }
+        }
+       
+
+
+
     }
 }
