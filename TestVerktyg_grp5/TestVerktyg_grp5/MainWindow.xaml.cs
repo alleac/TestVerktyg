@@ -178,6 +178,8 @@ namespace TestVerktyg_grp5
 
         private void cquiz_btn_Click(object sender, RoutedEventArgs e)
         {
+
+            int QNum = 1;
             var quiz = new Quiz();
             if (qn_tbx.Text != "")
             {
@@ -200,10 +202,13 @@ namespace TestVerktyg_grp5
             {
                 quiz.MaxPoints = UtilityTestVerktyg.QuizQuestions.Count();
                 quiz.Questions = UtilityTestVerktyg.QuizQuestions.ToList();
+                foreach (var question in quiz.Questions)
+                {
+                    question.QuestionNumber = QNum++;
+                }
                 Repo.AddQuiz(quiz);
                 UtilityTestVerktyg.AdminQuizzes.Add(quiz);
                 UtilityTestVerktyg.QuizQuestions.Clear();
-                UtilityTestVerktyg.CreateQuestionNumber = 1;
 
                 qn_tbx.Text = "";
                 start_dp.SelectedDate = DateTime.Now;

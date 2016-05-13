@@ -22,6 +22,27 @@ namespace TestVerktygLib
                 WriteLine(wasDbCreated ? "Database was created" : "Database already excists");
             }
             WriteLine("All done");
+
+            using (var db = new QuizDatabase())
+            {
+                if (!db.Users.Any(u => u.Email =="Admin@admin.com"))
+                {
+                    var user = new User()
+                    {
+                        FirstName = "Admin",
+                        LastName = "Adminsson",
+                        Email = "Admin@admin.com",
+                        Password = "1234",
+                        IsAdmin = true
+
+                    };
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                    Console.WriteLine("Admin@admin.com added");
+                }
+               
+            }
+                
         }
 
         public ObservableCollection<User> Users = new ObservableCollection<User>();

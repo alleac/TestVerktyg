@@ -70,12 +70,12 @@ namespace StudentTestVerktyg
 
         private void QuizWindowClosed(object sender, EventArgs e)
         {
-            UtilityTestVerktyg.SelectedQuiz = null;
+            
 
             if (!Repo.DoesGradeExcist(SelectedQuizId,LoggedInUserId))
             {
 
-                MessageBox.Show(CurrentPoints.Sum().ToString());
+                
                 Quizzes.Remove(UtilityTestVerktyg.SelectedQuiz);
 
                 var userGrade = new Grade
@@ -91,7 +91,7 @@ namespace StudentTestVerktyg
             }
             UtilityTestVerktyg.GetUserGrade(LoggedInUserId);
             lv_Result.ItemsSource = UtilityTestVerktyg.UserGrades;
-            
+            UtilityTestVerktyg.SelectedQuiz = null;
         }
 
         private void SwitchScreen()
