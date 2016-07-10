@@ -55,6 +55,7 @@
     <Compile Include="Question.cs" />
     <Compile Include="Quiz.cs" />
     <Compile Include="QuizDatabase.cs" />
+    <Compile Include="QuizStat.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UtilityTestVerktyg.cs" />

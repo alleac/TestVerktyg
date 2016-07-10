@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using TestVerktygLib;
 using static TestVerktygLib.UtilityTestVerktyg;
 
@@ -23,7 +24,11 @@ namespace StudentTestVerktyg
     public partial class QuizWindow : Window, INotifyPropertyChanged
     {
         private Repository repo { get; set; } = new Repository();
+        public int QuizLengthNumber { get; set; }
         public List<Question> Questions { get; set; }
+
+        private int time { get; set; }
+        private DispatcherTimer _timer { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -53,9 +58,45 @@ namespace StudentTestVerktyg
             CurrentPoints = new int[QuizLength];
 
             Question = Questions[SelectedQuestionNumber];
+            QuizLengthNumber = UtilityTestVerktyg.QuizLength;
             QuizWindowGrid.DataContext = this;
+
+            time = SelectedQuiz.TimeToComplete * 60;
+
+            _timer = new DispatcherTimer();
+            _timer.Interval = new TimeSpan(0, 0, 1);
+            _timer.Tick += _timer_Tick;
+            _timer.Start();
         }
 
+        private void _timer_Tick(object sender, EventArgs e)
+        {
+            TimeSpan newTime = TimeSpan.FromSeconds(time);
+
+            if (time > 0)
+            {
+                if (time < 60)
+                {
+                    if (time%2 == 0)
+                    {
+                        tb_Timer.Foreground = new SolidColorBrush(Colors.Red);
+                    }
+                    else
+                    {
+                        tb_Timer.Foreground = new SolidColorBrush(Colors.Black);
+                    }
+                }
+                time--;
+                tb_Timer.FontSize = 25;
+                tb_Timer.Text = newTime.ToString(@"mm\:ss");
+            }
+            else
+            {
+                _timer.Stop();
+                MessageBox.Show("Time's up");
+                Close();
+            }
+        }
 
         private void btn_Back_Click(object sender, RoutedEventArgs e)
         {
@@ -160,7 +201,19 @@ namespace StudentTestVerktyg
 
         private void btn_FinnishQuiz_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(CurrentPoints.Sum().ToString());
+            TimeSpan testDuration = TimeSpan.FromSeconds((SelectedQuiz.TimeToComplete * 60) - time);
+
+            _timer.Stop();
+
+            if (SelectedQuiz.ShowResult == true)
+            {
+                MessageBox.Show("Thanks for doing the Quiz your score is : " + CurrentPoints.Sum().ToString());
+            }
+            else
+            {
+                MessageBox.Show("Your teacher will get back to you with a result");
+            }
+            
             UtilityTestVerktyg.Quizzes.Remove(UtilityTestVerktyg.SelectedQuiz);
             var userGrade = new Grade
             {
@@ -168,9 +221,12 @@ namespace StudentTestVerktyg
                 QuizId = SelectedQuizId,
                 UserId = LoggedInUserId,
                 UserScore = CurrentPoints.Sum(),
-                UserGrade = (CurrentPoints.Sum() > QuizLength/2) ? "G" : "IG"
+                UserGrade = (CurrentPoints.Sum() > QuizLength / 2) ? "G" : "IG",
+                TimeToComplete = testDuration.ToString(@"mm\:ss")
+                
 
             };
+
             Repo.SaveUserQuizScore(userGrade);
             this.Close();
         }

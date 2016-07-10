@@ -8,55 +8,111 @@
         Title="MainWindow" Height="400" Width="525">
 
 
-    <Window.Resources>
-        <DataTemplate x:Key="ListViewQuizTemplate">
-            <StackPanel FlowDirection="LeftToRight" 
-                        Orientation="Horizontal">
-                <TextBlock Text="{Binding Path=Name}" />
-                <TextBlock Text=" |  Maxpoints :  " />
-                <TextBlock Text="{Binding Path=MaxPoints}" />
-            </StackPanel>
-        </DataTemplate>
-    </Window.Resources>
-    <Grid>
+    
+    <Grid x:Name="QuizGrid">
         <Grid x:Name="grid_loggedin">
             <TabControl x:Name="TabControlStudent">
-                <TabItem Header="Quizzes">
-                    <Grid Background="White" 
-                          x:Name="QuizGrid">
-                        <StackPanel HorizontalAlignment="Center">
+                <TabItem Header="Quizes">
+                    <StackPanel Background="Orange">
+                        <Label HorizontalAlignment="Center" 
+                                   FontSize="24" 
+                                   Content="Quizes"
+                                   />
+                        <ListView x:Name="lv_QuizList"
+                                  Height="260"
+                              HorizontalContentAlignment="Stretch"
+                              VerticalAlignment="Stretch"
+                              SelectedItem="{Binding SelectedQuiz, Mode=TwoWay}"
+                              Margin="10,0,10,10"
+                              >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Name" 
+                                                DisplayMemberBinding="{Binding Name}" 
+                                                Width="Auto"
+                                                />
+                                    <GridViewColumn Header="Quiz start" 
+                                                DisplayMemberBinding="{Binding CreationDate}" 
+                                                Width="74" 
+                                                />
+                                    <GridViewColumn Header="Quiz end"  
+                                                DisplayMemberBinding="{Binding EndDate}"
+                                                Width="74" 
+                                                />
+                                    <GridViewColumn Header="Time to complete"
+
+                                                DisplayMemberBinding="{Binding TimeToComplete}" 
+                                                Width="Auto" 
+                                                />
+                                    <GridViewColumn Header="Max points" 
+                                                DisplayMemberBinding="{Binding MaxPoints}"
+                                                Width="74" 
+                                                />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <Button x:Name="btn_TakeQuiz"
+                                    Content="Take Quiz" 
+                                    Width="100" Click="btn_TakeQuiz_Click"/>
+                    </StackPanel>
+                </TabItem>
+                    <TabItem Header="Results">
+                    <Grid Background="Orange">
+                        <StackPanel>
                             <Label HorizontalAlignment="Center" 
                                    FontSize="24" 
-                                   Content="Quizzes"
+                                   Content="Results"
                                    />
-                            <ListView x:Name="lv_QuizList"
-                                      Width="400" 
+                            <ListView x:Name="lv_Result"
+                              HorizontalContentAlignment="Stretch"
                                       Height="250"
-                                      ItemTemplate="{StaticResource ListViewQuizTemplate}"
-                                      SelectedItem="{Binding SelectedQuiz, Mode=TwoWay}"
-                                      />
-                            <StackPanel Orientation="Horizontal" 
-                                        HorizontalAlignment="Center"
-                                        >
-                                <Button x:Name="btn_TakeQuiz"
-                                        Content="Take Quiz" 
-                                        Margin="10" 
-                                        Width="100" 
-                                        Height="20" 
-                                        Click="btn_TakeQuiz_Click"
-                                        />
-                            </StackPanel>
-                        </StackPanel>
-                    </Grid>
-                </TabItem>
-                <TabItem Header="Results">
-                    <Grid>
-
+                              VerticalAlignment="Stretch"
+                              SelectedItem="{Binding SelectedGrade, Mode=TwoWay}"
+                              Margin="10,0,10,10"
+                              >
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="QuizName" 
+                                                DisplayMemberBinding="{Binding Quiz.Name}" 
+                                                Width="75" 
+                                                />
+                                        <GridViewColumn Header="MaxPoints" 
+                                                DisplayMemberBinding="{Binding Quiz.MaxPoints}" 
+                                                Width="75" 
+                                                />
+                                        <GridViewColumn Header="UserScore" 
+                                                DisplayMemberBinding="{Binding UserScore}"
+                                                Width="75" 
+                                                />
+                                        <GridViewColumn Header="UserGrade"
+                                                DisplayMemberBinding="{Binding UserGrade}" 
+                                                Width="75" 
+                                                />
+                                        <GridViewColumn Header="CompletionDate" 
+                                                DisplayMemberBinding="{Binding CompletionDate}"
+                                                Width="100" 
+                                                />
+                                        <GridViewColumn Header="TimeToComplete" 
+                                                DisplayMemberBinding="{Binding TimeToComplete}" 
+                                                Width="75" 
+                                                />
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                       </StackPanel>
                     </Grid>
                 </TabItem>
             </TabControl>
         </Grid>
-        <Grid Name="grd_loginscreen">
+        <Grid Name="grd_loginscreen"
+              Background="Orange">
+            <StackPanel HorizontalAlignment="Center"
+                        Margin="0,20,0,0">
+                <Label Content="Welcome to Newton student digital test center" 
+                       FontSize="18"
+                       FontWeight="Bold"
+                       Foreground="WhiteSmoke"/>
+            </StackPanel>
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
                         Margin="0,120,0,0">
@@ -81,7 +137,7 @@
                              Margin="10,4,0,0"
                              Height="23"                              
                              VerticalAlignment="Top" 
-                             Width="120"
+                             Width="200"
                              />
                 </StackPanel>
             </StackPanel>

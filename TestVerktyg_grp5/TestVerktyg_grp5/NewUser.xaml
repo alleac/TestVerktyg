@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TestVerktyg_grp5"
         mc:Ignorable="d"
         Title="NewUser" Height="350" Width="500">
-    <Grid>
+    <Grid Background="Orange">
         <StackPanel HorizontalAlignment="Center">
             <Label Content="Create new user" 
                    FontSize="24" 

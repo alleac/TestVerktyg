@@ -17,8 +17,9 @@ namespace TestVerktygLib
         public int QuizId { get; set; }
         public Quiz Quiz { get; set; }
         public string UserGrade { get; set; }
-        public int UserScore { get; set; }
+        public int? UserScore { get; set; }
         public DateTime CompletionDate { get; set; }
+        public string TimeToComplete { get; set; }
 
     }
 }

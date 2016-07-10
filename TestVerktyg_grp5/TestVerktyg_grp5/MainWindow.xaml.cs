@@ -50,6 +50,40 @@ namespace TestVerktyg_grp5
             }
         }
 
+        private Quiz _selectedQuiz;
+
+        public Quiz SelectedQuiz
+        {
+            get { return _selectedQuiz; }
+            set { _selectedQuiz = value; }
+        }
+
+        private Grade _userGrades;
+
+        public Grade UserGrades
+        {
+            get { return _userGrades; }
+            set { _userGrades = value; }
+        }
+
+        private Quiz _cbxQuiz;
+
+        public Quiz CbxQuiz
+        {
+            get { return _cbxQuiz; }
+            set { _cbxQuiz = value; }
+        }
+        private User _cbxUser;
+
+        public User CbxUser
+        {
+            get { return _cbxUser; }
+            set { _cbxUser = value; }
+        }
+
+
+
+
         public MainWindow()
         {
             InitializeComponent();
@@ -60,6 +94,26 @@ namespace TestVerktyg_grp5
             listViewQuestion.ItemsSource = UtilityTestVerktyg.QuizQuestions;
             UtilityTestVerktyg.GetUsers(); // Ropa på utility för att hämta users till utitlity.Users
             lv_userList.ItemsSource = UtilityTestVerktyg.Users; // binding för Utility.Users
+            UtilityTestVerktyg.GetQuizForAdmin();
+            lv_QuizList.ItemsSource = UtilityTestVerktyg.AdminQuizzes;
+
+
+            UpdateStatistics();
+            UpdateCbxForStat();
+            
+        }
+
+        private void UpdateStatistics()
+        {
+            lv_Statistiscs.ItemsSource = Repo.GetQuizStats();
+        }
+
+        private void UpdateCbxForStat()
+        {
+            cbx_Quiz.ItemsSource =  Repo.GetQuizName();
+            cbx_Students.ItemsSource = Repo.GetStudentName();
+            
+           
         }
 
         private void SwitchScreen()
@@ -107,8 +161,13 @@ namespace TestVerktyg_grp5
 
         private void btn_deleteUser_Click(object sender, RoutedEventArgs e)
         {
-            Repo.RemoveUser(_selectedUser);
-            UtilityTestVerktyg.Users.Remove(_selectedUser);
+            if (_selectedUser != null)
+            {
+                Repo.RemoveUser(_selectedUser);
+                UtilityTestVerktyg.Users.Remove(_selectedUser);
+                _selectedUser = null;
+            }
+            
         }
 
         private void Cq_btn_OnClick(object sender, RoutedEventArgs e)
@@ -119,8 +178,19 @@ namespace TestVerktyg_grp5
 
         private void cquiz_btn_Click(object sender, RoutedEventArgs e)
         {
+
+            int QNum = 1;
             var quiz = new Quiz();
-            quiz.Name = qn_tbx.Text;
+            if (qn_tbx.Text != "")
+            {
+                quiz.Name = qn_tbx.Text;
+            }
+            else
+            {
+                MessageBox.Show("Please enter a name for the Quiz");
+                return;
+            }
+            
             if (start_dp.SelectedDate != null) quiz.CreationDate = start_dp.SelectedDate.Value;
             if (end_dp.SelectedDate != null) quiz.EndDate = end_dp.SelectedDate.Value;
 
@@ -128,15 +198,28 @@ namespace TestVerktyg_grp5
 
             if (showresult_cb.IsChecked != null) quiz.ShowResult = showresult_cb.IsChecked.Value;
 
-            if (UtilityTestVerktyg.QuizQuestions.Count > 0)
+            if (UtilityTestVerktyg.QuizQuestions.Count > 1)
             {
+                quiz.MaxPoints = UtilityTestVerktyg.QuizQuestions.Count();
                 quiz.Questions = UtilityTestVerktyg.QuizQuestions.ToList();
+                foreach (var question in quiz.Questions)
+                {
+                    question.QuestionNumber = QNum++;
+                }
                 Repo.AddQuiz(quiz);
+                UtilityTestVerktyg.AdminQuizzes.Add(quiz);
                 UtilityTestVerktyg.QuizQuestions.Clear();
+
+                qn_tbx.Text = "";
+                start_dp.SelectedDate = DateTime.Now;
+                end_dp.SelectedDate = DateTime.Now.AddDays(7);
+                slider.Value = 0;
+                showresult_cb.IsChecked = false;
+               
             }
             else
             {
-                MessageBox.Show("Couldnt find any questions");
+                MessageBox.Show("please enter atleast two questions");
             }
         }
 
@@ -145,6 +228,39 @@ namespace TestVerktyg_grp5
             UtilityTestVerktyg.QuizQuestions.Remove(_selectedQuestion);
         }
 
-       
+        private void btn_DelQuiz_Click(object sender, RoutedEventArgs e)
+        {
+            if (_selectedQuiz != null)
+            {
+                Repo.RemoveQuiz(_selectedQuiz);
+                UtilityTestVerktyg.AdminQuizzes.Remove(_selectedQuiz);
+                _selectedQuiz = null;
+            }
+            
+        }
+
+        private void btn_clear_Click(object sender, RoutedEventArgs e)
+        {
+            cbx_Quiz.SelectedItem = null;
+            cbx_Students.SelectedItem = null;
+            UpdateStatistics();
+        }
+
+        private void btn_sort_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbx_Quiz.SelectedItem != null && cbx_Students.SelectedItem != null)
+            {
+                lv_Statistiscs.ItemsSource = Repo.GetUserGradeFromQuizNameAndUserId(_cbxQuiz.Name, _cbxUser.Id);
+            }
+            else if (cbx_Students.SelectedItem != null && cbx_Quiz.SelectedItem == null)
+            {
+                lv_Statistiscs.ItemsSource = Repo.GetUserGrade(_cbxUser.Id);
+            }
+            else if (cbx_Quiz.SelectedItem != null && cbx_Students.SelectedItem == null)
+            {
+                lv_Statistiscs.ItemsSource = Repo.GetUserGradeFromQuizName(_cbxQuiz.Name);
+            }
+            
+        }
     }
 }

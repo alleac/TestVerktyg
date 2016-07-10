@@ -20,6 +20,7 @@ namespace TestVerktygLib
         public int HasAnsweredNumber { get; set; } = 0; // 0 is default
         public int QuizId { get; set; }
         public  virtual Quiz Quiz { get; set; }
+        public int QuestionNumber { get; set; }
 
 
     }

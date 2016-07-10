@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Console;
+using static TestVerktygLib.UtilityTestVerktyg;
 
 namespace TestVerktygLib
 {
@@ -21,6 +22,27 @@ namespace TestVerktygLib
                 WriteLine(wasDbCreated ? "Database was created" : "Database already excists");
             }
             WriteLine("All done");
+
+            using (var db = new QuizDatabase())
+            {
+                if (!db.Users.Any(u => u.Email =="Admin@admin.com"))
+                {
+                    var user = new User()
+                    {
+                        FirstName = "Admin",
+                        LastName = "Adminsson",
+                        Email = "Admin@admin.com",
+                        Password = "1234",
+                        IsAdmin = true
+
+                    };
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                    Console.WriteLine("Admin@admin.com added");
+                }
+               
+            }
+                
         }
 
         public ObservableCollection<User> Users = new ObservableCollection<User>();
@@ -55,6 +77,15 @@ namespace TestVerktygLib
                 db.SaveChanges();
             }
         }
+        public void RemoveQuiz(Quiz quiz)
+        {
+            using (var db = new QuizDatabase())
+            {
+                db.Quizs.Attach(quiz);
+                db.Quizs.Remove(quiz);
+                db.SaveChanges();
+            }
+        }
 
         public void AddQuiz(Quiz quiz)
         {
@@ -73,11 +104,11 @@ namespace TestVerktygLib
                 db.SaveChanges();
             }
         }
-        public List<Quiz> GetQuizzes()
+        public ObservableCollection<Quiz> GetQuizzes()
         {
             using (var db = new QuizDatabase())
             {
-                return db.Quizs.ToList();
+                return new ObservableCollection<Quiz>(db.Quizs.ToList());
             }
         }
 
@@ -93,7 +124,7 @@ namespace TestVerktygLib
         {
             using (var db = new QuizDatabase())
             {
-                List<int> quizIdsList = db.Grades.Where(g => g.UserId == 1).Select(g => g.QuizId).ToList();
+                List<int> quizIdsList = db.Grades.Where(g => g.UserId == userId).Select(g => g.QuizId).ToList();
 
                 return new ObservableCollection<Quiz>(db.Quizs.Where(q => !quizIdsList.Contains(q.Id))
                     .Where(q => q.CreationDate < DateTime.Now)
@@ -126,5 +157,68 @@ namespace TestVerktygLib
                 return db.Users.Any(u => u.Email == email);
             }
         }
+
+        public bool DoesGradeExcist(int quizId, int userId)
+        {
+            using (var db = new QuizDatabase())
+            {
+                return db.Grades.Any(g => g.QuizId == SelectedQuizId && g.UserId == LoggedInUserId);
+            }
+        }
+
+        public ObservableCollection<Grade> GetUserGrade(int userId)
+        {
+            using (var db = new QuizDatabase())
+            {
+                return new ObservableCollection<Grade>(db.Grades.Include("Quiz").Include("User").Where(g => g.UserId == userId));
+                    
+            }
+        }
+        public List<Grade> GetUserGradeFromQuizName(string quizName)
+        {
+            using (var db = new QuizDatabase())
+            {
+                List<Grade> temp = db.Grades.Include("Quiz").Include("User").Where(g => g.Quiz.Name == quizName).ToList();
+                return db.Grades.Include("Quiz").Include("User").Where(g => g.Quiz.Name == quizName).ToList();
+            }
+        }
+        public List<Grade> GetUserGradeFromQuizNameAndUserId(string quizName, int userId)
+        {
+            using (var db = new QuizDatabase())
+            {
+                return db.Grades.Include("Quiz").Include("User").Where(g => g.Quiz.Name == quizName).Where(g => g.UserId == userId).ToList();
+            }
+        }
+        public List<Grade> GetQuizStats()
+        {
+            using (var db = new QuizDatabase())
+            {
+                List<Grade> Grades = new List<Grade>();
+
+                Grades = db.Grades.Include("Quiz").Include("User")
+                    .OrderBy(g => g.Quiz.Id)
+                    .ToList();
+
+                return Grades;
+            }
+        }
+        public List<Quiz> GetQuizName()
+        {
+            using (var db = new QuizDatabase())
+            {
+                return db.Quizs.ToList();
+            }
+        }
+        public List<User> GetStudentName()
+        {
+            using (var db = new QuizDatabase())
+            {
+                return db.Users.ToList();
+            }
+        }
+       
+
+
+
     }
 }

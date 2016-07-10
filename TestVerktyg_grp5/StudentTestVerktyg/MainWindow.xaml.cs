@@ -23,7 +23,7 @@ namespace StudentTestVerktyg
     /// </summary>
     public partial class MainWindow : Window
     {
-        //public List<Quiz> Quizzes { get; set; }
+        
 
         private Quiz _selectedQuiz;
 
@@ -41,35 +41,57 @@ namespace StudentTestVerktyg
             }
         }
 
+        private Grade _userGrade;
+
+        public Grade UserGrade
+        {
+            get { return _userGrade; }
+            set { _userGrade = value; }
+        }
+
+
         public MainWindow()
         {
             InitializeComponent();
 
             grid_loggedin.Visibility = Visibility.Hidden;
-
             QuizGrid.DataContext = this;
-            LoggedInUserId = 1; // CHANGE THAT MATCH THE LOGGED IN USER DYNAMICLY
-            UtilityTestVerktyg.GetQuizForUser();
-            lv_QuizList.ItemsSource = UtilityTestVerktyg.Quizzes;
-
-            //Quizzes = repo.GetQuizForUser(1); // ***** CHANGE TO DEYNAMIC USERID *******
         }
 
         private void btn_TakeQuiz_Click(object sender, RoutedEventArgs e)
         {
-            if (SelectedQuiz != null)
+            if (UtilityTestVerktyg.SelectedQuiz != null)
             {
-                //Update Utilityclass
                 var quizWin = new QuizWindow();
-                quizWin.Closed += QuizQindowClosed;
+                quizWin.Closed += QuizWindowClosed;
                 quizWin.Show();
             }
         }
 
-        private void QuizQindowClosed(object sender, EventArgs e)
+        private void QuizWindowClosed(object sender, EventArgs e)
         {
-            MessageBox.Show(CurrentPoints.Sum().ToString());
-            UtilityTestVerktyg.Quizzes.Remove(UtilityTestVerktyg.SelectedQuiz);
+            
+
+            if (!Repo.DoesGradeExcist(SelectedQuizId,LoggedInUserId))
+            {
+
+                
+                Quizzes.Remove(UtilityTestVerktyg.SelectedQuiz);
+
+                var userGrade = new Grade
+                {
+                    CompletionDate = DateTime.Now,
+                    QuizId = SelectedQuizId,
+                    UserId = LoggedInUserId,
+                    UserScore = CurrentPoints.Sum(),
+                    UserGrade = (CurrentPoints.Sum() > QuizLength / 2) ? "G" : "IG"
+
+                };
+                Repo.SaveUserQuizScore(userGrade);
+            }
+            UtilityTestVerktyg.GetUserGrade(LoggedInUserId);
+            lv_Result.ItemsSource = UtilityTestVerktyg.UserGrades;
+            UtilityTestVerktyg.SelectedQuiz = null;
         }
 
         private void SwitchScreen()
@@ -81,8 +103,8 @@ namespace StudentTestVerktyg
 
         private void btn_login_Click(object sender, RoutedEventArgs e)
         {
-            if (String.IsNullOrEmpty(tbx_inloggEmail.Text) ||
-                String.IsNullOrEmpty(tbx_login.Password))
+            if (string.IsNullOrEmpty(tbx_inloggEmail.Text) ||
+                string.IsNullOrEmpty(tbx_login.Password))
             {
 
                 MessageBox.Show("All fields must be filled");
@@ -98,6 +120,10 @@ namespace StudentTestVerktyg
                     {
                         SwitchScreen();
                         LoggedInUserId = user.Id;
+                        GetQuizForUser(LoggedInUserId);
+                        lv_QuizList.ItemsSource = Quizzes;
+                        UtilityTestVerktyg.GetUserGrade(LoggedInUserId);
+                        lv_Result.ItemsSource = UtilityTestVerktyg.UserGrades;
                     }
                     else
                     {
@@ -111,5 +137,7 @@ namespace StudentTestVerktyg
             }
 
         }
+
+
     }
 }

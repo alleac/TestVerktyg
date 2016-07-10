@@ -21,7 +21,6 @@ namespace TestVerktyg_grp5
     /// </summary>
     public partial class CreateQuestion : Window
     {
-        Repository Repo = new Repository();
 
         public List<Question> Questions;
         public CreateQuestion()

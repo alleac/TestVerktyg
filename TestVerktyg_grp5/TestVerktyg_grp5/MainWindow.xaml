@@ -5,27 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestVerktyg_grp5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="500">
+        Title="MainWindow" Height="500" Width="620">
 
-    <Window.Resources>
-        <DataTemplate x:Key="ListViewUsers">
-            <StackPanel FlowDirection="LeftToRight" Orientation="Horizontal">
-                <TextBlock Text="{Binding Path=FullName}" />
-                <TextBlock Text=" | " />
-                <TextBlock Text="{Binding Path=Email}" />
-            </StackPanel>
-        </DataTemplate>
-    </Window.Resources>
-    
     <Grid>
         <Grid x:Name="grid_loggedin">
             <TabControl x:Name="tabControl" 
                         HorizontalAlignment="Stretch">
                 <TabItem Header="Main">
-                    <Grid Background="White"/>
+                    <Grid Background="Orange">
+                        <Label VerticalContentAlignment="Top" 
+                                    Margin="20"
+                                        HorizontalAlignment="Center"
+                                        FontSize="24" 
+                                        FontWeight="Bold"
+                                        Content="Welcome to your digital test site&#xD;&#xA;&#xA;"
+                               Foreground="WhiteSmoke"/>
+                        <Image Name="Quiz" Width="317" Height="215" Stretch="Fill">
+                            <Image.Source >School_quiz.jpg</Image.Source>
+                        </Image>
+                    </Grid>
                 </TabItem>
                 <TabItem Header="Users">
-                    <Grid Background="White">
+                    <Grid Background="Orange">
                         <StackPanel HorizontalAlignment="Center">
                             <Label HorizontalAlignment="Center" 
                                    FontSize="24" 
@@ -33,11 +34,26 @@
                                    />
                             <ListView x:Name="lv_userList"
                                       Width="400" 
-                                      Height="250"
-                                      ItemTemplate="{StaticResource ListViewUsers}"
+                                      Height="250"                                      
                                       SelectedItem="{Binding SelectedUser, Mode=TwoWay}"
                                       >
-                            </ListView>   
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Name" 
+                                                DisplayMemberBinding="{Binding FullName}" 
+                                                Width="130"
+                                                />
+                                        <GridViewColumn Header="Email" 
+                                                DisplayMemberBinding="{Binding Email}" 
+                                                Width="130" 
+                                                />
+                                        <GridViewColumn Header="Admin" 
+                                                DisplayMemberBinding="{Binding IsAdmin}"
+                                                Width="130" 
+                                                />
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
                             <StackPanel Orientation="Horizontal" 
                                         HorizontalAlignment="Center"
                                         >
@@ -57,10 +73,57 @@
                     </Grid>
                 </TabItem>
                 <TabItem Header="Quizes">
-
+                    <StackPanel>
+                        <Label HorizontalAlignment="Center" 
+                                   FontSize="24" 
+                                   Content="Quizzes"
+                                   />
+                        <ListView x:Name="lv_QuizList"
+                                  Height="280"
+                              HorizontalContentAlignment="Stretch"
+                              VerticalAlignment="Stretch"
+                              SelectedItem="{Binding SelectedQuiz, Mode=TwoWay}"
+                              Margin="10,0,10,10"
+                              >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Name" 
+                                                DisplayMemberBinding="{Binding Name}" 
+                                                Width="74"
+                                                />
+                                    <GridViewColumn Header="Quiz start" 
+                                                DisplayMemberBinding="{Binding CreationDate}" 
+                                                Width="74" 
+                                                />
+                                    <GridViewColumn Header="Quiz end" 
+                                                DisplayMemberBinding="{Binding EndDate}"
+                                                Width="74" 
+                                                />
+                                    <GridViewColumn Header="Time to complete"
+                                                DisplayMemberBinding="{Binding TimeToComplete}" 
+                                                Width="Auto" 
+                                                />
+                                    <GridViewColumn Header="Max points" 
+                                                DisplayMemberBinding="{Binding MaxPoints}"
+                                                Width="74" 
+                                                />
+                                    <GridViewColumn Header="Show result?" 
+                                                DisplayMemberBinding="{Binding ShowResult}" 
+                                                Width="74" 
+                                                />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <Button Content="Delete quiz"
+                                x:Name="btn_DelQuiz"
+                                Width="100"
+                                Margin="0,0,0,0"
+                                Click="btn_DelQuiz_Click"
+                                />
+                    </StackPanel>
                 </TabItem>
                 <TabItem Header="Create quiz">
-                    <Grid Background="White" x:Name="GridCreateQuiz">
+                    <Grid Background="Orange" x:Name="GridCreateQuiz">
                         <Label x:Name="label" Content="Quiz name:&#xD;&#xA;" HorizontalAlignment="Left" Margin="36,53,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.688,0.167" Height="27"/>
                         <DatePicker x:Name="start_dp" HorizontalAlignment="Left" Margin="129,101,0,0" VerticalAlignment="Top"/>
                         <DatePicker x:Name="end_dp" HorizontalAlignment="Left" Margin="129,146,0,0" VerticalAlignment="Top"/>
@@ -89,9 +152,82 @@
                         <Button x:Name="del_btn" Content="Delete Question" HorizontalAlignment="Left" Margin="377,348,0,0" VerticalAlignment="Top" Width="92" Click="del_btn_Click"/>
                     </Grid>
                 </TabItem>
+
+                <TabItem Header="Statistiscs">
+                    <Grid Background="Orange">
+                        <ListView x:Name="lv_Statistiscs"
+                                  Height="280"
+                                  HorizontalContentAlignment="Stretch"
+                                  VerticalAlignment="Stretch"
+                                  SelectedItem="{Binding UserGrades, Mode=TwoWay}"
+                                  Margin="10,60,10,10"
+                                  >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Quiz name" 
+                                                DisplayMemberBinding="{Binding Quiz.Name }" 
+                                                Width="Auto"
+                                                />
+                                    <GridViewColumn Header="Max points" 
+                                                DisplayMemberBinding="{Binding Quiz.MaxPoints }"
+                                                Width="Auto" 
+                                                />
+                                    <GridViewColumn Header="Student name" 
+                                                DisplayMemberBinding="{Binding User.FullName }" 
+                                                Width="Auto" 
+                                                />
+                                    
+                                    <GridViewColumn Header="Score" 
+                                                DisplayMemberBinding="{Binding UserScore }"
+                                                Width="Auto" 
+                                                />
+                                    <GridViewColumn Header="Grade" 
+                                                DisplayMemberBinding="{Binding UserGrade }"
+                                                Width="Auto" 
+                                                />
+                                    <GridViewColumn Header="Completion time" 
+                                                DisplayMemberBinding="{Binding TimeToComplete }"
+                                                Width="Auto" 
+                                                />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                        <ComboBox x:Name="cbx_Students"
+                                  SelectedItem="{Binding CbxUser}"
+                                  DisplayMemberPath="FullName"
+                                  HorizontalAlignment="Left"
+                                  Margin="81,38,0,0"
+                                  VerticalAlignment="Top"
+                                  Width="120"
+                                  Height="23"/>
+                        
+                        <ComboBox x:Name="cbx_Quiz"
+                                  SelectedItem="{Binding CbxQuiz}"
+                                  DisplayMemberPath="Name"
+                                  HorizontalAlignment="Left"
+                                  Margin="81,10,0,0"
+                                  VerticalAlignment="Top"
+                                  Width="120"
+                                  Height="23"/>
+                        <Label x:Name="lbl_Quiz" Content="Quiz" HorizontalAlignment="Left" Margin="10,7,0,0" VerticalAlignment="Top"/>
+                        <Label x:Name="lbl_Student" Content="Student" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
+                        <Button x:Name="btn_sort" Content="Sort" HorizontalAlignment="Left" Margin="216,23,0,0" VerticalAlignment="Top" Width="75" Click="btn_sort_Click"/>
+                        <Button x:Name="btn_clear" Content="Clear" HorizontalAlignment="Left" Margin="308,23,0,0" VerticalAlignment="Top" Width="75" Click="btn_clear_Click"/>
+                    </Grid>
+                </TabItem>
             </TabControl>
+
         </Grid>
-        <Grid Name="grd_loginscreen">
+        <Grid Name="grd_loginscreen"
+              Background="Orange">
+            <StackPanel HorizontalAlignment="Center"
+                        Margin="0,20,0,0">
+                <Label Content="Welcome to Newton admin/teacher digital test center" 
+                       FontSize="18"
+                       FontWeight="Bold"
+                       Foreground="WhiteSmoke"/>
+
+            </StackPanel>
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center"
                         Margin="0,120,0,0">
@@ -116,13 +252,13 @@
                              Margin="10,4,0,0"
                              Height="23"                              
                              VerticalAlignment="Top" 
-                             Width="120"
+                             Width="200"
                              />
                 </StackPanel>
             </StackPanel>
             <StackPanel>
                 <Button x:Name="btn_login"
-                        Margin="0,170,0,0"
+                        Margin="0,200,0,0"
                         Content="Login"                       
                         VerticalAlignment="Top" 
                         Width="100"
