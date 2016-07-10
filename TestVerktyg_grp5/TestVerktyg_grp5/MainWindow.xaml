@@ -20,7 +20,7 @@
     <Grid>
         <Grid x:Name="grid_loggedin">
             <TabControl x:Name="tabControl" 
-                    HorizontalAlignment="Stretch">
+                        HorizontalAlignment="Stretch">
                 <TabItem Header="Main">
                     <Grid Background="White"/>
                 </TabItem>
